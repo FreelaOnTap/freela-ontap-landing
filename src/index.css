@@ -1,21 +1,24 @@
 @import "tailwindcss";
 
 /*
-  Design tokens mirrored from the iOS app's Design System
-  (FreelaOnTap/DesignSystem/Tokens/*.json) so the site and the two apps
-  read as one product. Values that differ between products are scoped
-  under .scope-freelancer / .scope-business instead of living here.
+  True black/white base, adapted from the iOS app's Design System tokens
+  (FreelaOnTap/DesignSystem/Tokens/*.json) for WCAG contrast on the web:
+  the app's navy/cream canvas reads muddy on a browser, so the page
+  background here is pure white/black per prefers-color-scheme, and text,
+  border and link shades were recomputed against that background to clear
+  4.5:1 (AA) at minimum — most clear 7:1 (AAA). Every pair is checked in
+  README.md. Accent colors (orange/blue) are untouched from the app.
 */
 :root {
-  --color-text-primary: #001d3c;
-  --color-text-secondary: #4d555e;
-  --color-text-tertiary: #5f6872;
-  --color-surface: #ffffff;
-  --color-border-subtle: #d6d9de;
-  --color-border-default: #bfc5cc;
-  --color-border-strong: #8a939d;
+  --bg-canvas: #ffffff;
+  --color-text-primary: #0a0a0a;
+  --color-text-secondary: #52525b;
+  --color-text-tertiary: #71717a;
+  --color-surface: #fafafa;
+  --color-border-subtle: #e4e4e7;
+  --color-border-default: #d4d4d8;
+  --color-border-strong: #71717a;
   --color-link: #00549a;
-  --bg-canvas: #f4f5f6;
 
   --radius-sm: 8px;
   --radius-md: 10px;
@@ -26,15 +29,15 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-text-primary: #f4f5f6;
-    --color-text-secondary: #bfc5cc;
-    --color-text-tertiary: #a6adb6;
-    --color-surface: #002e59;
-    --color-border-subtle: #00457f;
-    --color-border-default: #3e454d;
-    --color-border-strong: #8a939d;
+    --bg-canvas: #000000;
+    --color-text-primary: #fafafa;
+    --color-text-secondary: #d4d4d8;
+    --color-text-tertiary: #a1a1aa;
+    --color-surface: #18181b;
+    --color-border-subtle: #27272a;
+    --color-border-default: #3f3f46;
+    --color-border-strong: #6b6b74;
     --color-link: #9ac8fd;
-    --bg-canvas: #001d3c;
   }
 }
 
@@ -42,16 +45,12 @@
   --accent: #a44700;
   --on-accent: #ffffff;
   --focus-ring: #c45700;
-  --bg-canvas: #f4f5f6;
-  --bg-canvas-2: #e9ebee;
 }
 
 .scope-business {
   --accent: #00549a;
   --on-accent: #ffffff;
   --focus-ring: #257ed4;
-  --bg-canvas: #f6f5f3;
-  --bg-canvas-2: #edebe7;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -59,15 +58,11 @@
     --accent: #da7134;
     --on-accent: #001d3c;
     --focus-ring: #ec9363;
-    --bg-canvas: #001d3c;
-    --bg-canvas-2: #001d3c;
   }
   .scope-business {
     --accent: #73b1f5;
     --on-accent: #001d3c;
     --focus-ring: #73b1f5;
-    --bg-canvas: #001d3c;
-    --bg-canvas-2: #001d3c;
   }
 }
 

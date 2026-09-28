@@ -50,7 +50,7 @@ export function Home() {
         </div>
       </section>
 
-      <section id="freelancer" className="scope-freelancer scroll-mt-20" style={{ background: 'var(--bg-canvas)' }}>
+      <section id="freelancer" className="scope-freelancer scroll-mt-20">
         <div className="section-shell grid gap-10 sm:grid-cols-2 sm:items-center">
           <div>
             <p className="eyebrow">Pra quem quer trabalhar</p>
@@ -94,7 +94,7 @@ export function Home() {
         </div>
       </section>
 
-      <section id="empresa" className="scope-business scroll-mt-20" style={{ background: 'var(--bg-canvas)' }}>
+      <section id="empresa" className="scope-business scroll-mt-20">
         <div className="section-shell grid gap-10 sm:grid-cols-2 sm:items-center">
           <div className="card order-2 sm:order-1">
             <p className="text-sm font-semibold" style={{ color: 'var(--color-text-tertiary)' }}>
