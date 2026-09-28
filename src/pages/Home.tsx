@@ -2,6 +2,8 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { AudienceCTA } from '../components/AudienceCTA.tsx'
 import { MascotPlaceholder } from '../components/MascotPlaceholder.tsx'
+import { useReveal } from '../hooks/useReveal.ts'
+import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion.ts'
 
 function useScrollToHash() {
   const { hash } = useLocation()
@@ -16,42 +18,72 @@ function useScrollToHash() {
 export function Home() {
   useScrollToHash()
 
+  const [freelancerRef, freelancerVisible] = useReveal<HTMLElement>()
+  const [empresaRef, empresaVisible] = useReveal<HTMLElement>()
+  const [produtoRef, produtoVisible] = useReveal<HTMLElement>()
+  const [depoimentosRef, depoimentosVisible] = useReveal<HTMLElement>()
+  const [ctaRef, ctaVisible] = useReveal<HTMLElement>()
+  const prefersReducedMotion = usePrefersReducedMotion()
+
   return (
     <>
-      <section className="section-shell text-center">
-        <p className="eyebrow" style={{ color: 'var(--color-link)' }}>
+      <section className="section-shell relative flex min-h-[560px] flex-col justify-center overflow-hidden text-center sm:min-h-[640px]">
+        <div className="absolute inset-0 -z-10" aria-hidden="true">
+          {prefersReducedMotion ? (
+            <img src="/media/hero-poster.jpg" alt="" className="h-full w-full object-cover" />
+          ) : (
+            <video
+              className="h-full w-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              poster="/media/hero-poster.jpg"
+            >
+              <source src="/media/hero.mp4" type="video/mp4" />
+            </video>
+          )}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(115deg, rgba(164,71,0,0.6) 0%, rgba(10,10,10,0.6) 45%, rgba(0,84,154,0.6) 100%)',
+            }}
+          />
+        </div>
+        <p className="eyebrow" style={{ color: '#FFFFFF' }}>
           FreelaOnTap
         </p>
-        <h1
-          className="mt-4 text-4xl font-extrabold tracking-tight sm:text-6xl"
-          style={{ color: 'var(--color-text-primary)' }}
-        >
+        <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-white sm:text-6xl">
           Transformando instabilidade em oportunidade.
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg" style={{ color: 'var(--color-text-secondary)' }}>
+        <p className="mx-auto mt-6 max-w-2xl text-lg" style={{ color: 'rgba(255,255,255,0.85)' }}>
           Conectamos freelancers a bares, restaurantes, hotéis e eventos de Porto Alegre para turnos de última
           hora — sem intermediário complicado, dos dois lados do balcão.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <a
-            href="#freelancer"
-            className="rounded-[var(--radius-lg)] px-6 py-3 font-semibold min-h-11 flex items-center"
-            style={{ background: '#A44700', color: '#FFFFFF' }}
-          >
+          <a href="#freelancer" className="btn-accent" style={{ background: '#A44700', color: '#FFFFFF' }}>
             Sou freelancer
           </a>
-          <a
-            href="#empresa"
-            className="rounded-[var(--radius-lg)] px-6 py-3 font-semibold min-h-11 flex items-center"
-            style={{ background: '#00549A', color: '#FFFFFF' }}
-          >
+          <a href="#empresa" className="btn-accent" style={{ background: '#00549A', color: '#FFFFFF' }}>
             Sou empresa
           </a>
         </div>
       </section>
 
-      <section id="freelancer" className="scope-freelancer scroll-mt-20">
-        <div className="section-shell grid gap-10 sm:grid-cols-2 sm:items-center">
+      <section
+        id="freelancer"
+        ref={freelancerRef}
+        className={`scope-freelancer scroll-mt-20 overflow-hidden reveal ${freelancerVisible ? 'is-visible' : ''}`}
+        style={{ background: 'var(--bg-canvas-2)' }}
+      >
+        <div className="section-shell relative grid gap-10 sm:grid-cols-2 sm:items-center">
+          <div
+            className="blob-decor h-64 w-64"
+            style={{ top: '10%', right: '-4rem', background: 'var(--accent)' }}
+            aria-hidden="true"
+          />
           <div>
             <p className="eyebrow">Pra quem quer trabalhar</p>
             <h2 className="mt-3 text-3xl font-bold" style={{ color: 'var(--color-text-primary)' }}>
@@ -69,7 +101,7 @@ export function Home() {
               ].map((step, i) => (
                 <li key={step} className="flex gap-3">
                   <span
-                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-bold"
+                    className="step-badge flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-bold"
                     style={{ background: 'var(--accent)', color: 'var(--on-accent)' }}
                   >
                     {i + 1}
@@ -94,8 +126,18 @@ export function Home() {
         </div>
       </section>
 
-      <section id="empresa" className="scope-business scroll-mt-20">
-        <div className="section-shell grid gap-10 sm:grid-cols-2 sm:items-center">
+      <section
+        id="empresa"
+        ref={empresaRef}
+        className={`scope-business scroll-mt-20 overflow-hidden reveal ${empresaVisible ? 'is-visible' : ''}`}
+        style={{ background: 'var(--bg-canvas-2)' }}
+      >
+        <div className="section-shell relative grid gap-10 sm:grid-cols-2 sm:items-center">
+          <div
+            className="blob-decor h-64 w-64"
+            style={{ bottom: '5%', left: '-4rem', background: 'var(--accent)' }}
+            aria-hidden="true"
+          />
           <div className="card order-2 sm:order-1">
             <p className="text-sm font-semibold" style={{ color: 'var(--color-text-tertiary)' }}>
               Reforço sob demanda
@@ -122,7 +164,7 @@ export function Home() {
               ].map((step, i) => (
                 <li key={step} className="flex gap-3">
                   <span
-                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-bold"
+                    className="step-badge flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-bold"
                     style={{ background: 'var(--accent)', color: 'var(--on-accent)' }}
                   >
                     {i + 1}
@@ -138,20 +180,27 @@ export function Home() {
         </div>
       </section>
 
-      <section className="section-shell text-center">
+      <section
+        ref={produtoRef}
+        className={`section-shell text-center reveal ${produtoVisible ? 'is-visible' : ''}`}
+        style={{ background: 'var(--color-surface)' }}
+      >
         <p className="eyebrow" style={{ color: 'var(--color-link)' }}>
           O produto
         </p>
         <h2 className="mt-3 text-3xl font-bold" style={{ color: 'var(--color-text-primary)' }}>
           Dois apps, um só objetivo.
         </h2>
-        <MascotPlaceholder />
+        <MascotPlaceholder className="mx-auto mt-8 h-56 w-64 sm:h-64 sm:w-72" />
         <p className="mx-auto mt-4 max-w-xl text-sm" style={{ color: 'var(--color-text-tertiary)' }}>
           Ilustração provisória — o mascote oficial do squad ainda está em produção.
         </p>
       </section>
 
-      <section className="section-shell">
+      <section
+        ref={depoimentosRef}
+        className={`section-shell reveal ${depoimentosVisible ? 'is-visible' : ''}`}
+      >
         <p className="eyebrow text-center" style={{ color: 'var(--color-link)' }}>
           Quem já usou
         </p>
@@ -172,23 +221,19 @@ export function Home() {
         </div>
       </section>
 
-      <section className="section-shell text-center">
+      <section
+        ref={ctaRef}
+        className={`section-shell text-center reveal ${ctaVisible ? 'is-visible' : ''}`}
+        style={{ background: 'var(--color-surface)' }}
+      >
         <h2 className="text-3xl font-bold" style={{ color: 'var(--color-text-primary)' }}>
           Quer ser um dos primeiros a usar?
         </h2>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-          <a
-            href="#freelancer"
-            className="rounded-[var(--radius-lg)] px-6 py-3 font-semibold min-h-11 flex items-center"
-            style={{ background: '#A44700', color: '#FFFFFF' }}
-          >
+          <a href="#freelancer" className="btn-accent" style={{ background: '#A44700', color: '#FFFFFF' }}>
             Sou freelancer
           </a>
-          <a
-            href="#empresa"
-            className="rounded-[var(--radius-lg)] px-6 py-3 font-semibold min-h-11 flex items-center"
-            style={{ background: '#00549A', color: '#FFFFFF' }}
-          >
+          <a href="#empresa" className="btn-accent" style={{ background: '#00549A', color: '#FFFFFF' }}>
             Sou empresa
           </a>
         </div>

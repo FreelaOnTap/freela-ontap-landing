@@ -6,7 +6,15 @@ const currentYear = new Date().getFullYear()
 
 export function Footer() {
   return (
-    <footer className="border-t" style={{ borderColor: 'var(--color-border-subtle)' }}>
+    <footer
+      className="border-t"
+      style={{
+        borderColor: 'var(--color-border-subtle)',
+        background: 'var(--color-surface)',
+        borderTopWidth: '3px',
+        borderImage: 'linear-gradient(90deg, #A44700, #00549A) 1',
+      }}
+    >
       <div className="mx-auto grid w-full max-w-5xl gap-8 px-4 py-12 sm:grid-cols-3 sm:px-6">
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-2 font-semibold" style={{ color: 'var(--color-text-primary)' }}>
