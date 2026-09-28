@@ -53,12 +53,15 @@
   --accent: #a44700;
   --on-accent: #ffffff;
   --focus-ring: #c45700;
+  /* faint accent-tinted canvas, derived from the scope's own accent — not a new color */
+  --bg-canvas-2: color-mix(in srgb, var(--accent) 6%, var(--bg-canvas));
 }
 
 .scope-business {
   --accent: #00549a;
   --on-accent: #ffffff;
   --focus-ring: #257ed4;
+  --bg-canvas-2: color-mix(in srgb, var(--accent) 6%, var(--bg-canvas));
 }
 
 @media (prefers-color-scheme: dark) {
@@ -158,6 +161,37 @@ h3 {
   @media (prefers-reduced-motion: no-preference) {
     .blob-float {
       animation: blob-float 9s ease-in-out infinite;
+    }
+  }
+
+  .step-badge {
+    @apply transition-transform duration-150;
+  }
+
+  li:hover .step-badge {
+    transform: scale(1.12);
+  }
+
+  .nav-pill {
+    @apply transition-transform duration-150;
+  }
+
+  .nav-pill:hover {
+    transform: translateY(-1px);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: none;
     }
   }
 }

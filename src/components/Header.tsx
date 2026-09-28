@@ -24,7 +24,7 @@ export function Header() {
         <nav aria-label="Bifurcação de público" className="flex items-center gap-1.5 sm:gap-2">
           <a
             href="/#freelancer"
-            className="min-h-11 flex items-center whitespace-nowrap rounded-full px-3 py-2 text-xs font-semibold sm:px-4 sm:text-sm"
+            className="nav-pill min-h-11 flex items-center whitespace-nowrap rounded-full px-3 py-2 text-xs font-semibold sm:px-4 sm:text-sm"
             style={{ color: '#A44700', border: '1px solid #A44700' }}
           >
             <span className="sm:hidden">Freelancer</span>
@@ -32,7 +32,7 @@ export function Header() {
           </a>
           <a
             href="/#empresa"
-            className="min-h-11 flex items-center whitespace-nowrap rounded-full px-3 py-2 text-xs font-semibold sm:px-4 sm:text-sm"
+            className="nav-pill min-h-11 flex items-center whitespace-nowrap rounded-full px-3 py-2 text-xs font-semibold sm:px-4 sm:text-sm"
             style={{ color: '#FFFFFF', background: '#00549A' }}
           >
             <span className="sm:hidden">Empresa</span>

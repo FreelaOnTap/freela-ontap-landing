@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { AudienceCTA } from '../components/AudienceCTA.tsx'
 import { MascotPlaceholder } from '../components/MascotPlaceholder.tsx'
+import { useReveal } from '../hooks/useReveal.ts'
 
 function useScrollToHash() {
   const { hash } = useLocation()
@@ -15,6 +16,12 @@ function useScrollToHash() {
 
 export function Home() {
   useScrollToHash()
+
+  const [freelancerRef, freelancerVisible] = useReveal<HTMLElement>()
+  const [empresaRef, empresaVisible] = useReveal<HTMLElement>()
+  const [produtoRef, produtoVisible] = useReveal<HTMLElement>()
+  const [depoimentosRef, depoimentosVisible] = useReveal<HTMLElement>()
+  const [ctaRef, ctaVisible] = useReveal<HTMLElement>()
 
   return (
     <>
@@ -52,7 +59,12 @@ export function Home() {
         </div>
       </section>
 
-      <section id="freelancer" className="scope-freelancer scroll-mt-20 overflow-hidden">
+      <section
+        id="freelancer"
+        ref={freelancerRef}
+        className={`scope-freelancer scroll-mt-20 overflow-hidden reveal ${freelancerVisible ? 'is-visible' : ''}`}
+        style={{ background: 'var(--bg-canvas-2)' }}
+      >
         <div className="section-shell relative grid gap-10 sm:grid-cols-2 sm:items-center">
           <div
             className="blob-decor h-64 w-64"
@@ -76,7 +88,7 @@ export function Home() {
               ].map((step, i) => (
                 <li key={step} className="flex gap-3">
                   <span
-                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-bold"
+                    className="step-badge flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-bold"
                     style={{ background: 'var(--accent)', color: 'var(--on-accent)' }}
                   >
                     {i + 1}
@@ -101,7 +113,12 @@ export function Home() {
         </div>
       </section>
 
-      <section id="empresa" className="scope-business scroll-mt-20 overflow-hidden">
+      <section
+        id="empresa"
+        ref={empresaRef}
+        className={`scope-business scroll-mt-20 overflow-hidden reveal ${empresaVisible ? 'is-visible' : ''}`}
+        style={{ background: 'var(--bg-canvas-2)' }}
+      >
         <div className="section-shell relative grid gap-10 sm:grid-cols-2 sm:items-center">
           <div
             className="blob-decor h-64 w-64"
@@ -134,7 +151,7 @@ export function Home() {
               ].map((step, i) => (
                 <li key={step} className="flex gap-3">
                   <span
-                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-bold"
+                    className="step-badge flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-bold"
                     style={{ background: 'var(--accent)', color: 'var(--on-accent)' }}
                   >
                     {i + 1}
@@ -150,7 +167,11 @@ export function Home() {
         </div>
       </section>
 
-      <section className="section-shell text-center">
+      <section
+        ref={produtoRef}
+        className={`section-shell text-center reveal ${produtoVisible ? 'is-visible' : ''}`}
+        style={{ background: 'var(--color-surface)' }}
+      >
         <p className="eyebrow" style={{ color: 'var(--color-link)' }}>
           O produto
         </p>
@@ -163,7 +184,10 @@ export function Home() {
         </p>
       </section>
 
-      <section className="section-shell">
+      <section
+        ref={depoimentosRef}
+        className={`section-shell reveal ${depoimentosVisible ? 'is-visible' : ''}`}
+      >
         <p className="eyebrow text-center" style={{ color: 'var(--color-link)' }}>
           Quem já usou
         </p>
@@ -184,7 +208,11 @@ export function Home() {
         </div>
       </section>
 
-      <section className="section-shell text-center">
+      <section
+        ref={ctaRef}
+        className={`section-shell text-center reveal ${ctaVisible ? 'is-visible' : ''}`}
+        style={{ background: 'var(--color-surface)' }}
+      >
         <h2 className="text-3xl font-bold" style={{ color: 'var(--color-text-primary)' }}>
           Quer ser um dos primeiros a usar?
         </h2>
