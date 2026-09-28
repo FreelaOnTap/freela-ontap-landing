@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+# Blocks direct push to main and dev, and runs the build + lint before
+# anything leaves this machine.
+#
+# GitHub branch protection isn't available on the Free plan for private
+# repositories (same limitation as freela-ontap-ios), so this hook is the
+# enforcement mechanism instead. It only runs in a clone that has opted in
+# with `git config core.hooksPath .githooks` (see README).
+#
+# Emergency escapes:
+#   ALLOW_PROTECTED_PUSH=1 git push origin main
+#   SKIP_CHECKS=1 git push
+
+set -euo pipefail
+
+protected_branches="main dev"
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+  branch="${remote_ref#refs/heads/}"
+
+  if [ -z "${ALLOW_PROTECTED_PUSH:-}" ]; then
+    for protected in $protected_branches; do
+      if [ "$branch" = "$protected" ]; then
+        echo "error: direct push to '$branch' is blocked." >&2
+        echo "Open a Pull Request instead — Git Flow: feature/* branches off dev, then PR back in." >&2
+        echo "Emergency escape: ALLOW_PROTECTED_PUSH=1 git push origin $branch" >&2
+        exit 1
+      fi
+    done
+  fi
+done
+
+if [ -n "${SKIP_CHECKS:-}" ]; then
+  exit 0
+fi
+
+echo "pre-push: running build..."
+if ! npm run build > /tmp/freela-ontap-landing-pre-push.log 2>&1; then
+  echo "" >&2
+  echo "error: build failed — push blocked." >&2
+  tail -30 /tmp/freela-ontap-landing-pre-push.log | sed 's/^/  /' >&2
+  echo "" >&2
+  echo "Override: SKIP_CHECKS=1 git push" >&2
+  exit 1
+fi
+
+echo "pre-push: build passed."
+exit 0
