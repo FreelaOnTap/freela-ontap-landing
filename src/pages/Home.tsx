@@ -18,7 +18,17 @@ export function Home() {
 
   return (
     <>
-      <section className="section-shell text-center">
+      <section className="section-shell relative overflow-hidden text-center">
+        <div
+          className="blob-decor h-72 w-72 sm:h-96 sm:w-96"
+          style={{ top: '-4rem', left: '-6rem', background: '#00549A' }}
+          aria-hidden="true"
+        />
+        <div
+          className="blob-decor h-72 w-72 sm:h-96 sm:w-96"
+          style={{ bottom: '-6rem', right: '-6rem', background: '#A44700' }}
+          aria-hidden="true"
+        />
         <p className="eyebrow" style={{ color: 'var(--color-link)' }}>
           FreelaOnTap
         </p>
@@ -33,25 +43,22 @@ export function Home() {
           hora — sem intermediário complicado, dos dois lados do balcão.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <a
-            href="#freelancer"
-            className="rounded-[var(--radius-lg)] px-6 py-3 font-semibold min-h-11 flex items-center"
-            style={{ background: '#A44700', color: '#FFFFFF' }}
-          >
+          <a href="#freelancer" className="btn-accent" style={{ background: '#A44700', color: '#FFFFFF' }}>
             Sou freelancer
           </a>
-          <a
-            href="#empresa"
-            className="rounded-[var(--radius-lg)] px-6 py-3 font-semibold min-h-11 flex items-center"
-            style={{ background: '#00549A', color: '#FFFFFF' }}
-          >
+          <a href="#empresa" className="btn-accent" style={{ background: '#00549A', color: '#FFFFFF' }}>
             Sou empresa
           </a>
         </div>
       </section>
 
-      <section id="freelancer" className="scope-freelancer scroll-mt-20">
-        <div className="section-shell grid gap-10 sm:grid-cols-2 sm:items-center">
+      <section id="freelancer" className="scope-freelancer scroll-mt-20 overflow-hidden">
+        <div className="section-shell relative grid gap-10 sm:grid-cols-2 sm:items-center">
+          <div
+            className="blob-decor h-64 w-64"
+            style={{ top: '10%', right: '-4rem', background: 'var(--accent)' }}
+            aria-hidden="true"
+          />
           <div>
             <p className="eyebrow">Pra quem quer trabalhar</p>
             <h2 className="mt-3 text-3xl font-bold" style={{ color: 'var(--color-text-primary)' }}>
@@ -94,8 +101,13 @@ export function Home() {
         </div>
       </section>
 
-      <section id="empresa" className="scope-business scroll-mt-20">
-        <div className="section-shell grid gap-10 sm:grid-cols-2 sm:items-center">
+      <section id="empresa" className="scope-business scroll-mt-20 overflow-hidden">
+        <div className="section-shell relative grid gap-10 sm:grid-cols-2 sm:items-center">
+          <div
+            className="blob-decor h-64 w-64"
+            style={{ bottom: '5%', left: '-4rem', background: 'var(--accent)' }}
+            aria-hidden="true"
+          />
           <div className="card order-2 sm:order-1">
             <p className="text-sm font-semibold" style={{ color: 'var(--color-text-tertiary)' }}>
               Reforço sob demanda
@@ -145,7 +157,7 @@ export function Home() {
         <h2 className="mt-3 text-3xl font-bold" style={{ color: 'var(--color-text-primary)' }}>
           Dois apps, um só objetivo.
         </h2>
-        <MascotPlaceholder />
+        <MascotPlaceholder className="mx-auto mt-8 h-56 w-64 sm:h-64 sm:w-72" />
         <p className="mx-auto mt-4 max-w-xl text-sm" style={{ color: 'var(--color-text-tertiary)' }}>
           Ilustração provisória — o mascote oficial do squad ainda está em produção.
         </p>
@@ -177,18 +189,10 @@ export function Home() {
           Quer ser um dos primeiros a usar?
         </h2>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-          <a
-            href="#freelancer"
-            className="rounded-[var(--radius-lg)] px-6 py-3 font-semibold min-h-11 flex items-center"
-            style={{ background: '#A44700', color: '#FFFFFF' }}
-          >
+          <a href="#freelancer" className="btn-accent" style={{ background: '#A44700', color: '#FFFFFF' }}>
             Sou freelancer
           </a>
-          <a
-            href="#empresa"
-            className="rounded-[var(--radius-lg)] px-6 py-3 font-semibold min-h-11 flex items-center"
-            style={{ background: '#00549A', color: '#FFFFFF' }}
-          >
+          <a href="#empresa" className="btn-accent" style={{ background: '#00549A', color: '#FFFFFF' }}>
             Sou empresa
           </a>
         </div>

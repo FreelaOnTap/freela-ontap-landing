@@ -8,6 +8,7 @@ export function Header() {
       style={{
         borderColor: 'var(--color-border-subtle)',
         background: 'color-mix(in srgb, var(--color-surface) 85%, transparent)',
+        boxShadow: 'var(--shadow-sm)',
       }}
     >
       <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-2 px-4 py-3 sm:px-6">
