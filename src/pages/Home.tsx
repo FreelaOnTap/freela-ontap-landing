@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { AudienceCTA } from '../components/AudienceCTA.tsx'
 import { MascotPlaceholder } from '../components/MascotPlaceholder.tsx'
 import { useReveal } from '../hooks/useReveal.ts'
+import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion.ts'
 
 function useScrollToHash() {
   const { hash } = useLocation()
@@ -22,30 +23,42 @@ export function Home() {
   const [produtoRef, produtoVisible] = useReveal<HTMLElement>()
   const [depoimentosRef, depoimentosVisible] = useReveal<HTMLElement>()
   const [ctaRef, ctaVisible] = useReveal<HTMLElement>()
+  const prefersReducedMotion = usePrefersReducedMotion()
 
   return (
     <>
-      <section className="section-shell relative overflow-hidden text-center">
-        <div
-          className="blob-decor h-72 w-72 sm:h-96 sm:w-96"
-          style={{ top: '-4rem', left: '-6rem', background: '#00549A' }}
-          aria-hidden="true"
-        />
-        <div
-          className="blob-decor h-72 w-72 sm:h-96 sm:w-96"
-          style={{ bottom: '-6rem', right: '-6rem', background: '#A44700' }}
-          aria-hidden="true"
-        />
-        <p className="eyebrow" style={{ color: 'var(--color-link)' }}>
+      <section className="section-shell relative flex min-h-[560px] flex-col justify-center overflow-hidden text-center sm:min-h-[640px]">
+        <div className="absolute inset-0 -z-10" aria-hidden="true">
+          {prefersReducedMotion ? (
+            <img src="/media/hero-poster.jpg" alt="" className="h-full w-full object-cover" />
+          ) : (
+            <video
+              className="h-full w-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              poster="/media/hero-poster.jpg"
+            >
+              <source src="/media/hero.mp4" type="video/mp4" />
+            </video>
+          )}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(115deg, rgba(164,71,0,0.6) 0%, rgba(10,10,10,0.6) 45%, rgba(0,84,154,0.6) 100%)',
+            }}
+          />
+        </div>
+        <p className="eyebrow" style={{ color: '#FFFFFF' }}>
           FreelaOnTap
         </p>
-        <h1
-          className="mt-4 text-4xl font-extrabold tracking-tight sm:text-6xl"
-          style={{ color: 'var(--color-text-primary)' }}
-        >
+        <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-white sm:text-6xl">
           Transformando instabilidade em oportunidade.
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg" style={{ color: 'var(--color-text-secondary)' }}>
+        <p className="mx-auto mt-6 max-w-2xl text-lg" style={{ color: 'rgba(255,255,255,0.85)' }}>
           Conectamos freelancers a bares, restaurantes, hotéis e eventos de Porto Alegre para turnos de última
           hora — sem intermediário complicado, dos dois lados do balcão.
         </p>
