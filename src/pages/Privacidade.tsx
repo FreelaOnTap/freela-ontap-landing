@@ -10,7 +10,7 @@ export function Privacidade() {
         Política de Privacidade
       </h1>
       <p className="mt-2 text-sm" style={{ color: 'var(--color-text-tertiary)' }}>
-        Última atualização: 28 de setembro de 2026.
+        Última atualização: 1º de outubro de 2026.
       </p>
 
       <div className="mt-10 flex flex-col gap-8 text-base leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
@@ -52,6 +52,14 @@ export function Privacidade() {
             <li>Dados de localização aproximada, para exibir vagas e freelancers próximos.</li>
             <li>Mensagens enviadas voluntariamente para o e-mail de suporte.</li>
           </ul>
+          <p className="mt-2">
+            <strong>Entrar com Google ou com a Apple.</strong> Se você usar uma dessas opções no app, recebemos
+            do Google ou da Apple apenas o seu nome, o seu e-mail, a sua foto de perfil (no caso do Google) e um
+            identificador da conta. Usamos esses dados somente para criar a sua conta e identificar você no
+            FreelaOnTap. Não os vendemos, não os usamos para publicidade e não os compartilhamos fora do que
+            esta política descreve. Você pode remover o acesso do FreelaOnTap a qualquer momento nas
+            configurações da sua conta Google ou Apple, e pedir a eliminação dos dados pelo e-mail de suporte.
+          </p>
         </section>
 
         <section>
