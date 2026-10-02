@@ -18,7 +18,7 @@ export function Header() {
           className="flex min-h-11 shrink-0 items-center gap-2 font-semibold whitespace-nowrap"
           style={{ color: 'var(--color-text-primary)' }}
         >
-          <Logo className="h-7 w-7" />
+          <Logo className="h-8 w-8" />
           <span className="hidden sm:inline">FreelaOnTap</span>
         </Link>
         <AudienceSwitch label="Ver o site para" />

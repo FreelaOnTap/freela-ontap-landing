@@ -16,7 +16,7 @@ export function Footer() {
       <div className="mx-auto grid w-full max-w-5xl gap-8 px-4 py-12 sm:grid-cols-3 sm:px-6">
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-2 font-semibold" style={{ color: 'var(--color-text-primary)' }}>
-            <Logo className="h-6 w-6" />
+            <Logo className="h-8 w-8" />
             FreelaOnTap
           </div>
           <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
