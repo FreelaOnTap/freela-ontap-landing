@@ -31,8 +31,8 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     label: 'Freelancer',
     hero: {
       eyebrow: 'Freela onTap para freelancers',
-      headline: ['Sai do grupo.', 'Entra no turno.'],
-      sub: 'Freelas em bares, restaurantes, cafés e casas noturnas de Porto Alegre e região, num app só. De graça pra quem trabalha.',
+      headline: ['Freela em bar e restaurante,', 'a um toque.'],
+      sub: 'Também em cafés e casas noturnas de Porto Alegre e região. Filtra por valor, distância e data, e é de graça pra quem trabalha.',
     },
     problem: {
       title: 'Vaga boa não devia depender de em qual grupo tu tá.',
@@ -78,7 +78,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     label: 'Empresa',
     hero: {
       eyebrow: 'Freela onTap para empresas',
-      headline: ['Faltou gente?', 'Tem gente.'],
+      headline: ['O reforço certo e sem correria,', 'a um toque.'],
       sub: 'Encontra freelancers avaliados de salão, bar e cozinha em Porto Alegre e região, e cobre o turno sem depender de grupo de WhatsApp.',
     },
     problem: {
