@@ -4,7 +4,7 @@ const FAQ = [
   {
     question: 'Como funciona o cadastro?',
     answer:
-      'O cadastro é feito direto pelo aplicativo — um fluxo pra freelancers e outro pra empresas. O FreelaOnTap ainda está em desenvolvimento; assim que o app for lançado, o passo a passo aparece aqui.',
+      'O cadastro é feito direto pelo aplicativo — um fluxo pra freelancers e outro pra empresas. O Freela onTap ainda está em desenvolvimento; assim que o app for lançado, o passo a passo aparece aqui.',
   },
   {
     question: 'Preciso de experiência prévia pra ser freelancer?',
@@ -12,7 +12,7 @@ const FAQ = [
       'Cada vaga lista seus próprios pré-requisitos. Muitas vagas de turno curto não exigem experiência formal — o estabelecimento define isso na publicação.',
   },
   {
-    question: 'Em quais cidades o FreelaOnTap funciona?',
+    question: 'Em quais cidades o Freela onTap funciona?',
     answer: 'O lançamento é focado em Porto Alegre/RS. Expandir pra outras cidades é uma decisão futura do squad.',
   },
   {
@@ -23,7 +23,7 @@ const FAQ = [
 
 export function Suporte() {
   return (
-    <article className="section-shell">
+    <article className="scope-business section-shell">
       <p className="eyebrow" style={{ color: 'var(--color-link)' }}>
         Suporte
       </p>
@@ -31,10 +31,10 @@ export function Suporte() {
         Precisa de ajuda?
       </h1>
       <p className="mt-4 max-w-xl text-lg" style={{ color: 'var(--color-text-secondary)' }}>
-        Fale direto com a equipe do FreelaOnTap. Respondemos por e-mail.
+        Fale direto com a equipe do Freela onTap. Respondemos por e-mail.
       </p>
 
-      <a href={mailtoLink('Suporte FreelaOnTap')} className="btn-accent mt-6" style={{ background: '#00549A' }}>
+      <a href={mailtoLink('Suporte Freela onTap')} className="btn-primary mt-6">
         Escrever para {SUPPORT_EMAIL}
       </a>
 
@@ -44,7 +44,7 @@ export function Suporte() {
         </h2>
         <div className="mt-6 flex flex-col gap-4">
           {FAQ.map((item) => (
-            <div key={item.question} className="card">
+            <div key={item.question} className="rounded-[var(--radius-lg)] p-6" style={{ background: 'var(--color-surface)' }}>
               <p className="font-semibold" style={{ color: 'var(--color-text-primary)' }}>
                 {item.question}
               </p>
