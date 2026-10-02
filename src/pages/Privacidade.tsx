@@ -19,7 +19,7 @@ export function Privacidade() {
             className="rounded-[var(--radius-lg)] border p-4 text-sm"
             style={{ borderColor: 'var(--color-border-default)', color: 'var(--color-text-secondary)' }}
           >
-            O FreelaOnTap é o projeto final de um squad da Apple Developer Academy (cohort S25), ainda em fase
+            O Freela onTap é o projeto final de um squad da Apple Developer Academy (cohort S25), ainda em fase
             de desenvolvimento. Nesta fase, o tratamento de dados pessoais descrito abaixo é conduzido
             diretamente pela equipe do projeto, sem uma pessoa jurídica formalmente constituída. Assim que
             houver uma entidade responsável, esta política será atualizada com seus dados de identificação.
@@ -31,9 +31,9 @@ export function Privacidade() {
             1. Quem trata os seus dados
           </h2>
           <p className="mt-2">
-            Para os fins da Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD), a equipe do FreelaOnTap
+            Para os fins da Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD), a equipe do Freela onTap
             atua como controladora dos dados pessoais coletados por meio deste site e dos aplicativos
-            FreelaOnTap Freelancer e FreelaOnTap Business. Você pode falar com a gente pelo e-mail{' '}
+            Freela onTap Freelancer e Freela onTap Business. Você pode falar com a gente pelo e-mail{' '}
             <a href={`mailto:${SUPPORT_EMAIL}`} style={{ color: 'var(--color-link)' }}>
               {SUPPORT_EMAIL}
             </a>
@@ -62,8 +62,8 @@ export function Privacidade() {
             <strong>Entrar com Google ou com a Apple.</strong> Se você usar uma dessas opções no app, recebemos
             do Google ou da Apple apenas o seu nome, o seu e-mail, a sua foto de perfil (no caso do Google) e um
             identificador da conta. Usamos esses dados somente para criar a sua conta e identificar você no
-            FreelaOnTap. Não os vendemos, não os usamos para publicidade e não os compartilhamos fora do que
-            esta política descreve. Você pode remover o acesso do FreelaOnTap a qualquer momento nas
+            Freela onTap. Não os vendemos, não os usamos para publicidade e não os compartilhamos fora do que
+            esta política descreve. Você pode remover o acesso do Freela onTap a qualquer momento nas
             configurações da sua conta Google ou Apple, e pedir a eliminação dos dados pelo e-mail de suporte.
           </p>
         </section>
