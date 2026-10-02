@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "2U54MVQ5ZR.com.freelaontap.freelancer",
+          "3449C2L4LN.com.freelaontap.freelancer"
+        ],
+        "components": [{ "/": "/vaga/*" }]
+      }
+    ]
+  }
+}
