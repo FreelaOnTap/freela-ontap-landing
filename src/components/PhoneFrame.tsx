@@ -7,7 +7,7 @@ export function PhoneFrame({ src, alt, placeholder }: { src: string | null; alt:
       {src ? (
         <img src={src} alt={alt} className="h-full w-full object-cover" />
       ) : (
-        <div className="flex h-full flex-col items-center justify-center gap-2 p-6 text-center" role="img" aria-label={alt}>
+        <div className="flex h-full flex-col items-center justify-center gap-2 p-6 text-center" aria-hidden="true">
           <span className="text-sm font-semibold" style={{ color: 'var(--color-text-tertiary)' }}>
             {placeholder}
           </span>

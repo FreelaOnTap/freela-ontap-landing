@@ -15,7 +15,7 @@ function useScrollToHash() {
 
   useEffect(() => {
     if (!hash) return
-    document.getElementById(decodeURIComponent(hash.slice(1)))?.scrollIntoView({ block: 'start' })
+    document.getElementById(hash.slice(1))?.scrollIntoView({ block: 'start' })
   }, [hash])
 }
 

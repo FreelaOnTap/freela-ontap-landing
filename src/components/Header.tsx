@@ -14,6 +14,7 @@ export function Header() {
       <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-3 px-4 py-2 sm:px-6">
         <Link
           to="/"
+          aria-label="FreelaOnTap, página inicial"
           className="flex min-h-11 shrink-0 items-center gap-2 font-semibold whitespace-nowrap"
           style={{ color: 'var(--color-text-primary)' }}
         >

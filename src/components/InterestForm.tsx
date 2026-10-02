@@ -9,8 +9,6 @@ import { isValidWhatsapp, normalizeWhatsapp, submitInterestLead } from '../lib/l
 import { MascotImage } from './MascotImage.tsx'
 
 type Status = 'idle' | 'submitting' | 'success' | 'error'
-type Values = Record<string, string>
-type Errors = Partial<Record<string, string>>
 
 const OTHER_CITY = 'Outra cidade'
 
@@ -36,6 +34,10 @@ function Field({ id, label, error, children }: { id: string; label: string; erro
   )
 }
 
+type Values = ReturnType<typeof emptyValues>
+type FieldName = keyof Values
+type Errors = Partial<Record<FieldName, string>>
+
 function validate(audience: Audience, values: Values): Errors {
   const errors: Errors = {}
   if (audience === 'business') {
@@ -57,14 +59,14 @@ function validate(audience: Audience, values: Values): Errors {
   return errors
 }
 
-function emptyValues(phoneOS: PhoneOS): Values {
+function emptyValues(phoneOS: PhoneOS) {
   return {
     name: '',
     whatsapp: '',
     email: '',
     city: '',
     role: '',
-    phoneOS: phoneOS === 'other' ? '' : phoneOS,
+    phoneOS: phoneOS === 'other' ? '' : (phoneOS as string),
     businessName: '',
     businessType: '',
     neighborhood: '',
@@ -88,8 +90,8 @@ export function InterestForm({ audience, phoneOS }: { audience: Audience; phoneO
     if (status === 'success') successRef.current?.focus()
   }, [status])
 
-  const set = (key: string) => (value: string) => setValues((current) => ({ ...current, [key]: value }))
-  const invalid = (key: string) => ({
+  const set = (key: FieldName) => (value: string) => setValues((current) => ({ ...current, [key]: value }))
+  const invalid = (key: FieldName) => ({
     'aria-invalid': errors[key] ? true : undefined,
     'aria-describedby': errors[key] ? `${key}-error` : undefined,
   })

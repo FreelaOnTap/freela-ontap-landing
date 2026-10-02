@@ -47,7 +47,9 @@ create policy "Visitors can join the interest list"
 -- Abuse guard. The anon key is public, so the browser-side honeypot alone stops nothing a script
 -- can't skip. A repeat of the same number is dropped silently (RETURN NULL — the caller still gets
 -- 201, so the endpoint can't be used to check whether a number is on the list), and the whole table
--- accepts at most 30 new leads per minute. SECURITY DEFINER because anon has no SELECT to count with.
+-- accepts at most 120 new leads per minute — high enough for a QR code shown on stage at the launch
+-- event, low enough to bound how fast a script can fill the table. SECURITY DEFINER because anon has
+-- no SELECT to count with.
 
 create index interest_leads_audience_whatsapp_idx on public.interest_leads (audience, whatsapp);
 create index interest_leads_created_at_idx on public.interest_leads (created_at);
@@ -69,7 +71,7 @@ begin
   if (
     select count(*) from public.interest_leads
     where created_at > now() - interval '1 minute'
-  ) >= 30 then
+  ) >= 120 then
     raise exception 'interest list rate limit reached';
   end if;
 

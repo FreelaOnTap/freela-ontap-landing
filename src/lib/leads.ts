@@ -18,8 +18,10 @@ export type InterestLead = {
   consented: true
 }
 
+const REQUEST_TIMEOUT_MS = 15_000
+
 export function normalizeWhatsapp(raw: string) {
-  const digits = raw.replace(/\D/g, '')
+  const digits = raw.replace(/\D/g, '').replace(/^0+/, '')
   return digits.length >= 12 && digits.startsWith('55') ? digits.slice(2) : digits
 }
 
@@ -42,6 +44,7 @@ export async function submitInterestLead(lead: InterestLead) {
     method: 'POST',
     headers,
     body: JSON.stringify(lead),
+    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
   })
   if (!response.ok) throw new Error(`Lead insert failed with ${response.status}`)
 }
