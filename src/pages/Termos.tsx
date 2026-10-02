@@ -19,9 +19,9 @@ export function Termos() {
             className="rounded-[var(--radius-lg)] border p-4 text-sm"
             style={{ borderColor: 'var(--color-border-default)', color: 'var(--color-text-secondary)' }}
           >
-            O FreelaOnTap é o projeto final de um squad da Apple Developer Academy (cohort S25), ainda em fase
-            de desenvolvimento. Estes termos descrevem as regras de uso do site e dos aplicativos FreelaOnTap
-            Freelancer e FreelaOnTap Business enquanto o projeto está nessa fase.
+            O Freela onTap é o projeto final de um squad da Apple Developer Academy (cohort S25), ainda em fase
+            de desenvolvimento. Estes termos descrevem as regras de uso do site e dos aplicativos Freela onTap
+            Freelancer e Freela onTap Business enquanto o projeto está nessa fase.
           </p>
         </section>
 
@@ -30,19 +30,19 @@ export function Termos() {
             1. Aceitação
           </h2>
           <p className="mt-2">
-            Ao criar uma conta ou usar o site e os aplicativos FreelaOnTap, você concorda com estes Termos de
+            Ao criar uma conta ou usar o site e os aplicativos Freela onTap, você concorda com estes Termos de
             Uso e com a nossa Política de Privacidade.
           </p>
         </section>
 
         <section>
           <h2 className="text-xl font-semibold" style={{ color: 'var(--color-text-primary)' }}>
-            2. O que é o FreelaOnTap
+            2. O que é o Freela onTap
           </h2>
           <p className="mt-2">
-            O FreelaOnTap é um marketplace de dois lados que conecta freelancers a estabelecimentos de
+            O Freela onTap é um marketplace de dois lados que conecta freelancers a estabelecimentos de
             hospitalidade (bares, restaurantes, hotéis e eventos) em Porto Alegre/RS para turnos de trabalho de
-            curta duração. O FreelaOnTap disponibiliza a plataforma de conexão — não é parte do acordo de
+            curta duração. O Freela onTap disponibiliza a plataforma de conexão — não é parte do acordo de
             trabalho firmado entre freelancer e estabelecimento, e não atua como empregador de nenhuma das
             partes.
           </p>
@@ -65,7 +65,7 @@ export function Termos() {
             4. Propriedade intelectual
           </h2>
           <p className="mt-2">
-            A marca, o design e o código do FreelaOnTap pertencem ao squad responsável pelo projeto. O uso do
+            A marca, o design e o código do Freela onTap pertencem ao squad responsável pelo projeto. O uso do
             site e dos aplicativos não transfere qualquer direito de propriedade intelectual a você.
           </p>
         </section>
@@ -75,7 +75,7 @@ export function Termos() {
             5. Limitação de responsabilidade
           </h2>
           <p className="mt-2">
-            Por ser um projeto em fase de desenvolvimento acadêmico, o FreelaOnTap é oferecido "como está".
+            Por ser um projeto em fase de desenvolvimento acadêmico, o Freela onTap é oferecido "como está".
             Fazemos o possível para manter o serviço disponível e confiável, mas não garantimos operação
             ininterrupta nem nos responsabilizamos por prejuízos decorrentes do acordo de trabalho firmado
             entre freelancer e estabelecimento.

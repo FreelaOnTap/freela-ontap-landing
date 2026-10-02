@@ -30,13 +30,13 @@ export const CONTENT: Record<Audience, AudienceContent> = {
   freelancer: {
     label: 'Freelancer',
     hero: {
-      eyebrow: 'FreelaOnTap para freelancers',
+      eyebrow: 'Freela onTap para freelancers',
       headline: ['Sai do grupo.', 'Entra no turno.'],
       sub: 'Freelas em bares, restaurantes, cafés e casas noturnas de Porto Alegre e região, num app só. De graça pra quem trabalha.',
     },
     problem: {
       title: 'Vaga boa não devia depender de em qual grupo tu tá.',
-      body: 'Hoje o freela aparece no meio de um monte de mensagem, muitas vezes sem valor, sem endereço e sem saber quem tá contratando. O FreelaOnTap junta as vagas num lugar só, organizadas do teu jeito.',
+      body: 'Hoje o freela aparece no meio de um monte de mensagem, muitas vezes sem valor, sem endereço e sem saber quem tá contratando. O Freela onTap junta as vagas num lugar só, organizadas do teu jeito.',
     },
     highlights: {
       title: 'Feito pra quem vive de turno.',
@@ -66,7 +66,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       success: (name) => `Pronto, ${name}! Tu tá na lista. A gente te avisa pelo WhatsApp.`,
     },
     faq: [
-      { q: 'É de graça?', a: 'É. O FreelaOnTap é gratuito pra freelancers.' },
+      { q: 'É de graça?', a: 'É. O Freela onTap é gratuito pra freelancers.' },
       { q: 'Quando eu posso baixar?', a: 'O lançamento é no dia 22 de outubro, no Tecnopuc Experience. No dia seguinte o app já tá liberado na App Store pra iPhone.' },
       { q: 'Tenho Android. E agora?', a: 'O app chega primeiro no iPhone. A versão Android tá prevista pro começo de 2027: entra na lista que a gente te avisa assim que sair.' },
       { q: 'Como eu recebo pelo turno?', a: 'O pagamento é combinado e feito direto entre tu e a casa, fora do app. O valor do turno aparece na vaga.' },
@@ -77,7 +77,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
   business: {
     label: 'Empresa',
     hero: {
-      eyebrow: 'FreelaOnTap para empresas',
+      eyebrow: 'Freela onTap para empresas',
       headline: ['Faltou gente?', 'Tem gente.'],
       sub: 'Encontra freelancers avaliados de salão, bar e cozinha em Porto Alegre e região, e cobre o turno sem depender de grupo de WhatsApp.',
     },
@@ -113,8 +113,8 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       success: (name) => `Recebido, ${name}! Alguém do time vai falar contigo pelo WhatsApp.`,
     },
     faq: [
-      { q: 'Quanto custa?', a: 'Durante o lançamento, o FreelaOnTap é gratuito pras empresas.' },
-      { q: 'Como eu cadastro minha casa?', a: 'Pelo app FreelaOnTap Business pra iPhone, com e-mail e senha. Enquanto ele não sai, deixa teus dados aqui que a gente entra em contato.' },
+      { q: 'Quanto custa?', a: 'Durante o lançamento, o Freela onTap é gratuito pras empresas.' },
+      { q: 'Como eu cadastro minha casa?', a: 'Pelo app Freela onTap Business pra iPhone, com e-mail e senha. Enquanto ele não sai, deixa teus dados aqui que a gente entra em contato.' },
       { q: 'Como funciona a verificação?', a: 'A empresa é verificada pelo CNPJ.' },
       { q: 'Como é feito o pagamento do freelancer?', a: 'Direto entre a casa e o freelancer, fora do app. O valor do turno fica claro na vaga desde o início.' },
       { q: 'Que tipo de casa pode usar?', a: 'Restaurantes, bares, cafeterias, casas noturnas e lugares parecidos de Porto Alegre, Canoas, Viamão, Alvorada e Guaíba.' },

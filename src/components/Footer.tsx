@@ -16,8 +16,8 @@ export function Footer() {
       <div className="mx-auto grid w-full max-w-5xl gap-8 px-4 py-12 sm:grid-cols-3 sm:px-6">
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-2 font-semibold" style={{ color: 'var(--color-text-primary)' }}>
-            <Logo className="h-6 w-6" />
-            FreelaOnTap
+            <Logo className="h-8 w-8" />
+            Freela onTap
           </div>
           <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
             Projeto final do squad da Apple Developer Academy, cohort S25 — Porto Alegre/RS.
@@ -40,7 +40,7 @@ export function Footer() {
           <a href={`mailto:${SUPPORT_EMAIL}`} style={{ color: 'var(--color-link)' }}>
             {SUPPORT_EMAIL}
           </a>
-          <p style={{ color: 'var(--color-text-tertiary)' }}>© {currentYear} FreelaOnTap</p>
+          <p style={{ color: 'var(--color-text-tertiary)' }}>© {currentYear} Freela onTap</p>
         </div>
       </div>
     </footer>
