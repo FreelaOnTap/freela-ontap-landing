@@ -69,6 +69,6 @@ is saved in `source` — use it on the Tecnopuc QR codes and on each campaign li
   "Baixar" on `DOWNLOAD_OPENS_AT` (Oct 23, 2026).
 - App screens in "Como funciona" are placeholders: set each step's `image` in `src/content.ts` to a
   file under `public/media/`.
-- `public/media/mascot.svg` is a placeholder — replace the file with the final mascot art.
+- The mascot lives in `public/media/mascot.webp`, cropped from the transparent 2000px source at 480px tall — 3× its largest display size.
 - The LGPD controller in `/privacidade` is described generically (the squad, not a registered legal
   entity) because the project doesn't have one yet — update it once it does.
