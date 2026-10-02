@@ -11,8 +11,6 @@ export function Footer() {
       style={{
         borderColor: 'var(--color-border-subtle)',
         background: 'var(--color-surface)',
-        borderTopWidth: '3px',
-        borderImage: 'linear-gradient(90deg, #A44700, #00549A) 1',
       }}
     >
       <div className="mx-auto grid w-full max-w-5xl gap-8 px-4 py-12 sm:grid-cols-3 sm:px-6">

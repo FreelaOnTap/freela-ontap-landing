@@ -23,7 +23,7 @@ const FAQ = [
 
 export function Suporte() {
   return (
-    <article className="section-shell">
+    <article className="scope-business section-shell">
       <p className="eyebrow" style={{ color: 'var(--color-link)' }}>
         Suporte
       </p>
@@ -34,7 +34,7 @@ export function Suporte() {
         Fale direto com a equipe do FreelaOnTap. Respondemos por e-mail.
       </p>
 
-      <a href={mailtoLink('Suporte FreelaOnTap')} className="btn-accent mt-6" style={{ background: '#00549A' }}>
+      <a href={mailtoLink('Suporte FreelaOnTap')} className="btn-primary mt-6">
         Escrever para {SUPPORT_EMAIL}
       </a>
 
@@ -44,7 +44,7 @@ export function Suporte() {
         </h2>
         <div className="mt-6 flex flex-col gap-4">
           {FAQ.map((item) => (
-            <div key={item.question} className="card">
+            <div key={item.question} className="rounded-[var(--radius-lg)] p-6" style={{ background: 'var(--color-surface)' }}>
               <p className="font-semibold" style={{ color: 'var(--color-text-primary)' }}>
                 {item.question}
               </p>
