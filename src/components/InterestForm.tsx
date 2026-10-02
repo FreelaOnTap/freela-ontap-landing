@@ -275,7 +275,7 @@ export function InterestForm({ audience, phoneOS }: { audience: Audience; phoneO
             {...invalid('consented')}
           />
           <span>
-            Aceito receber contato do FreelaOnTap por WhatsApp ou e-mail sobre o lançamento e li a{' '}
+            Aceito receber contato do Freela onTap por WhatsApp ou e-mail sobre o lançamento e li a{' '}
             <Link to="/privacidade" target="_blank" rel="noopener noreferrer" className="underline" style={{ color: 'var(--color-link)' }}>
               Política de Privacidade
             </Link>
