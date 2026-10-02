@@ -10,7 +10,7 @@ export function Privacidade() {
         Política de Privacidade
       </h1>
       <p className="mt-2 text-sm" style={{ color: 'var(--color-text-tertiary)' }}>
-        Última atualização: 1º de outubro de 2026.
+        Última atualização: 2 de outubro de 2026.
       </p>
 
       <div className="mt-10 flex flex-col gap-8 text-base leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
@@ -51,6 +51,12 @@ export function Privacidade() {
             <li>Dados de perfil profissional, para freelancers, ou dados da empresa, para estabelecimentos.</li>
             <li>Dados de localização aproximada, para exibir vagas e freelancers próximos.</li>
             <li>Mensagens enviadas voluntariamente para o e-mail de suporte.</li>
+            <li>
+              Dados enviados pelo formulário de interesse deste site: nome, WhatsApp, e-mail (opcional), cidade e,
+              conforme o caso, a sua função e o sistema do seu celular, ou os dados do seu estabelecimento. Junto
+              com eles, registramos a data do envio e a origem da visita (por exemplo, a campanha ou o QR code
+              pelo qual você chegou ao site).
+            </li>
           </ul>
           <p className="mt-2">
             <strong>Entrar com Google ou com a Apple.</strong> Se você usar uma dessas opções no app, recebemos
@@ -69,9 +75,16 @@ export function Privacidade() {
           <ul className="mt-2 list-disc pl-6">
             <li>Viabilizar o cadastro e a conexão entre freelancers e estabelecimentos.</li>
             <li>Responder dúvidas e solicitações enviadas ao suporte.</li>
+            <li>
+              Avisar sobre o lançamento dos apps e entrar em contato, por WhatsApp ou e-mail, com quem se
+              cadastrou no formulário de interesse.
+            </li>
             <li>Cumprir obrigações legais e regulatórias aplicáveis.</li>
           </ul>
-          <p className="mt-2">A base legal é a execução do serviço solicitado por você (art. 7º, V, LGPD) e, quando aplicável, o seu consentimento.</p>
+          <p className="mt-2">
+            A base legal é a execução do serviço solicitado por você (art. 7º, V, LGPD) e, para o formulário de
+            interesse, o seu consentimento (art. 7º, I, LGPD), que pode ser revogado a qualquer momento.
+          </p>
         </section>
 
         <section>
@@ -82,7 +95,8 @@ export function Privacidade() {
             Não vendemos dados pessoais. Dados de perfil (freelancer) e de vaga (empresa) são exibidos ao outro
             lado do marketplace na medida necessária para viabilizar a conexão entre as partes. Também podemos
             compartilhar dados com fornecedores de infraestrutura técnica (hospedagem, banco de dados) sob
-            obrigação contratual de confidencialidade.
+            obrigação contratual de confidencialidade. Esses fornecedores (como Supabase e Vercel) podem
+            armazenar dados em servidores fora do Brasil, com as salvaguardas previstas na LGPD.
           </p>
         </section>
 
@@ -107,7 +121,8 @@ export function Privacidade() {
           </h2>
           <p className="mt-2">
             Mantemos os dados pelo tempo necessário para cumprir as finalidades descritas acima ou por prazo
-            legal exigido, o que for maior. Ao final, os dados são eliminados ou anonimizados.
+            legal exigido, o que for maior. Ao final, os dados são eliminados ou anonimizados. Os dados do
+            formulário de interesse ficam guardados até você pedir a exclusão pelo e-mail de suporte.
           </p>
         </section>
 
