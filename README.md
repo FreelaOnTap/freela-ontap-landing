@@ -60,6 +60,21 @@ only insert — never read — rows; the team reads them from the dashboard.
 Every lead records where it came from: `?origem=<campaign>` (or `utm_source`) on any link to the site
 is saved in `source` — use it on the Tecnopuc QR codes and on each campaign link.
 
+## Agent skills
+
+`.claude/skills/` holds design skills from [emilkowalski/skills](https://github.com/emilkowalski/skills)
+(MIT, see `.claude/skills/LICENSE-emilkowalski-skills`), copied at commit `e8a175d`. Claude Code
+loads them automatically in this repo:
+
+- `apple-design` — Apple's interface and motion principles, translated for the web.
+- `emil-design-eng` — UI polish, component and animation decisions.
+- `mobile-native` — making the site feel native on a phone (most traffic comes from Instagram and QR codes).
+- `break-ui` — stress-tests UI with worst-case data (long names, emoji, empty states).
+- `animate` — builds an animation with the right curve, duration and reduced-motion fallback.
+- `review-animations` — strict motion review; only runs when invoked by name.
+
+To update, copy the folders again from upstream and bump the commit above.
+
 ## Content notes
 
 - Copy lives in `src/content.ts`, one block per audience, written with *tu* (the squad's choice for a
