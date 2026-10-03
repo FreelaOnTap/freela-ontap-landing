@@ -1,4 +1,5 @@
 import { APP_STORE_LINKS } from '../config.ts'
+import { CONTENT } from '../content.ts'
 import type { Audience } from '../hooks/useAudience.ts'
 import type { PhoneOS } from '../lib/device.ts'
 import { StoreButton } from './StoreButton.tsx'
@@ -18,7 +19,7 @@ export function PrimaryActions({
     return (
       <div className={`flex flex-wrap items-center gap-x-6 gap-y-3 ${align}`}>
         <a href="#avise" className="btn-primary">
-          Quero cadastrar minha casa
+          {CONTENT.business.hero.cta}
         </a>
         {APP_STORE_LINKS.business && (
           <a href={APP_STORE_LINKS.business} className="link-more">
@@ -41,7 +42,13 @@ export function PrimaryActions({
 
   return (
     <div className={`flex flex-wrap items-center gap-x-6 gap-y-3 ${align}`}>
-      <StoreButton href={APP_STORE_LINKS.freelancer} />
+      {APP_STORE_LINKS.freelancer ? (
+        <StoreButton href={APP_STORE_LINKS.freelancer} />
+      ) : (
+        <a href="#avise" className="btn-primary">
+          {CONTENT.freelancer.hero.cta}
+        </a>
+      )}
       <a href="#avise" className="link-more">
         Tem Android? Entra na lista
       </a>

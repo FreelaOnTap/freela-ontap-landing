@@ -152,10 +152,10 @@ export function InterestForm({ audience, phoneOS }: { audience: Audience; phoneO
     <form onSubmit={handleSubmit} noValidate className="tile grid gap-5 sm:grid-cols-2">
       {audience === 'business' && (
         <>
-          <Field id="businessName" label="Nome da casa" error={errors.businessName}>
+          <Field id="businessName" label="Nome do negócio" error={errors.businessName}>
             <input id="businessName" className="field" maxLength={MAX_LENGTH.name} autoComplete="organization" value={values.businessName} onChange={(e) => set('businessName')(e.target.value)} {...invalid('businessName')} />
           </Field>
-          <Field id="businessType" label="Tipo de casa" error={errors.businessType}>
+          <Field id="businessType" label="Tipo de negócio" error={errors.businessType}>
             <select id="businessType" className="field" value={values.businessType} onChange={(e) => set('businessType')(e.target.value)} {...invalid('businessType')}>
               <option value="">Escolhe</option>
               {BUSINESS_TYPES.map((type) => (
@@ -171,7 +171,7 @@ export function InterestForm({ audience, phoneOS }: { audience: Audience; phoneO
       </Field>
 
       {audience === 'business' && (
-        <Field id="contactRole" label="Teu cargo na casa (opcional)">
+        <Field id="contactRole" label="Teu cargo (opcional)">
           <input id="contactRole" className="field" maxLength={MAX_LENGTH.short} autoComplete="organization-title" value={values.contactRole} onChange={(e) => set('contactRole')(e.target.value)} />
         </Field>
       )}
@@ -291,8 +291,13 @@ export function InterestForm({ audience, phoneOS }: { audience: Audience; phoneO
 
       <div className="flex flex-col gap-3 sm:col-span-2">
         <button type="submit" className="btn-primary w-full sm:w-auto sm:self-start" disabled={status === 'submitting'}>
-          {status === 'submitting' ? 'Enviando…' : audience === 'business' ? 'Quero que entrem em contato' : 'Me avisa quando sair'}
+          {status === 'submitting' ? 'Enviando…' : CONTENT[audience].form.submit}
         </button>
+        {CONTENT[audience].form.reassurance && (
+          <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
+            {CONTENT[audience].form.reassurance}
+          </p>
+        )}
         {status === 'error' && (
           <p className="field-error" role="alert">
             Não deu pra enviar agora. Tenta de novo ou escreve pra{' '}
