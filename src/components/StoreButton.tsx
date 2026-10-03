@@ -1,6 +1,4 @@
-import { DOWNLOAD_OPENS_AT } from '../config.ts'
-
-const DOWNLOAD_IS_OPEN = Date.now() >= DOWNLOAD_OPENS_AT.getTime()
+import { DOWNLOAD_IS_OPEN } from '../config.ts'
 
 export function StoreButton({ href }: { href: string | null }) {
   const label = DOWNLOAD_IS_OPEN ? 'Baixar na App Store' : 'Reservar na App Store'
