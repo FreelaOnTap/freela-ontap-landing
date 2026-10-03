@@ -9,6 +9,8 @@ export const APP_STORE_LINKS = {
 
 export const DOWNLOAD_OPENS_AT = new Date('2026-10-23T00:00:00-03:00')
 
+export const DOWNLOAD_IS_OPEN = Date.now() >= DOWNLOAD_OPENS_AT.getTime()
+
 export const SUPABASE = {
   url: import.meta.env.VITE_SUPABASE_URL as string | undefined,
   anonKey: import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined,

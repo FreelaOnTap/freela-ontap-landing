@@ -5,7 +5,8 @@ import { HowItWorks } from '../components/HowItWorks.tsx'
 import { InterestForm } from '../components/InterestForm.tsx'
 import { MascotImage } from '../components/MascotImage.tsx'
 import { PrimaryActions } from '../components/PrimaryActions.tsx'
-import { CITIES, CONTENT } from '../content.ts'
+import { DOWNLOAD_IS_OPEN } from '../config.ts'
+import { CITIES, CONTENT, LAUNCH_EVENT } from '../content.ts'
 import { useAudience } from '../hooks/useAudience.ts'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion.ts'
 import { detectPhoneOS } from '../lib/device.ts'
@@ -48,6 +49,14 @@ export function Home() {
       <section className="pt-16 text-center sm:pt-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
           <p className="eyebrow">{content.hero.eyebrow}</p>
+          {content.hero.badge && !DOWNLOAD_IS_OPEN && phoneOS !== 'android' && (
+            <p
+              className="mt-4 inline-flex rounded-full border px-4 py-1.5 text-sm font-semibold"
+              style={{ borderColor: 'var(--accent)', color: 'var(--color-text-primary)' }}
+            >
+              {content.hero.badge}
+            </p>
+          )}
           <h1 className="display mt-3">
             {content.hero.headline.map((line) => (
               <span key={line} className="block">
@@ -59,6 +68,19 @@ export function Home() {
           <div className="mt-8">
             <PrimaryActions audience={audience} phoneOS={phoneOS} centered />
           </div>
+          {content.hero.price && (
+            <p className="mt-5 text-base font-semibold" style={{ color: 'var(--color-text-primary)' }}>
+              <span aria-hidden="true" style={{ color: 'var(--accent)' }}>
+                ✓{' '}
+              </span>
+              {content.hero.price}
+            </p>
+          )}
+          {content.hero.launch && (
+            <p className="mx-auto mt-4 max-w-xl text-sm" style={{ color: 'var(--color-text-secondary)' }}>
+              {content.hero.launch}
+            </p>
+          )}
         </div>
         <HeroMedia />
       </section>
@@ -130,7 +152,7 @@ export function Home() {
             ))}
           </ul>
           <p className="mx-auto mt-10 max-w-xl text-lg" style={{ color: 'var(--on-brand-secondary)' }}>
-            Lançamento em 22 de outubro, no Tecnopuc Experience.
+            {LAUNCH_EVENT}
           </p>
         </div>
       </section>
@@ -170,7 +192,7 @@ export function Home() {
       <section className="section-shell flex flex-col items-center text-center">
         <MascotImage className="h-40 w-40" />
         <p className="eyebrow mt-8">Freela onTap</p>
-        <h2 className="display mt-3 max-w-4xl">Transforma a instabilidade em oportunidade.</h2>
+        <h2 className="display mt-3 max-w-4xl">{content.closing}</h2>
         <div className="mt-10">
           <PrimaryActions audience={audience} phoneOS={phoneOS} centered />
         </div>
