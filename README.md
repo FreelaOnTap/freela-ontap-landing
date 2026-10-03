@@ -84,6 +84,6 @@ To update, copy the folders again from upstream and bump the commit above.
   "Baixar" on `DOWNLOAD_OPENS_AT` (Oct 23, 2026).
 - App screens in "Como funciona" are placeholders: set each step's `image` in `src/content.ts` to a
   file under `public/media/`.
-- The mascot lives in `public/media/mascot.webp`, cropped from the transparent 2000px source at 480px tall — 3× its largest display size.
+- The mascot lives in `public/media/mascot.webp` (freelancer) and `mascot-business.webp` (business), cropped from the transparent 2000px source at 480px tall — 3× its largest display size.
 - The LGPD controller in `/privacidade` is described generically (the squad, not a registered legal
   entity) because the project doesn't have one yet — update it once it does.
