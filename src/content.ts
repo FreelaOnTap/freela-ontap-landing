@@ -95,7 +95,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       { q: 'Quando eu posso baixar?', a: 'O lançamento é dia 22 de outubro, no Showcase da Apple Developer Academy, no Tecnopuc Experience 2026.' },
       { q: 'Tenho Android. E agora?', a: 'O time já tá construindo a versão Android, e ela chega nos próximos meses. Deixa teu contato no formulário e marca Android, que a gente te avisa assim que sair.' },
       { q: 'Em quais cidades funciona?', a: 'A gente começa por Porto Alegre, Canoas, Viamão, Alvorada e Guaíba. Se tu tá em outra cidade, deixa teu contato que a gente avisa quando chegar aí.' },
-      { q: 'Quais funções o app cobre?', a: 'Atendimento: atendente, caixa, cumim, garçom/garçonete, guarda-volumes, maître, recepcionista e runner. Bar: bartender/barmaid, barback, copeiro e sommelier. Cozinha: auxiliar de cozinha, chapeiro(a), cozinheiro(a) e confeiteiro(a). Limpeza e apoio: auxiliar de limpeza, lavador de louça, estoquista e apoio geral. Outros: barista, manobrista e segurança.' },
+      { q: 'Quais funções o app cobre?', a: 'Atendimento: atendente, caixa, cumim, garçom/garçonete, guarda-volumes, maître, recepcionista e runner. Bar: bartender/barmaid, barback, copeiro e sommelier. Cozinha: auxiliar de cozinha, chapeira(o), cozinheira(o) e confeiteira(o). Limpeza e apoio: auxiliar de limpeza, lavador de louça, estoquista e apoio geral. Outros: barista, manobrista e segurança.' },
     ],
     closing: 'Menos tempo caçando vaga, mais tempo trabalhando.',
   },
