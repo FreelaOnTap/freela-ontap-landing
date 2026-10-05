@@ -16,9 +16,9 @@ React Router. Deployed on Vercel.
 
 Design tokens (color, spacing, corner radius) are mirrored from the iOS app's Design System
 (`FreelaOnTap/DesignSystem/Tokens/*.json` in `freela-ontap-ios`) so the site and the two apps read
-as one product — see `src/index.css`. Blue is the brand and the only full-bleed color block; the page
-swaps a single accent token per audience (orange for freelancers, blue for businesses), matching each
-app's own theming. The audience comes from the URL: `/` is the freelancer version and `/?para=empresa`
+as one product — see `src/index.css`. The page swaps its accent per audience (orange for freelancers,
+blue for businesses), matching each app's own theming, and the one full-bleed color block ("Começamos
+por aqui") uses that app's tint. The audience comes from the URL: `/` is the freelancer version and `/?para=empresa`
 the business one, so links sent to each side land on the right page.
 
 ## Local setup
