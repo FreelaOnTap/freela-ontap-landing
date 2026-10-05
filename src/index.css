@@ -5,9 +5,10 @@
   sections) — they already carry the slight blue bias of the iOS app's neutral ramp. Every text
   pair clears 4.5:1 (AA) on both canvas and surface; body copy clears 7:1 (AAA).
 
-  Color rule: blue is the brand and the only full-bleed color block. Each audience swaps a single
-  accent token (orange for freelancers, blue for businesses), exactly like the two apps do — the
-  two accents never appear at equal weight on the same screen.
+  Color rule: each audience swaps an accent token (orange for freelancers, blue for businesses),
+  exactly like the two apps do, and its one full-bleed color block uses that product's app tint
+  (FOT/Tint in the iOS Design System). The two accents never appear at equal weight on the same
+  screen.
 */
 :root {
   --bg-canvas: #ffffff;
@@ -51,12 +52,18 @@
   --accent: #a44700;
   --on-accent: #ffffff;
   --focus-ring: #c45700;
+  --brand: #f96716;
+  --on-brand: #0a0a0a;
+  --on-brand-secondary: rgba(10, 10, 10, 0.8);
 }
 
 .scope-business {
   --accent: #00549a;
   --on-accent: #ffffff;
   --focus-ring: #257ed4;
+  --brand: #3056e0;
+  --on-brand: #ffffff;
+  --on-brand-secondary: rgba(255, 255, 255, 0.92);
 }
 
 @media (prefers-color-scheme: dark) {
