@@ -23,7 +23,7 @@ export function PrimaryActions({
         </a>
         {APP_STORE_LINKS.business && (
           <a href={APP_STORE_LINKS.business} className="link-more">
-            Baixar o app Business
+            Baixar o Freela onTap: Empresa
           </a>
         )}
       </div>

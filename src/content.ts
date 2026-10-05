@@ -3,13 +3,14 @@ import type { Audience } from './hooks/useAudience.ts'
 export const CITIES = ['Porto Alegre', 'Canoas', 'Viamão', 'Alvorada', 'Guaíba']
 
 export const ROLE_GROUPS = [
-  { label: 'Salão', roles: ['Garçom / garçonete', 'Atendente', 'Runner', 'Recepção'] },
-  { label: 'Bar', roles: ['Bartender', 'Barback', 'Barista', 'Sommelier'] },
-  { label: 'Cozinha', roles: ['Cozinheiro(a)', 'Auxiliar de cozinha'] },
-  { label: 'Apoio', roles: ['Auxiliar de limpeza', 'Segurança', 'Manobrista'] },
+  { label: 'Atendimento', roles: ['Atendente', 'Caixa', 'Cumim', 'Garçom/Garçonete', 'Guarda-volumes', 'Maître', 'Recepcionista', 'Runner'] },
+  { label: 'Bar', roles: ['Bartender/Barmaid', 'Barback', 'Copeiro', 'Sommelier'] },
+  { label: 'Cozinha', roles: ['Auxiliar de cozinha', 'Chapeira(o)', 'Cozinheira(o)', 'Confeiteira(o)'] },
+  { label: 'Limpeza e Apoio', roles: ['Auxiliar de limpeza', 'Lavador de louça', 'Estoquista', 'Apoio geral'] },
+  { label: 'Outros', roles: ['Barista', 'Manobrista', 'Segurança'] },
 ]
 
-export const BUSINESS_TYPES = ['Restaurante', 'Bar', 'Cafeteria', 'Casa noturna', 'Outro']
+export const BUSINESS_TYPES = ['Restaurante', 'Bar', 'Cafeteria', 'Casa noturna', 'Eventos', 'Buffet', 'Outro']
 
 export const HIRING_FREQUENCIES = ['Toda semana', 'Algumas vezes por mês', 'Só em datas de pico']
 
@@ -59,7 +60,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
         { title: 'Filtra do teu jeito', body: 'Por valor, distância e data. Tu vê o que encaixa na tua agenda.' },
         { title: 'Empresas verificadas', body: 'As empresas são verificadas e tu sabe pra quem vai trabalhar.' },
         { title: 'Chat dentro do Freela onTap', body: 'Combinados e históricos ficam no app, não perdidos no WhatsApp.' },
-        { title: 'Tua reputação conta', body: 'Notas, avaliações e tags como pontualidade vão montando teu histórico.' },
+        { title: 'Tua reputação conta', body: 'Recomendações, avaliações e tags como pontualidade vão montando teu histórico.' },
         { title: 'Sem surpresa', body: 'Valor, endereço e jornada aparecem antes de tu dizer sim.' },
       ],
     },
@@ -72,7 +73,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       ],
     },
     trust: {
-      theySee: { title: 'O que a empresa vê de ti', items: ['Notas e avaliações dos turnos anteriores', 'Tags como pontual, ágil e colaborativo', 'Quantos turnos tu já fez pelo app'] },
+      theySee: { title: 'O que a empresa vê de ti', items: ['Recomendações e avaliações dos turnos anteriores', 'Tags como pontual, ágil e colaborativo', 'Quantos turnos tu já fez pelo app'] },
       youSee: { title: 'O que tu vê da empresa', items: ['Empresa verificada', 'Conversa e combinados registrados na vaga', 'Valor do turno combinado na vaga, antes de tu aceitar'] },
     },
     form: {
@@ -83,12 +84,18 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       success: (name) => `Pronto, ${name}! Tu tá na lista. A gente te avisa pelo WhatsApp.`,
     },
     faq: [
-      { q: 'É de graça?', a: 'É. O Freela onTap é gratuito pra freelancers.' },
-      { q: 'Quando eu posso baixar?', a: 'O lançamento é no dia 22 de outubro, no Tecnopuc Experience. No dia seguinte o app já tá liberado na App Store pra iPhone.' },
-      { q: 'Tenho Android. E agora?', a: 'O app chega primeiro no iPhone. A versão Android tá prevista pro começo de 2027: entra na lista que a gente te avisa assim que sair.' },
-      { q: 'Como eu recebo pelo turno?', a: 'O pagamento é combinado e feito direto entre tu e a casa, fora do app. O valor do turno aparece na vaga.' },
-      { q: 'Em quais cidades funciona?', a: 'A gente começa por Porto Alegre, Canoas, Viamão, Alvorada e Guaíba.' },
-      { q: 'Quais funções o app cobre?', a: 'Salão, bar, cozinha e apoio: garçom, atendente, runner, recepção, bartender, barback, barista, sommelier, cozinheiro, auxiliar de cozinha, auxiliar de limpeza, segurança e manobrista.' },
+      { q: 'É de graça?', a: 'Sim! O Freela onTap é totalmente gratuito pra freelancers: tu não paga pra criar perfil, ver vagas nem te candidatar.' },
+      { q: 'Como eu recebo pelo turno?', a: 'O valor do turno aparece na vaga antes de tu te candidatar, e o pagamento é feito direto entre tu e a empresa, fora do app. Combina a forma e o momento do pagamento pelo chat da vaga, que fica tudo registrado.' },
+      { q: 'E se a empresa não pagar ou não cumprir o combinado?', a: 'Os combinados ficam registrados no chat da vaga. Depois do turno tu avalia a empresa, e se algo deu errado tu pode denunciar a empresa direto pelo app.' },
+      { q: 'Como eu sei que a vaga é séria?', a: 'Toda empresa é verificada pelo CNPJ antes de publicar vaga. Tu vê quem tá contratando, o endereço, a jornada e o valor antes de dizer sim.' },
+      { q: 'Preciso ter experiência?', a: 'Não necessariamente. Cada vaga mostra os requisitos da empresa. Quanto mais turnos tu faz pelo app, mais avaliações e tags tu acumula, e mais fácil fica ser escolhido.' },
+      { q: 'Como funciona a avaliação?', a: 'Depois de cada turno a empresa diz se te recomenda e pode marcar tags como pontual, ágil, colaborativo, comunicativo, proativo, organizado, atencioso e autônomo. Isso, junto com quantos turnos tu já fez, monta tua reputação no app.' },
+      { q: 'Posso desistir depois de me candidatar?', a: 'Antes da empresa confirmar, tu retira a candidatura quando quiser. Depois de confirmado também dá pra desistir, mas avisa a empresa pelo chat da vaga o quanto antes, pra ela ter tempo de chamar outra pessoa. Desistências depois da confirmação contam nas tuas métricas dos últimos 3 meses e, se forem frequentes, aparecem no teu perfil.' },
+      { q: 'Preciso ter MEI?', a: 'Não pra usar o app. A forma de contratação e de pagamento é combinada direto com a empresa.' },
+      { q: 'Quando eu posso baixar?', a: 'O lançamento é dia 22 de outubro, no Showcase da Apple Developer Academy, no Tecnopuc Experience 2026.' },
+      { q: 'Tenho Android. E agora?', a: 'O time já tá construindo a versão Android, e ela chega nos próximos meses. Deixa teu contato no formulário e marca Android, que a gente te avisa assim que sair.' },
+      { q: 'Em quais cidades funciona?', a: 'A gente começa por Porto Alegre, Canoas, Viamão, Alvorada e Guaíba. Se tu tá em outra cidade, deixa teu contato que a gente avisa quando chegar aí.' },
+      { q: 'Quais funções o app cobre?', a: 'Atendimento: atendente, caixa, cumim, garçom/garçonete, guarda-volumes, maître, recepcionista e runner. Bar: bartender/barmaid, barback, copeiro e sommelier. Cozinha: auxiliar de cozinha, chapeiro(a), cozinheiro(a) e confeiteiro(a). Limpeza e apoio: auxiliar de limpeza, lavador de louça, estoquista e apoio geral. Outros: barista, manobrista e segurança.' },
     ],
     closing: 'Menos tempo caçando vaga, mais tempo trabalhando.',
   },
@@ -111,7 +118,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       title: 'Reforço com avaliações e métricas, não no escuro.',
       items: [
         { title: 'Publica vaga em poucos passos', body: 'Função, data, horário e valor do turno, direto no app.' },
-        { title: 'Profissionais avaliados', body: 'Notas, avaliações e tags como pontual e ágil mostram quem já trabalhou bem.' },
+        { title: 'Profissionais avaliados', body: 'Recomendações, avaliações e tags como pontual e ágil mostram quem já trabalhou bem.' },
         { title: 'Teu banco de profissionais', body: 'Os freelancers que já trabalharam no teu negócio, com histórico, num lugar só.' },
         { title: 'Conversa centralizada', body: 'Combinados e histórico ficam no chat da vaga, longe das várias mensagens dos grupos.' },
         { title: 'Empresa verificada', body: 'Com o CNPJ verificado, tua vaga passa confiança e atrai os melhores talentos.' },
@@ -126,7 +133,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       ],
     },
     trust: {
-      theySee: { title: 'O que tu vê do freelancer', items: ['Notas e avaliações dos turnos anteriores', 'Tags como pontual, ágil e colaborativo', 'Quantos turnos já fez pelo app'] },
+      theySee: { title: 'O que tu vê do freelancer', items: ['Recomendações e avaliações dos turnos anteriores', 'Tags como pontual, ágil e colaborativo', 'Quantos turnos já fez pelo app'] },
       youSee: { title: 'O que o freelancer vê do teu negócio', items: ['Empresa verificada', 'Conversa e combinados registrados na vaga', 'Valor do turno combinado na vaga, antes do freelancer aceitar'] },
     },
     form: {
@@ -137,11 +144,16 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       success: (name) => `Recebido, ${name}! Alguém do time vai falar contigo pelo WhatsApp.`,
     },
     faq: [
-      { q: 'Quanto custa?', a: 'Durante o lançamento, o Freela onTap é gratuito pras empresas.' },
-      { q: 'Como eu cadastro minha casa?', a: 'Pelo app Freela onTap Business pra iPhone, com e-mail e senha. Enquanto ele não sai, deixa teus dados aqui que a gente entra em contato.' },
-      { q: 'Como funciona a verificação?', a: 'A empresa é verificada pelo CNPJ.' },
-      { q: 'Como é feito o pagamento do freelancer?', a: 'Direto entre a casa e o freelancer, fora do app. O valor do turno fica claro na vaga desde o início.' },
-      { q: 'Que tipo de casa pode usar?', a: 'Restaurantes, bares, cafeterias, casas noturnas e lugares parecidos de Porto Alegre, Canoas, Viamão, Alvorada e Guaíba.' },
+      { q: 'Quanto custa?', a: 'Durante o lançamento, o Freela onTap é gratuito pra empresas: publicar vaga, ver candidatos e contratar não tem custo.' },
+      { q: 'Como eu cadastro meu negócio?', a: 'Pelo app Freela onTap: Empresa pra iPhone, com as informações da empresa, o segmento e o CNPJ. Enquanto o app não sai, deixa teus dados aqui que a gente entra em contato pra preparar teu cadastro.' },
+      { q: 'Como funciona a verificação?', a: 'É automática: o CNPJ é verificado na hora do cadastro. Com o selo de empresa verificada, tua vaga passa confiança e atrai mais candidatos.' },
+      { q: 'Como eu escolho o freelancer?', a: 'Tu vê cada candidato com avaliações, tags como pontual e ágil e quantos turnos já fez pelo app. Escolhe quem escala pro turno e confirma pelo app.' },
+      { q: 'Posso chamar o mesmo freelancer de novo?', a: 'Pode. Quem já trabalhou no teu negócio fica no teu banco de profissionais, com o histórico, pra tu chamar de novo quando precisar.' },
+      { q: 'E se o freelancer cancelar ou faltar?', a: 'Se o freelancer cancelar, o app te avisa na hora por notificação, e tu pode reabrir a vaga de novo. Cancelamentos e faltas contam nas métricas do freelancer dos últimos 3 meses: influenciam as tags dele e, se forem frequentes, aparecem no perfil. Isso ajuda tu e as outras empresas a escolherem melhor.' },
+      { q: 'Como é feito o pagamento do freelancer?', a: 'Direto entre o teu negócio e o freelancer, fora do app. O valor do turno fica claro na vaga desde o início, e os combinados ficam registrados no chat.' },
+      { q: 'O Freela onTap é responsável pela contratação?', a: 'Não. O Freela onTap é a plataforma que conecta empresas e freelancers: não é parte do acordo de trabalho e não atua como empregador de nenhum dos lados. Condições, valor e forma de pagamento de cada turno são combinados direto entre o teu negócio e o freelancer. Os detalhes estão nos Termos de Uso.' },
+      { q: 'Que tipo de negócio pode usar?', a: 'Restaurantes, bares, cafeterias, casas noturnas, eventos, buffets e negócios parecidos de Porto Alegre, Canoas, Viamão, Alvorada e Guaíba.' },
+      { q: 'Quando o app sai?', a: 'O lançamento é dia 22 de outubro, no Showcase da Apple Developer Academy, no Tecnopuc Experience 2026.' },
     ],
     closing: 'Transforma a instabilidade em oportunidade.',
   },
