@@ -49,7 +49,7 @@ export function Home() {
       <section className="pt-16 text-center sm:pt-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
           <p className="eyebrow">{content.hero.eyebrow}</p>
-          {content.hero.badge && !DOWNLOAD_IS_OPEN && phoneOS !== 'android' && (
+          {content.hero.badge && !DOWNLOAD_IS_OPEN && !(audience === 'freelancer' && phoneOS === 'android') && (
             <p
               className="mt-4 inline-flex rounded-full border px-4 py-1.5 text-sm font-semibold"
               style={{ borderColor: 'var(--accent)', color: 'var(--color-text-primary)' }}
@@ -68,19 +68,6 @@ export function Home() {
           <div className="mt-8">
             <PrimaryActions audience={audience} phoneOS={phoneOS} centered />
           </div>
-          {content.hero.price && (
-            <p className="mt-5 text-base font-semibold" style={{ color: 'var(--color-text-primary)' }}>
-              <span aria-hidden="true" style={{ color: 'var(--accent)' }}>
-                ✓{' '}
-              </span>
-              {content.hero.price}
-            </p>
-          )}
-          {content.hero.launch && (
-            <p className="mx-auto mt-4 max-w-xl text-sm" style={{ color: 'var(--color-text-secondary)' }}>
-              {content.hero.launch}
-            </p>
-          )}
         </div>
         <HeroMedia />
       </section>
@@ -91,12 +78,12 @@ export function Home() {
         <p className="lede mt-6 max-w-2xl reveal">{content.problem.body}</p>
       </section>
 
-      <section className="pb-20 sm:pb-28">
+      <section className="py-20 sm:py-28" style={{ background: 'color-mix(in srgb, var(--brand) 14%, var(--bg-canvas))' }}>
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <h2 className="headline max-w-3xl reveal">{content.highlights.title}</h2>
         </div>
         <div
-          className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 sm:px-[max(1.5rem,calc((100vw-64rem)/2+1.5rem))]"
+          className="rail mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto"
           role="region"
           aria-label="Destaques"
           tabIndex={0}
@@ -104,11 +91,10 @@ export function Home() {
           {content.highlights.items.map((item) => (
             <article
               key={item.title}
-              className="tile flex min-h-64 w-[78vw] max-w-[320px] shrink-0 snap-start flex-col justify-between sm:w-[300px]"
-              style={{ background: 'var(--color-surface)' }}
+              className="tile flex w-[78vw] max-w-[320px] shrink-0 snap-start flex-col sm:w-[300px]"
             >
               <h3 className="text-2xl font-semibold">{item.title}</h3>
-              <p className="mt-6 text-lg" style={{ color: 'var(--color-text-secondary)' }}>
+              <p className="mt-3 text-lg" style={{ color: 'var(--color-text-secondary)' }}>
                 {item.body}
               </p>
             </article>
@@ -146,9 +132,11 @@ export function Home() {
             Porto Alegre e região
           </p>
           <h2 className="display mt-3">Começamos por aqui.</h2>
-          <ul className="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-x-8 gap-y-3 text-2xl font-semibold sm:text-4xl">
+          <ul className="cities mx-auto mt-10 flex max-w-5xl flex-nowrap justify-center font-semibold">
             {CITIES.map((city) => (
-              <li key={city}>{city}</li>
+              <li key={city} className="whitespace-nowrap">
+                {city}
+              </li>
             ))}
           </ul>
           <p className="mx-auto mt-10 max-w-xl text-lg" style={{ color: 'var(--on-brand-secondary)' }}>

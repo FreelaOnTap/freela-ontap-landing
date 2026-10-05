@@ -166,6 +166,29 @@ h3 {
     text-decoration: underline;
   }
 
+  .rail {
+    --rail-inset: 1rem;
+    padding-inline: var(--rail-inset);
+    scroll-padding-inline: var(--rail-inset);
+    scrollbar-width: none;
+  }
+
+  .rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 40rem) {
+    .rail {
+      --rail-inset: max(1.5rem, calc((100% - 64rem) / 2 + 1.5rem));
+    }
+  }
+
+  .cities {
+    container-type: inline-size;
+    font-size: clamp(0.75rem, 3.4cqw, 2.25rem);
+    column-gap: 1.2em;
+  }
+
   .tile {
     @apply rounded-[var(--radius-xl)] p-7;
     background: var(--bg-canvas);
