@@ -36,7 +36,7 @@ type AudienceContent = {
   closing: string
 }
 
-export const LAUNCH_EVENT = 'Lançamento em 22 de outubro, no Showcase da Apple Developer Academy, no Tecnopuc Experience 2026.'
+export const LAUNCH_EVENT = 'Lançamento em 22 de outubro, no Tecnopuc Experience 2026, dentro do Showcase da Apple Developer Academy.'
 
 export const CONTENT: Record<Audience, AudienceContent> = {
   freelancer: {
@@ -104,11 +104,11 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     hero: {
       eyebrow: 'Freela onTap para empresas',
       badge: null,
-      headline: ['Faltou gente no turno?', 'Sem correria. O Freela\u00a0onTap te ajuda!'],
+      headline: ['Faltou gente no turno?', 'O Freela\u00a0onTap te ajuda!'],
       sub: 'Freelancers de atendimento, bar e cozinha bem avaliados, em Porto Alegre e região.',
       cta: 'Reservar acesso pro meu negócio',
       price: 'Gratuito durante o lançamento',
-      launch: 'Lançamento dia 22 de outubro, no Showcase da Apple Developer Academy · Tecnopuc Experience 2026',
+      launch: 'Lançamento em 22 de outubro, no Tecnopuc Experience 2026, dentro do Showcase da Apple Developer Academy',
     },
     problem: {
       title: 'A urgência não devia depender de quem responde no grupo.',
