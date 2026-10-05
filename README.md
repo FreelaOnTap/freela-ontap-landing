@@ -48,17 +48,33 @@ git config core.hooksPath .githooks
 This blocks direct pushes to `main`/`dev` and runs `npm run build` before anything leaves your
 machine. Escape hatches: `SKIP_CHECKS=1 git push` and `ALLOW_PROTECTED_PUSH=1 git push origin main`.
 
-## Interest list (Supabase)
+## Interest list (Google Sheets)
 
-The form at `#avise` writes to `public.interest_leads` in the apps' Supabase project. Visitors can
-only insert — never read — rows; the team reads them from the dashboard.
+The form at `#avise` sends each lead to a Google Apps Script web app bound to a private Google Sheet
+owned by `freelaontap@gmail.com`. The sheet itself is never shared publicly: the script runs as its
+owner and only appends rows, so the public endpoint can write but never read. Freelancers land on the
+`freelancers` tab and businesses on `empresas`; the script writes the header row on first use.
 
-1. Run [`supabase/interest_leads.sql`](supabase/interest_leads.sql) once in the project's SQL editor.
-2. Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` in Vercel (and in `.env.local` for local
-   work — see `.env.example`). Without them the form shows an error with the support e-mail.
+The script validates every field again (the browser check can be bypassed), caps submissions at 30 a
+minute, and prefixes cells that start with `=`, `+`, `-`, `@` or a digit with `'`, so nothing a
+visitor types is ever evaluated as a formula.
+
+Setup, once, signed in as `freelaontap@gmail.com`:
+
+1. Open the sheet → **Extensions → Apps Script**, replace the editor's contents with
+   [`google-apps-script/interest-leads.gs`](google-apps-script/interest-leads.gs), and save.
+2. **Deploy → New deployment → Web app**, with *Execute as: Me* and *Who has access: Anyone*.
+   Authorize when asked, and copy the `/exec` URL.
+3. Set `LEADS_ENDPOINT` to that URL in Vercel (Production and Preview) and in `.env.local` for
+   local work — see `.env.example` — then redeploy, since Vite bakes it in at build time (`vite.config.ts` exposes the `LEADS_` prefix
+   besides Vite's default `VITE_`). Without it
+   the form shows an error with the support e-mail.
+
+After changing the script, ship it with **Deploy → Manage deployments → Edit → Version: New
+version**. That keeps the same URL; a *new deployment* would get a new one.
 
 Every lead records where it came from: `?origem=<campaign>` (or `utm_source`) on any link to the site
-is saved in `source` — use it on the Tecnopuc QR codes and on each campaign link.
+is saved in the *Origem* column — use it on the Tecnopuc QR codes and on each campaign link.
 
 ## Agent skills
 
