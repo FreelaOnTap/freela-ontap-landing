@@ -177,10 +177,35 @@ h3 {
   }
 
   .field {
-    @apply block min-h-11 w-full rounded-[var(--radius-md)] border px-4 py-3 text-base;
+    @apply block h-12 w-full rounded-[var(--radius-md)] border px-4 text-base leading-normal;
     background: var(--bg-canvas);
     border-color: var(--color-border-default);
     color: var(--color-text-primary);
+  }
+
+  form input,
+  form select {
+    scroll-margin-top: 7rem;
+  }
+
+  .field::placeholder {
+    color: var(--color-text-tertiary);
+  }
+
+  .field-select {
+    @apply cursor-pointer pr-11;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .field-select[data-empty] {
+    color: var(--color-text-tertiary);
+  }
+
+  .field-select option,
+  .field-select optgroup {
+    color: var(--color-text-primary);
+    background: var(--bg-canvas);
   }
 
   .field:focus-visible {
