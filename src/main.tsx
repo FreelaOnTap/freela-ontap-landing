@@ -3,11 +3,14 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './index.css'
 import { Layout } from './Layout.tsx'
+import { startClarity } from './lib/clarity.ts'
 import { Home } from './pages/Home.tsx'
 import { JobLinkRedirect } from './pages/JobLinkRedirect.tsx'
 import { Privacidade } from './pages/Privacidade.tsx'
 import { Suporte } from './pages/Suporte.tsx'
 import { Termos } from './pages/Termos.tsx'
+
+startClarity()
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

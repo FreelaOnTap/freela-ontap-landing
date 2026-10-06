@@ -10,7 +10,7 @@ export function Privacidade() {
         Política de Privacidade
       </h1>
       <p className="mt-2 text-sm" style={{ color: 'var(--color-text-tertiary)' }}>
-        Última atualização: 2 de outubro de 2026.
+        Última atualização: 6 de outubro de 2026.
       </p>
 
       <div className="mt-10 flex flex-col gap-8 text-base leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
@@ -57,6 +57,12 @@ export function Privacidade() {
               com eles, registramos a data do envio e a origem da visita (por exemplo, a campanha ou o QR code
               pelo qual você chegou ao site).
             </li>
+            <li>
+              Dados de navegação neste site, coletados pelo Microsoft Clarity: páginas visitadas, cliques,
+              rolagem, tipo de dispositivo e navegador, e a sua região aproximada. O Clarity funciona aqui sem
+              cookies, então cada visita é tratada de forma isolada, sem ligar uma visita a outra. O conteúdo
+              digitado no formulário de interesse é mascarado e não é gravado.
+            </li>
           </ul>
           <p className="mt-2">
             <strong>Entrar com Google ou com a Apple.</strong> Se você usar uma dessas opções no app, recebemos
@@ -79,11 +85,14 @@ export function Privacidade() {
               Avisar sobre o lançamento dos apps e entrar em contato, por WhatsApp ou e-mail, com quem se
               cadastrou no formulário de interesse.
             </li>
+            <li>Entender como as pessoas usam este site, para corrigir problemas e melhorar a experiência.</li>
             <li>Cumprir obrigações legais e regulatórias aplicáveis.</li>
           </ul>
           <p className="mt-2">
             A base legal é a execução do serviço solicitado por você (art. 7º, V, LGPD) e, para o formulário de
-            interesse, o seu consentimento (art. 7º, I, LGPD), que pode ser revogado a qualquer momento.
+            interesse, o seu consentimento (art. 7º, I, LGPD), que pode ser revogado a qualquer momento. A análise de
+            navegação se apoia no legítimo interesse de melhorar o site (art. 7º, IX, LGPD), sem cookies e sem
+            identificar você.
           </p>
         </section>
 
@@ -95,7 +104,8 @@ export function Privacidade() {
             Não vendemos dados pessoais. Dados de perfil (freelancer) e de vaga (empresa) são exibidos ao outro
             lado do marketplace na medida necessária para viabilizar a conexão entre as partes. Também podemos
             compartilhar dados com fornecedores de infraestrutura técnica (hospedagem, banco de dados) sob
-            obrigação contratual de confidencialidade. Esses fornecedores (como Supabase, Vercel e Google, onde fica a lista de interesse) podem
+            obrigação contratual de confidencialidade. Esses fornecedores (como Supabase, Vercel, Google, onde fica
+            a lista de interesse, e Microsoft, pelo Clarity) podem
             armazenar dados em servidores fora do Brasil, com as salvaguardas previstas na LGPD.
           </p>
         </section>

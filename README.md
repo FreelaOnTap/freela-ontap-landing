@@ -76,6 +76,23 @@ version**. That keeps the same URL; a *new deployment* would get a new one.
 Every lead records where it came from: `?origem=<campaign>` (or `utm_source`) on any link to the site
 is saved in the *Origem* column — use it on the Tecnopuc QR codes and on each campaign link.
 
+## Analytics (Microsoft Clarity)
+
+Heatmaps and session recordings come from [Microsoft Clarity](https://clarity.microsoft.com), loaded by
+`src/lib/clarity.ts` in production builds only, and only when `VITE_CLARITY_PROJECT_ID` is set.
+
+It runs **without cookies**: the project's Settings → Setup → Cookies toggle is off, and the loader
+also sends `consentv2` denied before the tag loads, so a forgotten dashboard toggle still sets no
+cookie. The trade-off is that every page view is its own session — Clarity can't tell a returning
+visitor apart. That is why the site has no cookie banner; turning cookies on means adding one and
+rewriting section 2 of `/privacidade`.
+
+The interest form carries `data-clarity-mask="true"`, so nothing typed into it reaches a recording.
+
+1. Create the project at clarity.microsoft.com and turn Cookies off in Settings → Setup.
+2. Set `VITE_CLARITY_PROJECT_ID` in Vercel, **Production only** — preview deploys would otherwise
+   pollute the data — then redeploy, since Vite bakes it in at build time.
+
 ## Agent skills
 
 `.claude/skills/` holds design skills from [emilkowalski/skills](https://github.com/emilkowalski/skills)
