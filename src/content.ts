@@ -21,6 +21,7 @@ type AudienceContent = {
   hero: {
     eyebrow: string
     badge: string | null
+    perk: string | null
     headline: string[]
     sub: string
     cta: string
@@ -42,6 +43,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     hero: {
       eyebrow: 'Freela onTap para freelancers',
       badge: 'Chega no iPhone dia 23 de outubro',
+      perk: null,
       headline: ['Freela em bar, restaurante e café, num lugar só.'],
       sub: 'Vagas em Porto Alegre e região, tudo claro antes de te candidatar.',
       cta: 'Me avisa no lançamento',
@@ -99,7 +101,8 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     label: 'Empresa',
     hero: {
       eyebrow: 'Freela onTap para empresas',
-      badge: 'Gratuito durante o lançamento',
+      badge: null,
+      perk: 'Gratuito durante o lançamento',
       headline: ['Faltou gente no turno?', 'O Freela\u00a0onTap te ajuda!'],
       sub: 'Freelancers de atendimento, bar e cozinha bem avaliados, em Porto Alegre e região.',
       cta: 'Reservar acesso pro meu negócio',
