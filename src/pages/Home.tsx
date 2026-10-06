@@ -66,7 +66,7 @@ export function Home() {
           </h1>
           <p className="lede mx-auto mt-6 max-w-2xl">{content.hero.sub}</p>
           <div className="mt-8">
-            <PrimaryActions audience={audience} phoneOS={phoneOS} centered />
+            <PrimaryActions audience={audience} phoneOS={phoneOS} centered showPerk />
           </div>
         </div>
         <HeroMedia />
