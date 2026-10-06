@@ -1,4 +1,4 @@
-import { SUPABASE } from '../config.ts'
+import { LEADS_ENDPOINT } from '../config.ts'
 import type { Audience } from '../hooks/useAudience.ts'
 
 export type InterestLead = {
@@ -35,21 +35,16 @@ export function isValidWhatsapp(digits: string) {
 }
 
 export async function submitInterestLead(lead: InterestLead) {
-  if (!SUPABASE.url || !SUPABASE.anonKey) throw new Error('Supabase is not configured')
+  if (!LEADS_ENDPOINT) throw new Error('The leads endpoint is not configured')
 
-  const headers: Record<string, string> = {
-    apikey: SUPABASE.anonKey,
-    'Content-Type': 'application/json',
-    Prefer: 'return=minimal',
-  }
-  // Legacy anon keys are JWTs and go in Authorization too; new publishable keys must not.
-  if (SUPABASE.anonKey.startsWith('eyJ')) headers.Authorization = `Bearer ${SUPABASE.anonKey}`
-
-  const response = await fetch(`${SUPABASE.url}/rest/v1/interest_leads`, {
+  const response = await fetch(LEADS_ENDPOINT, {
     method: 'POST',
-    headers,
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
     body: JSON.stringify(lead),
     signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
   })
-  if (!response.ok) throw new Error(`Lead insert failed with ${response.status}`)
+  if (!response.ok) throw new Error(`Lead submission failed with ${response.status}`)
+
+  const result = (await response.json()) as { ok: boolean; error?: string }
+  if (!result.ok) throw new Error(`Lead submission rejected: ${result.error ?? 'unknown'}`)
 }

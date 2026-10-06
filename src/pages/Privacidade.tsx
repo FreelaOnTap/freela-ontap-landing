@@ -95,7 +95,7 @@ export function Privacidade() {
             Não vendemos dados pessoais. Dados de perfil (freelancer) e de vaga (empresa) são exibidos ao outro
             lado do marketplace na medida necessária para viabilizar a conexão entre as partes. Também podemos
             compartilhar dados com fornecedores de infraestrutura técnica (hospedagem, banco de dados) sob
-            obrigação contratual de confidencialidade. Esses fornecedores (como Supabase e Vercel) podem
+            obrigação contratual de confidencialidade. Esses fornecedores (como Supabase, Vercel e Google, onde fica a lista de interesse) podem
             armazenar dados em servidores fora do Brasil, com as salvaguardas previstas na LGPD.
           </p>
         </section>
