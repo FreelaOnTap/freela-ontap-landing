@@ -24,8 +24,6 @@ type AudienceContent = {
     headline: string[]
     sub: string
     cta: string
-    price: string | null
-    launch: string | null
   }
   problem: { title: string; body: string }
   highlights: { title: string; items: { title: string; body: string }[] }
@@ -36,7 +34,7 @@ type AudienceContent = {
   closing: string
 }
 
-export const LAUNCH_EVENT = 'Lançamento em 22 de outubro, no Showcase da Apple Developer Academy, no Tecnopuc Experience 2026.'
+export const LAUNCH_EVENT = 'Lançamento em 22 de outubro, no Tecnopuc Experience 2026, dentro do Showcase da Apple Developer Academy.'
 
 export const CONTENT: Record<Audience, AudienceContent> = {
   freelancer: {
@@ -47,8 +45,6 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       headline: ['Freela em bar, restaurante e café, num lugar só.'],
       sub: 'Vagas em Porto Alegre e região, tudo claro antes de te candidatar.',
       cta: 'Me avisa no lançamento',
-      price: null,
-      launch: null,
     },
     problem: {
       title: 'Vaga boa não devia depender de em qual grupo tu tá.',
@@ -103,12 +99,10 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     label: 'Empresa',
     hero: {
       eyebrow: 'Freela onTap para empresas',
-      badge: null,
-      headline: ['Faltou gente no turno?', 'Sem correria. O Freela\u00a0onTap te ajuda!'],
+      badge: 'Gratuito durante o lançamento',
+      headline: ['Faltou gente no turno?', 'O Freela\u00a0onTap te ajuda!'],
       sub: 'Freelancers de atendimento, bar e cozinha bem avaliados, em Porto Alegre e região.',
       cta: 'Reservar acesso pro meu negócio',
-      price: 'Gratuito durante o lançamento',
-      launch: 'Lançamento dia 22 de outubro, no Showcase da Apple Developer Academy · Tecnopuc Experience 2026',
     },
     problem: {
       title: 'A urgência não devia depender de quem responde no grupo.',
