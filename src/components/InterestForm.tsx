@@ -293,7 +293,7 @@ export function InterestForm({ audience, phoneOS }: { audience: Audience; phoneO
   const cityOptions = [...CITIES, OTHER_CITY].map((city) => <option key={city}>{city}</option>)
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="tile grid gap-x-5 gap-y-6 sm:grid-cols-2">
+    <form onSubmit={handleSubmit} noValidate data-clarity-mask="true" className="tile grid gap-x-5 gap-y-6 sm:grid-cols-2">
       {audience === 'business' && (
         <>
           <Field id="businessName" label="Nome do negócio" error={errors.businessName}>
