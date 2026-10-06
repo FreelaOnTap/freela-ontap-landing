@@ -20,7 +20,7 @@ export function Footer() {
             Freela onTap
           </div>
           <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
-            Projeto final do squad da Apple Developer Academy, cohort S25 — Porto Alegre/RS.
+            Freelas em restaurante, bares e cafeterias na região de Porto Alegre/RS.
           </p>
         </div>
 

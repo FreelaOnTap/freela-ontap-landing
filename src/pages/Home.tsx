@@ -102,7 +102,7 @@ export function Home() {
         </div>
       </section>
 
-      <HowItWorks key={audience} title={content.steps.title} steps={content.steps.items} />
+      <HowItWorks key={audience} audience={audience} title={content.steps.title} steps={content.steps.items} />
 
       <section className="section-shell">
         <p className="eyebrow">Confiança</p>

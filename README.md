@@ -98,8 +98,10 @@ To update, copy the folders again from upstream and bump the commit above.
 - The App Store links in `src/config.ts` (`APP_STORE_LINKS`) are `null` until App Review approves the
   apps — the store buttons render but go nowhere until then. The label switches from "Reservar" to
   "Baixar" on `DOWNLOAD_OPENS_AT` (Oct 23, 2026).
-- App screens in "Como funciona" are placeholders: set each step's `image` in `src/content.ts` to a
-  file under `public/media/`.
+- App screens in "Como funciona" are exports from the Figma file (`public/media/screen-freelancer-*.webp`
+  and `screen-business-*.webp`, 840px wide, status bar without the Dynamic Island because the bezel
+  draws it); set each step's `image` in `src/content.ts` to a file under `public/media/`. The bezel
+  color follows the audience: `iphone-bezel-freelancer.webp` and `iphone-bezel-business.webp`.
 - The mascot lives in `public/media/mascot.webp` (freelancer) and `mascot-business.webp` (business), cropped from the transparent 2000px source at 480px tall — 3× its largest display size.
 - The LGPD controller in `/privacidade` is described generically (the squad, not a registered legal
   entity) because the project doesn't have one yet — update it once it does.
