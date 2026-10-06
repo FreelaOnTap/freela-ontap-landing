@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import type { Step } from '../content.ts'
+import type { Audience } from '../hooks/useAudience.ts'
 import { PhoneFrame } from './PhoneFrame.tsx'
 
 function useActiveStep(count: number) {
@@ -22,9 +23,9 @@ function useActiveStep(count: number) {
   return [refs, active] as const
 }
 
-export function HowItWorks({ title, steps }: { title: string; steps: Step[] }) {
+export function HowItWorks({ audience, title, steps }: { audience: Audience; title: string; steps: Step[] }) {
   const [refs, active] = useActiveStep(steps.length)
-  const current = steps[active] ?? steps[0]
+  const screens = steps.map((step, i) => ({ src: step.image, alt: step.imageAlt, placeholder: `Passo ${i + 1}` }))
 
   return (
     <section style={{ background: 'var(--color-surface)' }}>
@@ -50,7 +51,7 @@ export function HowItWorks({ title, steps }: { title: string; steps: Step[] }) {
                 <h3 className="mt-2 text-3xl font-semibold">{step.title}</h3>
                 <p className="lede mt-3">{step.body}</p>
                 <div className="mt-8 lg:hidden">
-                  <PhoneFrame src={step.image} alt={step.imageAlt} placeholder={`Passo ${i + 1}`} />
+                  <PhoneFrame audience={audience} screens={[screens[i]]} />
                 </div>
               </li>
             ))}
@@ -58,7 +59,7 @@ export function HowItWorks({ title, steps }: { title: string; steps: Step[] }) {
 
           <div className="hidden lg:block">
             <div className="sticky top-28">
-              <PhoneFrame src={current.image} alt={current.imageAlt} placeholder={`Passo ${active + 1}`} />
+              <PhoneFrame audience={audience} screens={screens} active={active} />
             </div>
           </div>
         </div>

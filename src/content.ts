@@ -21,6 +21,7 @@ type AudienceContent = {
   hero: {
     eyebrow: string
     badge: string | null
+    perk: string | null
     headline: string[]
     sub: string
     cta: string
@@ -42,6 +43,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     hero: {
       eyebrow: 'Freela onTap para freelancers',
       badge: 'Chega no iPhone dia 23 de outubro',
+      perk: null,
       headline: ['Freela em bar, restaurante e café, num lugar só.'],
       sub: 'Vagas em Porto Alegre e região, tudo claro antes de te candidatar.',
       cta: 'Me avisa no lançamento',
@@ -63,9 +65,9 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     steps: {
       title: 'Do perfil ao turno em três passos.',
       items: [
-        { title: 'Cria teu perfil', body: 'Conta tua experiência e as funções que tu faz.', image: null, imageAlt: 'Tela de perfil do freelancer' },
-        { title: 'Acha a vaga certa', body: 'Filtra por valor, distância e data, e te candidata.', image: null, imageAlt: 'Tela de busca de vagas' },
-        { title: 'Trabalha, fatura e ganha reputação', body: 'Combina tudo na vaga, faz o turno, recebe o valor combinado e ganha tua avaliação.', image: null, imageAlt: 'Tela de detalhe da vaga' },
+        { title: 'Cria teu perfil', body: 'Conta tua experiência e as funções que tu faz.', image: '/media/screen-freelancer-1.webp', imageAlt: 'Tela de cadastro do freelancer com nome, CPF, data de nascimento e contato' },
+        { title: 'Acha a vaga certa', body: 'Filtra por valor, distância e data, e te candidata.', image: '/media/screen-freelancer-2.webp', imageAlt: 'Tela de vagas com o Niko Sushi Club em destaque e listas de mais recentes e mais próximas' },
+        { title: 'Trabalha, fatura e ganha reputação', body: 'Combina tudo na vaga, faz o turno, recebe o valor combinado e ganha tua avaliação.', image: '/media/screen-freelancer-3.webp', imageAlt: 'Tela de atividade com candidatas enviadas, mensagem da empresa e vaga confirmada' },
       ],
     },
     trust: {
@@ -99,7 +101,8 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     label: 'Empresa',
     hero: {
       eyebrow: 'Freela onTap para empresas',
-      badge: 'Gratuito durante o lançamento',
+      badge: null,
+      perk: 'Gratuito durante o lançamento',
       headline: ['Faltou gente no turno?', 'O Freela\u00a0onTap te ajuda!'],
       sub: 'Freelancers de atendimento, bar e cozinha bem avaliados, em Porto Alegre e região.',
       cta: 'Reservar acesso pro meu negócio',
@@ -121,9 +124,9 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     steps: {
       title: 'Do turno vago ao turno coberto.',
       items: [
-        { title: 'Cadastra teu negócio', body: 'Informações sobre a empresa, segmento e detalhes que importam.', image: null, imageAlt: 'Tela de cadastro da empresa' },
-        { title: 'Publica a vaga', body: 'Função, data, horário, valor do turno e requisitos para a vaga.', image: null, imageAlt: 'Tela de publicação de vaga' },
-        { title: 'Escolhe quem vai', body: 'Vê os candidatos com avaliações e histórico e confirma.', image: null, imageAlt: 'Tela de candidatos da vaga' },
+        { title: 'Cadastra teu negócio', body: 'Informações sobre a empresa, segmento e detalhes que importam.', image: '/media/screen-business-1.webp', imageAlt: 'Tela de cadastro da empresa com endereço do Niko Sushi Club' },
+        { title: 'Publica a vaga', body: 'Função, data, horário, valor do turno e requisitos para a vaga.', image: '/media/screen-business-2.webp', imageAlt: 'Tela de criação de vaga de atendimento com data, horário, jornada e valor' },
+        { title: 'Escolhe quem vai', body: 'Vê os candidatos com avaliações e histórico e confirma.', image: '/media/screen-business-3.webp', imageAlt: 'Tela de detalhes da vaga com a freelancer interessada, avaliação e botão de contratar' },
       ],
     },
     trust: {

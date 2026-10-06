@@ -8,10 +8,12 @@ export function PrimaryActions({
   audience,
   phoneOS,
   centered = false,
+  showPerk = false,
 }: {
   audience: Audience
   phoneOS: PhoneOS
   centered?: boolean
+  showPerk?: boolean
 }) {
   const align = centered ? 'justify-center' : ''
 
@@ -25,6 +27,14 @@ export function PrimaryActions({
           <a href={APP_STORE_LINKS.business} className="link-more">
             Baixar o Freela onTap: Empresa
           </a>
+        )}
+        {showPerk && CONTENT.business.hero.perk && (
+          <p className="inline-flex min-h-11 items-center text-base font-medium" style={{ color: 'var(--color-text-primary)' }}>
+            <span aria-hidden="true" style={{ color: 'var(--accent)' }}>
+              ✓&nbsp;
+            </span>
+            {CONTENT.business.hero.perk}
+          </p>
         )}
       </div>
     )
