@@ -16,6 +16,16 @@ const FAQ = [
     answer: 'O lançamento é focado em Porto Alegre/RS. Expandir pra outras cidades é uma decisão futura do squad.',
   },
   {
+    question: 'Como denuncio um usuário ou um conteúdo ofensivo?',
+    answer:
+      'No aplicativo, abra o perfil ou a conversa e escolha Denunciar. Você também pode escrever pro e-mail de suporte. Analisamos cada denúncia em até 24 horas e removemos o que violar os Termos de Uso.',
+  },
+  {
+    question: 'Como bloqueio um usuário?',
+    answer:
+      'No aplicativo, abra o perfil ou a conversa e escolha Bloquear. Quem você bloqueia não consegue te enviar mensagens nem interagir com você, e você desbloqueia quando quiser nos Ajustes.',
+  },
+  {
     question: 'Como reporto um problema ou bug?',
     answer: 'Escreva pra gente pelo e-mail de suporte descrevendo o que aconteceu — print ajuda bastante.',
   },
