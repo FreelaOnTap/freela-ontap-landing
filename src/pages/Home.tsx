@@ -4,6 +4,7 @@ import { AudienceSwitch } from '../components/AudienceSwitch.tsx'
 import { HowItWorks } from '../components/HowItWorks.tsx'
 import { InterestForm } from '../components/InterestForm.tsx'
 import { MascotImage } from '../components/MascotImage.tsx'
+import { PartnerCompanies } from '../components/PartnerCompanies.tsx'
 import { PrimaryActions } from '../components/PrimaryActions.tsx'
 import { DOWNLOAD_IS_OPEN } from '../config.ts'
 import { CITIES, CONTENT, LAUNCH_EVENT } from '../content.ts'
@@ -125,6 +126,8 @@ export function Home() {
           ))}
         </div>
       </section>
+
+      <PartnerCompanies audience={audience} />
 
       <section style={{ background: 'var(--brand)', color: 'var(--on-brand)' }}>
         <div className="section-shell text-center">

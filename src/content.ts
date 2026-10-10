@@ -35,6 +35,25 @@ type AudienceContent = {
   closing: string
 }
 
+export type PartnerCompany = { name: string; kind: string; neighborhood: string; logo: string; logoBackground: string }
+
+export const PARTNER_COMPANIES: PartnerCompany[] = [
+  { name: 'Niko Sushi Club', kind: 'Restaurante japonês', neighborhood: 'Moinhos de Vento', logo: '/media/partners/niko-sushi-club.webp', logoBackground: '#fffde8' },
+  { name: 'Niko Bā', kind: 'Bar japonês', neighborhood: 'Bom Fim', logo: '/media/partners/niko-ba.webp', logoBackground: '#f6f7ea' },
+  { name: 'Basta', kind: 'Restaurante italiano', neighborhood: 'Bom Fim', logo: '/media/partners/basta.webp', logoBackground: '#4e5921' },
+  { name: 'Tú Bar', kind: 'Bar', neighborhood: 'Santa Cecília', logo: '/media/partners/tu-bar.webp', logoBackground: '#fcf3a4' },
+  { name: 'Moa Cafeteria', kind: 'Cafeteria', neighborhood: 'Centro Histórico', logo: '/media/partners/moa-cafeteria.webp', logoBackground: '#ffffff' },
+  { name: 'Ouro Pães', kind: 'Padaria artesanal', neighborhood: 'Bom Fim', logo: '/media/partners/ouro-paes.webp', logoBackground: '#000000' },
+  { name: 'Paraíso Bowls', kind: 'Bowls', neighborhood: 'Moinhos de Vento', logo: '/media/partners/paraiso-bowls.webp', logoBackground: '#ffffff' },
+]
+
+export const PARTNER_COMPANIES_COPY = {
+  eyebrow: 'Empresas parceiras',
+  title: 'As primeiras empresas de Porto Alegre já estão aqui.',
+  sub: 'Bares, restaurantes e cafés que entram antes de todo mundo para montar a rede de freelas da hospitalidade da cidade.',
+  support: 'Cada empresa publica vagas reais, com valor, horário e local à vista. Gratuito durante o lançamento.',
+}
+
 export const LAUNCH_EVENT = 'Lançamento em 22 de outubro, no Tecnopuc Experience 2026, dentro do Showcase da Apple Developer Academy.'
 
 export const CONTENT: Record<Audience, AudienceContent> = {
@@ -42,7 +61,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     label: 'Freelancer',
     hero: {
       eyebrow: 'Freela onTap para freelancers',
-      badge: 'Chega no iPhone dia 23 de outubro',
+      badge: null,
       perk: null,
       headline: ['Freela em bar, restaurante e café, num lugar só.'],
       sub: 'Vagas em Porto Alegre e região, tudo claro antes de te candidatar.',

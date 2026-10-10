@@ -185,6 +185,14 @@ h3 {
     }
   }
 
+  .partner-rail {
+    scrollbar-width: none;
+  }
+
+  .partner-rail::-webkit-scrollbar {
+    display: none;
+  }
+
   .cities {
     container-type: inline-size;
     font-size: clamp(0.75rem, 3.4cqw, 2.25rem);
