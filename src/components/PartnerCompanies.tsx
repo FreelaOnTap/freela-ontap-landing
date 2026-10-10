@@ -20,7 +20,7 @@ export function PartnerCompanies({ audience }: { audience: Audience }) {
       </div>
       <div className="mt-12 flex justify-center">
         <div
-          className="partner-rail max-w-full snap-x snap-mandatory overflow-x-auto scroll-px-4 px-4 sm:scroll-px-6 sm:px-6"
+          className="rail max-w-full snap-x snap-mandatory overflow-x-auto scroll-px-4 px-4 sm:scroll-px-6 sm:px-6"
           role="region"
           aria-label="Empresas parceiras"
           tabIndex={0}
