@@ -4,6 +4,7 @@ import { AudienceSwitch } from '../components/AudienceSwitch.tsx'
 import { HowItWorks } from '../components/HowItWorks.tsx'
 import { InterestForm } from '../components/InterestForm.tsx'
 import { MascotImage } from '../components/MascotImage.tsx'
+import { PartnerCompanies } from '../components/PartnerCompanies.tsx'
 import { PrimaryActions } from '../components/PrimaryActions.tsx'
 import { DOWNLOAD_IS_OPEN } from '../config.ts'
 import { CITIES, CONTENT, LAUNCH_EVENT } from '../content.ts'
@@ -82,23 +83,27 @@ export function Home() {
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <h2 className="headline max-w-3xl reveal">{content.highlights.title}</h2>
         </div>
-        <div
-          className="rail mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto"
-          role="region"
-          aria-label="Destaques"
-          tabIndex={0}
-        >
-          {content.highlights.items.map((item) => (
-            <article
-              key={item.title}
-              className="tile flex w-[78vw] max-w-[320px] shrink-0 snap-start flex-col sm:w-[300px]"
-            >
-              <h3 className="text-2xl font-semibold">{item.title}</h3>
-              <p className="mt-3 text-lg" style={{ color: 'var(--color-text-secondary)' }}>
-                {item.body}
-              </p>
-            </article>
-          ))}
+        <div className="mt-10 flex justify-center">
+          <div
+            className="rail max-w-full snap-x snap-mandatory overflow-x-auto scroll-px-4 px-4 sm:scroll-px-6 sm:px-6"
+            role="region"
+            aria-label="Destaques"
+            tabIndex={0}
+          >
+            <div className="flex w-max gap-4">
+              {content.highlights.items.map((item) => (
+                <article
+                  key={item.title}
+                  className="tile flex w-[78vw] max-w-[320px] shrink-0 snap-start flex-col sm:w-[300px]"
+                >
+                  <h3 className="text-2xl font-semibold">{item.title}</h3>
+                  <p className="mt-3 text-lg" style={{ color: 'var(--color-text-secondary)' }}>
+                    {item.body}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -125,6 +130,8 @@ export function Home() {
           ))}
         </div>
       </section>
+
+      <PartnerCompanies audience={audience} />
 
       <section style={{ background: 'var(--brand)', color: 'var(--on-brand)' }}>
         <div className="section-shell text-center">
