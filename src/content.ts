@@ -88,7 +88,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       items: [
         { title: 'Cria teu perfil', body: 'Conta tua experiência e as funções que tu faz.', image: '/media/screen-freelancer-1.webp', imageAlt: 'Tela de cadastro do freelancer com nome, CPF, data de nascimento e contato', video: { src: '/media/screen-freelancer-1.mp4', poster: '/media/screen-freelancer-1-start.webp' } },
         { title: 'Acha a vaga certa', body: 'Navega pelas vagas das empresas parceiras, abre os detalhes e te candidata.', image: '/media/screen-freelancer-2.webp', imageAlt: 'Tela de vagas das empresas parceiras: o freelancer desliza pelas mais recentes, abre os detalhes do Atendente no Niko Sushi Club e se candidata', video: { src: '/media/screen-freelancer-2.mp4', poster: '/media/screen-freelancer-2.webp' }, note: 'Vagas e valores de exemplo.' },
-        { title: 'Trabalha, fatura e ganha reputação', body: 'Combina tudo na vaga, faz o turno, recebe o valor combinado e ganha tua avaliação.', image: '/media/screen-freelancer-3.webp', imageAlt: 'Tela de atividade com candidatas enviadas, mensagem da empresa e vaga confirmada' },
+        { title: 'Trabalha e ganha reputação', body: 'Combina tudo pelo chat, faz o turno e recebe a avaliação da empresa.', image: '/media/screen-freelancer-3.webp', imageAlt: 'Tela de atividade: conversa com o Niko Sushi Club, conclusão do turno, avaliação da empresa e a avaliação recebida', video: { src: '/media/screen-freelancer-3.mp4', poster: '/media/screen-freelancer-3-start.webp' }, note: 'Conversas e avaliações de exemplo.' },
       ],
     },
     trust: {

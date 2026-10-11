@@ -44,7 +44,7 @@ function ScreenVideo({ video, alt, playing }: { video: StepVideo; alt: string; p
       muted
       loop
       playsInline
-      preload="auto"
+      preload="metadata"
       role="img"
       aria-label={alt}
     />
