@@ -52,6 +52,7 @@ export function HowItWorks({ audience, title, steps }: { audience: Audience; tit
                 <p className="lede mt-3">{step.body}</p>
                 <div className="mt-8 lg:hidden">
                   <PhoneFrame audience={audience} screens={[screens[i]]} />
+                  {step.note && <p className="mt-4 text-center text-xs" style={{ color: 'var(--color-text-tertiary)' }}>{step.note}</p>}
                 </div>
               </li>
             ))}
@@ -60,6 +61,7 @@ export function HowItWorks({ audience, title, steps }: { audience: Audience; tit
           <div className="hidden lg:block">
             <div className="sticky top-28">
               <PhoneFrame audience={audience} screens={screens} active={active} />
+              <p className="mt-4 min-h-4 text-center text-xs" style={{ color: 'var(--color-text-tertiary)' }}>{steps[active]?.note ?? ''}</p>
             </div>
           </div>
         </div>
