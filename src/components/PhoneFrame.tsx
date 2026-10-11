@@ -1,3 +1,6 @@
+import { useEffect, useRef, useState } from 'react'
+import type { StepVideo } from '../content.ts'
+import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion.ts'
 import type { Audience } from '../hooks/useAudience.ts'
 
 const BEZEL: Record<Audience, string> = {
@@ -5,7 +8,48 @@ const BEZEL: Record<Audience, string> = {
   business: '/media/iphone-bezel-business.webp',
 }
 
-export type PhoneScreen = { src: string | null; alt: string; placeholder: string }
+export type PhoneScreen = { src: string | null; video?: StepVideo | null; alt: string; placeholder: string }
+
+function ScreenVideo({ video, alt, playing }: { video: StepVideo; alt: string; playing: boolean }) {
+  const ref = useRef<HTMLVideoElement>(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const element = ref.current
+    if (!element) return
+    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { threshold: 0.4 })
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [])
+
+  const shouldPlay = playing && visible
+
+  useEffect(() => {
+    const element = ref.current
+    if (!element) return
+    if (shouldPlay) {
+      element.currentTime = 0
+      void element.play().catch(() => {})
+    } else {
+      element.pause()
+    }
+  }, [shouldPlay])
+
+  return (
+    <video
+      ref={ref}
+      className="h-full w-full object-cover"
+      src={video.src}
+      poster={video.poster}
+      muted
+      loop
+      playsInline
+      preload="auto"
+      role="img"
+      aria-label={alt}
+    />
+  )
+}
 
 export function PhoneFrame({
   audience,
@@ -16,6 +60,8 @@ export function PhoneFrame({
   screens: PhoneScreen[]
   active?: number
 }) {
+  const reducedMotion = usePrefersReducedMotion()
+
   return (
     <div
       className="relative mx-auto aspect-[450/920] w-full max-w-[280px]"
@@ -27,7 +73,9 @@ export function PhoneFrame({
       >
         {screens.map((screen, i) => (
           <div key={screen.placeholder} className="screen-layer absolute inset-0" data-active={i === active} aria-hidden={i !== active}>
-            {screen.src ? (
+            {screen.video && !reducedMotion ? (
+              <ScreenVideo video={screen.video} alt={screen.alt} playing={i === active} />
+            ) : screen.src ? (
               <img src={screen.src} alt={i === active ? screen.alt : ''} className="h-full w-full object-cover" />
             ) : (
               <div className="flex h-full flex-col items-center justify-center gap-2 p-6 text-center" aria-hidden="true">
