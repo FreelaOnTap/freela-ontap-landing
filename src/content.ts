@@ -16,7 +16,7 @@ export const HIRING_FREQUENCIES = ['Toda semana', 'Algumas vezes por mês', 'Só
 
 export type StepVideo = { src: string; poster: string }
 
-export type Step = { title: string; body: string; image: string | null; imageAlt: string; video?: StepVideo }
+export type Step = { title: string; body: string; image: string | null; imageAlt: string; video?: StepVideo; note?: string }
 
 type AudienceContent = {
   label: string
@@ -87,7 +87,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       title: 'Do perfil ao turno em três passos.',
       items: [
         { title: 'Cria teu perfil', body: 'Conta tua experiência e as funções que tu faz.', image: '/media/screen-freelancer-1.webp', imageAlt: 'Tela de cadastro do freelancer com nome, CPF, data de nascimento e contato', video: { src: '/media/screen-freelancer-1.mp4', poster: '/media/screen-freelancer-1-start.webp' } },
-        { title: 'Acha a vaga certa', body: 'Filtra por valor, distância e data, e te candidata.', image: '/media/screen-freelancer-2.webp', imageAlt: 'Tela de vagas com o Niko Sushi Club em destaque e listas de mais recentes e mais próximas' },
+        { title: 'Acha a vaga certa', body: 'Navega pelas vagas das empresas parceiras, abre os detalhes e te candidata.', image: '/media/screen-freelancer-2.webp', imageAlt: 'Tela de vagas das empresas parceiras: o freelancer desliza pelas mais recentes, abre os detalhes do Atendente no Niko Sushi Club e se candidata', video: { src: '/media/screen-freelancer-2.mp4', poster: '/media/screen-freelancer-2.webp' }, note: 'Vagas e valores de exemplo.' },
         { title: 'Trabalha, fatura e ganha reputação', body: 'Combina tudo na vaga, faz o turno, recebe o valor combinado e ganha tua avaliação.', image: '/media/screen-freelancer-3.webp', imageAlt: 'Tela de atividade com candidatas enviadas, mensagem da empresa e vaga confirmada' },
       ],
     },
