@@ -14,7 +14,9 @@ export const BUSINESS_TYPES = ['Restaurante', 'Bar', 'Cafeteria', 'Casa noturna'
 
 export const HIRING_FREQUENCIES = ['Toda semana', 'Algumas vezes por mês', 'Só em datas de pico']
 
-export type Step = { title: string; body: string; image: string | null; imageAlt: string }
+export type StepVideo = { src: string; poster: string }
+
+export type Step = { title: string; body: string; image: string | null; imageAlt: string; video?: StepVideo }
 
 type AudienceContent = {
   label: string
@@ -84,7 +86,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     steps: {
       title: 'Do perfil ao turno em três passos.',
       items: [
-        { title: 'Cria teu perfil', body: 'Conta tua experiência e as funções que tu faz.', image: '/media/screen-freelancer-1.webp', imageAlt: 'Tela de cadastro do freelancer com nome, CPF, data de nascimento e contato' },
+        { title: 'Cria teu perfil', body: 'Conta tua experiência e as funções que tu faz.', image: '/media/screen-freelancer-1.webp', imageAlt: 'Tela de cadastro do freelancer com nome, CPF, data de nascimento e contato', video: { src: '/media/screen-freelancer-1.mp4', poster: '/media/screen-freelancer-1-start.webp' } },
         { title: 'Acha a vaga certa', body: 'Filtra por valor, distância e data, e te candidata.', image: '/media/screen-freelancer-2.webp', imageAlt: 'Tela de vagas com o Niko Sushi Club em destaque e listas de mais recentes e mais próximas' },
         { title: 'Trabalha, fatura e ganha reputação', body: 'Combina tudo na vaga, faz o turno, recebe o valor combinado e ganha tua avaliação.', image: '/media/screen-freelancer-3.webp', imageAlt: 'Tela de atividade com candidatas enviadas, mensagem da empresa e vaga confirmada' },
       ],

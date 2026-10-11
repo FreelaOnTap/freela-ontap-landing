@@ -25,7 +25,7 @@ function useActiveStep(count: number) {
 
 export function HowItWorks({ audience, title, steps }: { audience: Audience; title: string; steps: Step[] }) {
   const [refs, active] = useActiveStep(steps.length)
-  const screens = steps.map((step, i) => ({ src: step.image, alt: step.imageAlt, placeholder: `Passo ${i + 1}` }))
+  const screens = steps.map((step, i) => ({ src: step.image, video: step.video ?? null, alt: step.imageAlt, placeholder: `Passo ${i + 1}` }))
 
   return (
     <section style={{ background: 'var(--color-surface)' }}>
