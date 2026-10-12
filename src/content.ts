@@ -65,7 +65,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       eyebrow: 'Freela onTap para freelancers',
       badge: null,
       perk: null,
-      headline: ['Freela em bar, restaurante e café, num lugar só.'],
+      headline: ['Freela em bar, restaurante e café, num lugar só.'],
       sub: 'Vagas em Porto Alegre e região, tudo claro antes de te candidatar.',
       cta: 'Me avisa no lançamento',
     },

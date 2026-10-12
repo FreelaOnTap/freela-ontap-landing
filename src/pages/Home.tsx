@@ -58,7 +58,7 @@ export function Home() {
               {content.hero.badge}
             </p>
           )}
-          <h1 className="display mt-3">
+          <h1 className="display display-hero mt-3">
             {content.hero.headline.map((line) => (
               <span key={line} className="block">
                 {line}
