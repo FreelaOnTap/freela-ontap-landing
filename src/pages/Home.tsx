@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { AudienceSwitch } from '../components/AudienceSwitch.tsx'
 import { Highlights } from '../components/Highlights.tsx'
 import { HowItWorks } from '../components/HowItWorks.tsx'
-import { InterestForm } from '../components/InterestForm.tsx'
+import { InterestSection } from '../components/InterestSection.tsx'
 import { MascotImage } from '../components/MascotImage.tsx'
 import { PartnerCompanies } from '../components/PartnerCompanies.tsx'
 import { PrimaryActions } from '../components/PrimaryActions.tsx'
@@ -133,20 +132,7 @@ export function Home() {
         </div>
       </section>
 
-      <section id="avise" className="scroll-mt-16" style={{ background: 'var(--color-surface)' }}>
-        <div className="section-shell">
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <h2 className="headline">{content.form.title}</h2>
-              <p className="lede mt-4 max-w-xl">{content.form.sub}</p>
-            </div>
-            <AudienceSwitch label="Cadastro para" />
-          </div>
-          <div className="mt-10">
-            <InterestForm key={audience} audience={audience} phoneOS={phoneOS} />
-          </div>
-        </div>
-      </section>
+      <InterestSection key={audience} audience={audience} phoneOS={phoneOS} />
 
       <section className="section-shell">
         <h2 className="headline">Perguntas frequentes</h2>
