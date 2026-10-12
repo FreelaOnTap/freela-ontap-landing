@@ -8,6 +8,7 @@ import { PrimaryActions } from '../components/PrimaryActions.tsx'
 import { DOWNLOAD_IS_OPEN } from '../config.ts'
 import { CITIES, CONTENT, LAUNCH_EVENT } from '../content.ts'
 import { useAudience } from '../hooks/useAudience.ts'
+import { useDocumentMeta } from '../hooks/useDocumentMeta.ts'
 import { useMediaQuery } from '../hooks/useMediaQuery.ts'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion.ts'
 import { detectPhoneOS, prefersSavingData } from '../lib/device.ts'
@@ -44,6 +45,7 @@ function HeroMedia() {
 export function Home() {
   useScrollToHash()
   const audience = useAudience()
+  useDocumentMeta(audience)
   const [phoneOS] = useState(detectPhoneOS)
   const content = CONTENT[audience]
 

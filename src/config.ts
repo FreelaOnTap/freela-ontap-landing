@@ -1,5 +1,7 @@
 export const SUPPORT_EMAIL = 'freelaontap@gmail.com'
 
+export const SITE_URL = 'https://www.freelaontap.com.br'
+
 export const APP_STORE_LINKS = {
   // TODO(US036): replace null with the App Store URLs once App Review approves the apps — the
   // store buttons and /vaga/:id both read this, and stay inert while it is null.
