@@ -1,5 +1,7 @@
 import { PARTNER_COMPANIES, PARTNER_COMPANIES_COPY } from '../content.ts'
 import type { Audience } from '../hooks/useAudience.ts'
+import { useRail } from '../hooks/useRail.ts'
+import { RailDots } from './RailDots.tsx'
 
 const CTA_LABEL: Record<Audience, string> = {
   freelancer: 'Me avisa no lançamento',
@@ -7,6 +9,8 @@ const CTA_LABEL: Record<Audience, string> = {
 }
 
 export function PartnerCompanies({ audience }: { audience: Audience }) {
+  const { ref, index, count, scrollable } = useRail<HTMLDivElement>()
+
   return (
     <section aria-labelledby="empresas-parceiras">
       <div className="mx-auto w-full max-w-5xl px-4 pt-20 text-center sm:px-6 sm:pt-28">
@@ -16,18 +20,19 @@ export function PartnerCompanies({ audience }: { audience: Audience }) {
         </h2>
         <p className="lede mx-auto mt-6 max-w-2xl reveal">{PARTNER_COMPANIES_COPY.sub}</p>
       </div>
-      <div className="mt-12 flex justify-center">
+      <div className="mx-auto mt-12 max-w-5xl">
         <div
-          className="rail max-w-full snap-x snap-mandatory overflow-x-auto scroll-px-4 px-4 sm:scroll-px-6 sm:px-6"
+          ref={ref}
+          className="rail snap-x snap-mandatory overflow-x-auto scroll-px-4 px-4 sm:scroll-px-6 sm:px-6 lg:overflow-visible"
           role="region"
           aria-label="Empresas parceiras"
-          tabIndex={0}
+          tabIndex={scrollable ? 0 : undefined}
         >
-          <ul className="flex w-max gap-3 sm:gap-4">
+          <ul className="flex w-max gap-3 sm:gap-4 lg:w-full lg:flex-wrap lg:justify-center">
             {PARTNER_COMPANIES.map((company) => (
               <li
                 key={company.name}
-                className="reveal flex w-40 shrink-0 snap-start flex-col items-center gap-3 rounded-[var(--radius-xl)] p-3.5 pb-5 text-center sm:w-[232px] sm:p-5 sm:pb-6"
+                className="reveal flex w-40 shrink-0 snap-start flex-col items-center gap-3 rounded-[var(--radius-xl)] p-3.5 pb-5 text-center sm:w-[232px] sm:p-5 sm:pb-6 lg:w-[calc((100%-3rem)/4)]"
                 style={{ background: 'var(--color-surface)' }}
               >
                 <div
@@ -56,6 +61,7 @@ export function PartnerCompanies({ audience }: { audience: Audience }) {
             ))}
           </ul>
         </div>
+        <RailDots index={index} count={count} className="mt-6" />
       </div>
       <div className="mx-auto w-full max-w-5xl px-4 pb-20 text-center sm:px-6 sm:pb-28">
         <p className="lede mx-auto mt-12 max-w-2xl">{PARTNER_COMPANIES_COPY.support}</p>
