@@ -6,6 +6,7 @@ import { SUPPORT_EMAIL } from '../config.ts'
 import { useLeadSource, type Audience } from '../hooks/useAudience.ts'
 import type { PhoneOS } from '../lib/device.ts'
 import { isValidWhatsapp, submitInterestLead } from '../lib/leads.ts'
+import { whatsappShareHref } from '../lib/share.ts'
 import { caretAfterDigits, keepBusinessName, keepEmail, keepPersonName, maskPhone, phoneDigits, splitPhoneDigits } from '../lib/masks.ts'
 import { MascotImage } from './MascotImage.tsx'
 
@@ -305,6 +306,15 @@ export function InterestForm({
         <p ref={successRef} tabIndex={-1} className="max-w-md text-2xl font-semibold focus:outline-none">
           {copy.success(submittedName)}
         </p>
+        <div className="flex flex-col items-center gap-4">
+          <p className="max-w-md text-lg" style={{ color: 'var(--color-text-secondary)' }}>
+            {copy.share.hint}
+          </p>
+          <a href={whatsappShareHref(audience)} target="_blank" rel="noopener noreferrer" className="btn-primary">
+            Compartilhar no WhatsApp
+            <span className="sr-only"> (abre em uma nova aba)</span>
+          </a>
+        </div>
       </div>
     )
   }
