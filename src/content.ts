@@ -53,7 +53,7 @@ export const PARTNER_COMPANIES_COPY = {
   eyebrow: 'Empresas parceiras',
   title: 'As primeiras empresas de Porto Alegre já estão aqui.',
   sub: 'Bares, restaurantes e cafés que entram antes de todo mundo para montar a rede de freelas da hospitalidade da cidade.',
-  support: 'Cada empresa publica vagas reais, com valor, horário e local à vista. Gratuito durante o lançamento.',
+  support: 'Cada vaga publicada mostra valor, horário e local à vista. Gratuito durante o lançamento.',
 }
 
 export const LAUNCH_EVENT = 'Lançamento em 22 de outubro, no Tecnopuc Experience 2026, dentro do Showcase da Apple Developer Academy.'
@@ -77,7 +77,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       title: 'Feito pra quem está em busca de renda extra.',
       items: [
         { title: 'Filtra do teu jeito', body: 'Por valor, distância e data. Tu vê o que encaixa na tua agenda.' },
-        { title: 'Empresas com CNPJ válido', body: 'O CNPJ das empresas é conferido no cadastro e tu sabe pra quem vai trabalhar.' },
+        { title: 'Empresas com CNPJ válido', body: 'Toda empresa se cadastra com um CNPJ válido, e tu sabe pra quem vai trabalhar.' },
         { title: 'Chat dentro do Freela onTap', body: 'Combinados e históricos ficam no app, não perdidos no WhatsApp.' },
         { title: 'Tua reputação conta', body: 'Recomendações, avaliações e tags como pontualidade vão montando teu histórico.' },
         { title: 'Sem surpresa', body: 'Valor, endereço e jornada aparecem antes de tu dizer sim.' },
@@ -164,7 +164,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     faq: [
       { q: 'Quanto custa?', a: 'Durante o lançamento, o Freela onTap é gratuito pra empresas: publicar vaga, ver candidatos e contratar não tem custo.' },
       { q: 'Como eu cadastro meu negócio?', a: 'Pelo app Freela onTap: Empresa pra iPhone, com as informações da empresa, o segmento e o CNPJ. Enquanto o app não sai, deixa teus dados aqui que a gente entra em contato pra preparar teu cadastro.' },
-      { q: 'Como funciona o CNPJ?', a: 'O CNPJ é conferido na hora do cadastro: só entra quem informa um CNPJ válido. Isso ajuda tua vaga a passar confiança e atrai mais candidatos.' },
+      { q: 'Como funciona o CNPJ?', a: 'Na hora do cadastro, só entra quem informa um CNPJ válido. Isso ajuda tua vaga a passar confiança e atrai mais candidatos.' },
       { q: 'Como eu escolho o freelancer?', a: 'Tu vê cada candidato com avaliações, tags como pontual e ágil e quantos turnos já fez pelo app. Escolhe quem escala pro turno e confirma pelo app.' },
       { q: 'Posso chamar o mesmo freelancer de novo?', a: 'Pode. Quem já trabalhou no teu negócio fica no teu banco de profissionais, com o histórico, pra tu chamar de novo quando precisar.' },
       { q: 'E se o freelancer cancelar ou faltar?', a: 'Se o freelancer cancelar, o app te avisa na hora por notificação, e tu pode reabrir a vaga de novo. Cancelamentos e faltas contam nas métricas do freelancer dos últimos 3 meses: influenciam as tags dele e, se forem frequentes, aparecem no perfil. Isso ajuda tu e as outras empresas a escolherem melhor.' },
