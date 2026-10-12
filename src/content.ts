@@ -147,7 +147,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       items: [
         { title: 'Cadastra teu negócio', body: 'Informações sobre a empresa, segmento e detalhes que importam.', image: '/media/screen-business-1.webp', imageAlt: 'Tela de cadastro da empresa: o Niko Sushi Club informa nome, CNPJ, porte, tipo, endereço e uma descrição do negócio', video: { src: '/media/screen-business-1.mp4', poster: '/media/screen-business-1-start.webp' }, note: 'Dados de exemplo.' },
         { title: 'Publica a vaga', body: 'Função, data, horário, valor do turno e requisitos para a vaga.', image: '/media/screen-business-2.webp', imageAlt: 'Tela de criação de vaga: o Niko Sushi Club informa função, data, horário, jornada, valor, descrição e requisitos do turno de atendente', video: { src: '/media/screen-business-2.mp4', poster: '/media/screen-business-2-start.webp' }, note: 'Vaga e valores de exemplo.' },
-        { title: 'Escolhe quem vai', body: 'Vê os candidatos com avaliações e histórico e confirma.', image: '/media/screen-business-3.webp', imageAlt: 'Tela de detalhes da vaga com a freelancer interessada, avaliação e botão de contratar' },
+        { title: 'Escolhe quem vai', body: 'Vê os candidatos com avaliações e histórico e confirma.', image: '/media/screen-business-3.webp', imageAlt: 'Tela de detalhes da vaga: o Niko Sushi Club vê a candidata Laura com foto, nota e qualidades, abre o perfil e confirma a contratação', video: { src: '/media/screen-business-3.mp4', poster: '/media/screen-business-3-start.webp' }, note: 'Candidata e avaliações de exemplo.' },
       ],
     },
     trust: {
