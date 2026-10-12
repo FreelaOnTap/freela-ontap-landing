@@ -7,6 +7,7 @@ import { MascotImage } from '../components/MascotImage.tsx'
 import { PartnerCompanies } from '../components/PartnerCompanies.tsx'
 import { PartnerStrip } from '../components/PartnerStrip.tsx'
 import { PrimaryActions } from '../components/PrimaryActions.tsx'
+import { SectionCta } from '../components/SectionCta.tsx'
 import { DOWNLOAD_IS_OPEN } from '../config.ts'
 import { CITIES, CONTENT, LAUNCH_EVENT } from '../content.ts'
 import { useAudience } from '../hooks/useAudience.ts'
@@ -72,7 +73,7 @@ export function Home() {
             ))}
           </h1>
           <p className="lede mx-auto mt-6 max-w-2xl">{content.hero.sub}</p>
-          <div className="mt-8">
+          <div className="mt-8" data-cta-anchor="hero">
             <PrimaryActions audience={audience} phoneOS={phoneOS} centered showPerk />
           </div>
           <PartnerStrip />
@@ -88,7 +89,13 @@ export function Home() {
 
       <Highlights title={content.highlights.title} items={content.highlights.items} />
 
-      <HowItWorks key={`steps-${audience}`} audience={audience} title={content.steps.title} steps={content.steps.items} />
+      <HowItWorks
+        key={`steps-${audience}`}
+        audience={audience}
+        title={content.steps.title}
+        steps={content.steps.items}
+        footer={<SectionCta audience={audience} phoneOS={phoneOS} />}
+      />
 
       <section className="section-shell">
         <p className="eyebrow">Confiança</p>
@@ -116,6 +123,7 @@ export function Home() {
             </p>
           </div>
         </div>
+        <SectionCta audience={audience} phoneOS={phoneOS} className="mt-12" />
       </section>
 
       <PartnerCompanies audience={audience} />
@@ -162,7 +170,7 @@ export function Home() {
         <MascotImage className="h-40 w-40" />
         <p className="eyebrow mt-8">Freela onTap</p>
         <h2 className="display mt-3 max-w-4xl">{content.closing}</h2>
-        <div className="mt-10">
+        <div className="mt-10" data-cta-anchor="closing">
           <PrimaryActions audience={audience} phoneOS={phoneOS} centered />
         </div>
       </section>

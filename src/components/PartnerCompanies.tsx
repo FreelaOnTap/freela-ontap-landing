@@ -65,7 +65,7 @@ export function PartnerCompanies({ audience }: { audience: Audience }) {
       </div>
       <div className="mx-auto w-full max-w-5xl px-4 pb-20 text-center sm:px-6 sm:pb-28">
         <p className="lede mx-auto mt-12 max-w-2xl">{PARTNER_COMPANIES_COPY.support}</p>
-        <div className="mt-8">
+        <div className="mt-8" data-cta-anchor="partners">
           <a href="#avise" className="btn-primary">
             {CTA_LABEL[audience]}
           </a>

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import type { Step } from '../content.ts'
 import type { Audience } from '../hooks/useAudience.ts'
 import { useRail } from '../hooks/useRail.ts'
@@ -25,7 +25,7 @@ function useActiveStep(count: number) {
   return [refs, active] as const
 }
 
-export function HowItWorks({ audience, title, steps }: { audience: Audience; title: string; steps: Step[] }) {
+export function HowItWorks({ audience, title, steps, footer }: { audience: Audience; title: string; steps: Step[]; footer?: ReactNode }) {
   const [refs, active] = useActiveStep(steps.length)
   const { ref: railRef, index: railIndex, count: railCount, scrollable } = useRail<HTMLDivElement>('items')
   const screens = steps.map((step, i) => ({ src: step.image, video: step.video ?? null, alt: step.imageAlt, placeholder: `Passo ${i + 1}` }))
@@ -80,6 +80,7 @@ export function HowItWorks({ audience, title, steps }: { audience: Audience; tit
             </div>
           </div>
         </div>
+        {footer && <div className="mt-12">{footer}</div>}
       </div>
     </section>
   )

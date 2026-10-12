@@ -11,7 +11,7 @@ export function InterestSection({ audience, phoneOS }: { audience: Audience; pho
   const copy = CONTENT[formAudience].form
 
   return (
-    <section id="avise" className={`scope-${formAudience} scroll-mt-16`} style={{ background: 'var(--color-surface)' }}>
+    <section id="avise" data-cta-anchor="form" className={`scope-${formAudience} scroll-mt-16`} style={{ background: 'var(--color-surface)' }}>
       <div className="section-shell">
         <div className="flex flex-col-reverse gap-6 sm:flex-row sm:items-start sm:justify-between">
           <div>

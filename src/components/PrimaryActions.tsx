@@ -1,6 +1,7 @@
 import { APP_STORE_LINKS } from '../config.ts'
 import { CONTENT } from '../content.ts'
 import type { Audience } from '../hooks/useAudience.ts'
+import { ctaLabel } from '../lib/cta.ts'
 import type { PhoneOS } from '../lib/device.ts'
 import { StoreButton } from './StoreButton.tsx'
 
@@ -44,7 +45,7 @@ export function PrimaryActions({
     return (
       <div className={`flex flex-wrap items-center gap-x-6 gap-y-3 ${align}`}>
         <a href="#avise" className="btn-primary">
-          Me avisa quando chegar no Android
+          {ctaLabel('freelancer', 'android')}
         </a>
       </div>
     )
