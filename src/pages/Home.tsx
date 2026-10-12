@@ -5,6 +5,7 @@ import { HowItWorks } from '../components/HowItWorks.tsx'
 import { InterestSection } from '../components/InterestSection.tsx'
 import { MascotImage } from '../components/MascotImage.tsx'
 import { PartnerCompanies } from '../components/PartnerCompanies.tsx'
+import { PartnerStrip } from '../components/PartnerStrip.tsx'
 import { PrimaryActions } from '../components/PrimaryActions.tsx'
 import { DOWNLOAD_IS_OPEN } from '../config.ts'
 import { CITIES, CONTENT, LAUNCH_EVENT } from '../content.ts'
@@ -74,6 +75,7 @@ export function Home() {
           <div className="mt-8">
             <PrimaryActions audience={audience} phoneOS={phoneOS} centered showPerk />
           </div>
+          <PartnerStrip />
         </div>
         <HeroMedia />
       </section>
