@@ -131,6 +131,13 @@ h3 {
     @apply text-5xl font-semibold leading-[1.05] sm:text-7xl;
   }
 
+  @media (max-width: 39.999rem) {
+    .display-hero {
+      font-size: clamp(2.25rem, 10.5vw, 3rem);
+      text-wrap: balance;
+    }
+  }
+
   .headline {
     @apply text-4xl font-semibold leading-[1.08] sm:text-6xl;
   }
