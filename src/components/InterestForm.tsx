@@ -46,6 +46,14 @@ type Values = ReturnType<typeof emptyValues>
 type FieldName = keyof Values
 type Errors = Partial<Record<FieldName, string>>
 
+const SHARED_FIELDS = ['name', 'whatsapp', 'email', 'city'] as const
+type SharedField = (typeof SHARED_FIELDS)[number]
+export type SharedValues = Partial<Record<SharedField, string>>
+
+function isSharedField(field: FieldName): field is SharedField {
+  return (SHARED_FIELDS as readonly string[]).includes(field)
+}
+
 const FIELD_ORDER: Record<Audience, FieldName[]> = {
   business: ['businessName', 'businessType', 'name', 'contactRole', 'whatsapp', 'email', 'city', 'neighborhood', 'hiringFrequency', 'consented'],
   freelancer: ['name', 'whatsapp', 'email', 'city', 'role', 'phoneOS', 'consented'],
@@ -145,9 +153,19 @@ function SelectChevron() {
   )
 }
 
-export function InterestForm({ audience, phoneOS }: { audience: Audience; phoneOS: PhoneOS }) {
+export function InterestForm({
+  audience,
+  phoneOS,
+  shared,
+  onShare,
+}: {
+  audience: Audience
+  phoneOS: PhoneOS
+  shared?: SharedValues
+  onShare?: (field: SharedField, value: string) => void
+}) {
   const source = useLeadSource()
-  const [values, setValues] = useState<Values>(() => emptyValues(phoneOS))
+  const [values, setValues] = useState<Values>(() => ({ ...emptyValues(phoneOS), ...shared }))
   const [errors, setErrors] = useState<Errors>({})
   const [status, setStatus] = useState<Status>('idle')
   const [submittedName, setSubmittedName] = useState('')
@@ -162,6 +180,7 @@ export function InterestForm({ audience, phoneOS }: { audience: Audience; phoneO
 
   function update(field: FieldName, value: string, validateNow = false) {
     setValues((current) => ({ ...current, [field]: value }))
+    if (isSharedField(field)) onShare?.(field, value)
     if (validateNow || errors[field]) {
       setErrors((current) => ({ ...current, [field]: fieldError(field, { ...values, [field]: value }) }))
     }
