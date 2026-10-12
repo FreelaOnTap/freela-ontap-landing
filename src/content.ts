@@ -31,7 +31,7 @@ type AudienceContent = {
   problem: { title: string; body: string }
   highlights: { title: string; items: { title: string; body: string }[] }
   steps: { title: string; items: Step[] }
-  trust: { theySee: { title: string; items: string[] }; youSee: { title: string; items: string[] } }
+  trust: { theySee: { title: string; items: string[] }; youSee: { title: string; items: string[] }; payment: { title: string; body: string } }
   form: { title: string; sub: string; submit: string; reassurance: string | null; success: (name: string) => string }
   faq: { q: string; a: string }[]
   closing: string
@@ -77,8 +77,6 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       title: 'Feito pra quem está em busca de renda extra.',
       items: [
         { title: 'Filtra do teu jeito', body: 'Por valor, distância e data. Tu vê o que encaixa na tua agenda.' },
-        { title: 'Empresas com CNPJ válido', body: 'Toda empresa se cadastra com um CNPJ válido, e tu sabe pra quem vai trabalhar.' },
-        { title: 'Chat dentro do Freela onTap', body: 'Combinados e históricos ficam no app, não perdidos no WhatsApp.' },
         { title: 'Tua reputação conta', body: 'Recomendações, avaliações e tags como pontualidade vão montando teu histórico.' },
         { title: 'Sem surpresa', body: 'Valor, endereço e jornada aparecem antes de tu dizer sim.' },
       ],
@@ -94,6 +92,10 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     trust: {
       theySee: { title: 'O que a empresa vê de ti', items: ['Recomendações e avaliações dos turnos anteriores', 'Tags como pontual, ágil e colaborativo', 'Quantos turnos tu já fez pelo app'] },
       youSee: { title: 'O que tu vê da empresa', items: ['Empresa com CNPJ válido', 'Conversa e combinados registrados na vaga', 'Valor do turno combinado na vaga, antes de tu aceitar'] },
+      payment: {
+        title: 'Como tu recebe pelo turno',
+        body: 'O pagamento é feito direto entre tu e a empresa, fora do app. O valor aparece na vaga antes de tu te candidatar, e a forma e o momento tu combina pelo chat, que fica tudo registrado.',
+      },
     },
     form: {
       title: 'Quer ser dos primeiros?',
@@ -138,8 +140,6 @@ export const CONTENT: Record<Audience, AudienceContent> = {
         { title: 'Publica vaga em poucos passos', body: 'Função, data, horário e valor do turno, direto no app.' },
         { title: 'Profissionais avaliados', body: 'Recomendações, avaliações e tags como pontual e ágil mostram quem já trabalhou bem.' },
         { title: 'Teu banco de profissionais', body: 'Os freelancers que já trabalharam no teu negócio, com histórico, num lugar só.' },
-        { title: 'Conversa centralizada', body: 'Combinados e histórico ficam no chat da vaga, longe das várias mensagens dos grupos.' },
-        { title: 'CNPJ válido', body: 'Com o CNPJ válido no cadastro, tua vaga passa confiança e atrai os melhores talentos.' },
       ],
     },
     steps: {
@@ -153,6 +153,10 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     trust: {
       theySee: { title: 'O que tu vê do freelancer', items: ['Recomendações e avaliações dos turnos anteriores', 'Tags como pontual, ágil e colaborativo', 'Quantos turnos já fez pelo app'] },
       youSee: { title: 'O que o freelancer vê do teu negócio', items: ['Empresa com CNPJ válido', 'Conversa e combinados registrados na vaga', 'Valor do turno combinado na vaga, antes do freelancer aceitar'] },
+      payment: {
+        title: 'Como tu paga o freelancer',
+        body: 'Direto entre o teu negócio e o freelancer, fora do app. O valor do turno fica claro na vaga desde o início, e os combinados ficam registrados no chat.',
+      },
     },
     form: {
       title: 'Quer teu negócio entre os primeiros?',

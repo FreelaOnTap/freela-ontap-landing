@@ -128,6 +128,12 @@ export function Home() {
               </ul>
             </div>
           ))}
+          <div className="tile reveal sm:col-span-2" style={{ background: 'var(--color-surface)' }}>
+            <h3 className="text-2xl font-semibold">{content.trust.payment.title}</h3>
+            <p className="mt-4 max-w-3xl text-lg" style={{ color: 'var(--color-text-secondary)' }}>
+              {content.trust.payment.body}
+            </p>
+          </div>
         </div>
       </section>
 
