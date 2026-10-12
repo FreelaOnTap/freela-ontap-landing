@@ -56,6 +56,25 @@ export const PARTNER_COMPANIES_COPY = {
   support: 'Cada vaga publicada mostra valor, horário e local à vista. Gratuito durante o lançamento.',
 }
 
+export const PAGE_META: Record<Audience, { title: string; description: string; shareTitle: string; shareDescription: string; path: string }> = {
+  freelancer: {
+    title: 'Freela onTap — freelas em bares, restaurantes e cafés de Porto Alegre e região',
+    description:
+      'Freela onTap conecta freelancers a bares, restaurantes, cafeterias e casas noturnas de Porto Alegre e região. Lançamento em 22 de outubro de 2026.',
+    shareTitle: 'Freela onTap',
+    shareDescription: 'Freela em bar, restaurante e café, num lugar só. Vagas em Porto Alegre e região, tudo claro antes de te candidatar.',
+    path: '/',
+  },
+  business: {
+    title: 'Freela onTap para empresas — cubra turnos com freelancers avaliados',
+    description:
+      'Faltou gente no turno? O Freela onTap ajuda bares, restaurantes e cafeterias de Porto Alegre e região a cobrir turnos com freelancers bem avaliados. Gratuito durante o lançamento.',
+    shareTitle: 'Freela onTap para empresas',
+    shareDescription: 'Faltou gente no turno? Freelancers de atendimento, bar e cozinha bem avaliados, em Porto Alegre e região.',
+    path: '/?para=empresa',
+  },
+}
+
 export const LAUNCH_EVENT = 'Lançamento em 22 de outubro, no Tecnopuc Experience 2026, dentro do Showcase da Apple Developer Academy.'
 
 export const CONTENT: Record<Audience, AudienceContent> = {
