@@ -111,7 +111,7 @@ export function Home() {
         </div>
       </section>
 
-      <HowItWorks key={audience} audience={audience} title={content.steps.title} steps={content.steps.items} />
+      <HowItWorks key={`steps-${audience}`} audience={audience} title={content.steps.title} steps={content.steps.items} />
 
       <section className="section-shell">
         <p className="eyebrow">Confiança</p>
@@ -162,7 +162,7 @@ export function Home() {
         </div>
       </section>
 
-      <InterestSection key={audience} audience={audience} phoneOS={phoneOS} />
+      <InterestSection key={`signup-${audience}`} audience={audience} phoneOS={phoneOS} />
 
       <section className="section-shell">
         <h2 className="headline">Perguntas frequentes</h2>
