@@ -10,9 +10,7 @@ export function PartnerCompanies({ audience }: { audience: Audience }) {
   return (
     <section aria-labelledby="empresas-parceiras">
       <div className="mx-auto w-full max-w-5xl px-4 pt-20 text-center sm:px-6 sm:pt-28">
-        <p className="eyebrow" style={{ color: 'var(--accent)' }}>
-          {PARTNER_COMPANIES_COPY.eyebrow}
-        </p>
+        <p className="eyebrow">{PARTNER_COMPANIES_COPY.eyebrow}</p>
         <h2 id="empresas-parceiras" className="headline mx-auto mt-2 max-w-4xl reveal">
           {PARTNER_COMPANIES_COPY.title}
         </h2>

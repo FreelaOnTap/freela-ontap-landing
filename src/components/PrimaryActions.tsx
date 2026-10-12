@@ -30,7 +30,7 @@ export function PrimaryActions({
         )}
         {showPerk && CONTENT.business.hero.perk && (
           <p className="inline-flex min-h-11 items-center text-base font-medium" style={{ color: 'var(--color-text-primary)' }}>
-            <span aria-hidden="true" style={{ color: 'var(--accent)' }}>
+            <span aria-hidden="true" style={{ color: 'var(--color-text-secondary)' }}>
               ✓&nbsp;
             </span>
             {CONTENT.business.hero.perk}

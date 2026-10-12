@@ -119,7 +119,7 @@ export function Home() {
               <ul className="mt-6 flex flex-col gap-4">
                 {column.items.map((item) => (
                   <li key={item} className="flex gap-3 text-lg" style={{ color: 'var(--color-text-secondary)' }}>
-                    <span aria-hidden="true" className="font-semibold" style={{ color: 'var(--accent)' }}>
+                    <span aria-hidden="true" className="font-semibold" style={{ color: 'var(--color-text-primary)' }}>
                       ✓
                     </span>
                     {item}
