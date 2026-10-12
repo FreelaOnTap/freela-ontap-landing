@@ -185,7 +185,7 @@ h3 {
 
   .cities {
     container-type: inline-size;
-    font-size: clamp(0.75rem, 3.4cqw, 2.25rem);
+    font-size: clamp(0.75rem, 3.4cqw, 1.5rem);
     column-gap: 1.2em;
   }
 

@@ -115,19 +115,19 @@ export function Home() {
       <PartnerCompanies audience={audience} />
 
       <section style={{ background: 'var(--brand)', color: 'var(--on-brand)' }}>
-        <div className="section-shell text-center">
+        <div className="mx-auto w-full max-w-5xl px-4 py-14 text-center sm:px-6 sm:py-20">
           <p className="text-base font-semibold sm:text-lg" style={{ color: 'var(--on-brand-secondary)' }}>
             Porto Alegre e região
           </p>
-          <h2 className="display mt-3">Começamos por aqui.</h2>
-          <ul className="cities mx-auto mt-10 flex max-w-5xl flex-nowrap justify-center font-semibold">
+          <h2 className="headline mt-2">Começamos por aqui.</h2>
+          <ul className="cities mx-auto mt-6 flex max-w-5xl flex-nowrap justify-center font-semibold">
             {CITIES.map((city) => (
               <li key={city} className="whitespace-nowrap">
                 {city}
               </li>
             ))}
           </ul>
-          <p className="mx-auto mt-10 max-w-xl text-lg" style={{ color: 'var(--on-brand-secondary)' }}>
+          <p className="mx-auto mt-6 max-w-xl text-lg" style={{ color: 'var(--on-brand-secondary)' }}>
             {LAUNCH_EVENT}
           </p>
         </div>
