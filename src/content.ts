@@ -32,7 +32,14 @@ type AudienceContent = {
   highlights: { title: string; items: { title: string; body: string }[] }
   steps: { title: string; items: Step[] }
   trust: { theySee: { title: string; items: string[] }; youSee: { title: string; items: string[] }; payment: { title: string; body: string } }
-  form: { title: string; sub: string; submit: string; reassurance: string | null; success: (name: string) => string }
+  form: {
+    title: string
+    sub: string
+    submit: string
+    reassurance: string | null
+    success: (name: string) => string
+    share: { hint: string; message: string }
+  }
   faq: { q: string; a: string }[]
   closing: string
 }
@@ -122,6 +129,10 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       submit: 'Me avisa no lançamento',
       reassurance: 'Só te chamamos pra avisar do lançamento. Nada de spam.',
       success: (name) => `Pronto, ${name}! Tu tá na lista. A gente te avisa pelo WhatsApp.`,
+      share: {
+        hint: 'Conhece alguém que também faz freela? Manda o link.',
+        message: 'Olha esse app de freelas em bar, restaurante e café de Porto Alegre:',
+      },
     },
     faq: [
       { q: 'É de graça?', a: 'Sim! O Freela onTap é totalmente gratuito pra freelancers: tu não paga pra criar perfil, ver vagas nem te candidatar.' },
@@ -183,6 +194,10 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       submit: 'Reservar acesso',
       reassurance: null,
       success: (name) => `Recebido, ${name}! Alguém do time vai falar contigo pelo WhatsApp.`,
+      share: {
+        hint: 'Conhece outra empresa que também precisa de freela? Manda o link.',
+        message: 'Olha esse app pra cobrir turno vago com freelancer em Porto Alegre:',
+      },
     },
     faq: [
       { q: 'Quanto custa?', a: 'Durante o lançamento, o Freela onTap é gratuito pra empresas: publicar vaga, ver candidatos e contratar não tem custo.' },
