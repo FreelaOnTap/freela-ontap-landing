@@ -24,20 +24,20 @@ export function Footer() {
           </p>
         </div>
 
-        <nav aria-label="Links legais" className="flex flex-col gap-2 text-sm">
-          <Link to="/privacidade" style={{ color: 'var(--color-link)' }}>
+        <nav aria-label="Links legais" className="flex flex-col text-sm">
+          <Link to="/privacidade" className="flex min-h-11 items-center sm:min-h-8" style={{ color: 'var(--color-link)' }}>
             Política de Privacidade
           </Link>
-          <Link to="/termos" style={{ color: 'var(--color-link)' }}>
+          <Link to="/termos" className="flex min-h-11 items-center sm:min-h-8" style={{ color: 'var(--color-link)' }}>
             Termos de Uso
           </Link>
-          <Link to="/suporte" style={{ color: 'var(--color-link)' }}>
+          <Link to="/suporte" className="flex min-h-11 items-center sm:min-h-8" style={{ color: 'var(--color-link)' }}>
             Suporte
           </Link>
         </nav>
 
-        <div className="flex flex-col gap-2 text-sm">
-          <a href={`mailto:${SUPPORT_EMAIL}`} style={{ color: 'var(--color-link)' }}>
+        <div className="flex flex-col text-sm">
+          <a href={`mailto:${SUPPORT_EMAIL}`} className="flex min-h-11 items-center sm:min-h-8" style={{ color: 'var(--color-link)' }}>
             {SUPPORT_EMAIL}
           </a>
           <p style={{ color: 'var(--color-text-tertiary)' }}>© {currentYear} Freela onTap</p>
