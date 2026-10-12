@@ -8,8 +8,9 @@ import { PrimaryActions } from '../components/PrimaryActions.tsx'
 import { DOWNLOAD_IS_OPEN } from '../config.ts'
 import { CITIES, CONTENT, LAUNCH_EVENT } from '../content.ts'
 import { useAudience } from '../hooks/useAudience.ts'
+import { useMediaQuery } from '../hooks/useMediaQuery.ts'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion.ts'
-import { detectPhoneOS } from '../lib/device.ts'
+import { detectPhoneOS, prefersSavingData } from '../lib/device.ts'
 
 function useScrollToHash() {
   const { hash } = useLocation()
@@ -22,15 +23,17 @@ function useScrollToHash() {
 
 function HeroMedia() {
   const prefersReducedMotion = usePrefersReducedMotion()
+  const isPhone = useMediaQuery('(max-width: 39.999rem)')
+  const [savingData] = useState(prefersSavingData)
 
   return (
     <div className="mx-auto mt-16 w-full max-w-5xl px-4 sm:px-6">
       <div className="aspect-[16/10] overflow-hidden rounded-[var(--radius-xl)] sm:aspect-[16/8]">
-        {prefersReducedMotion ? (
+        {prefersReducedMotion || savingData ? (
           <img src="/media/hero-poster.jpg" alt="" className="h-full w-full object-cover" />
         ) : (
-          <video className="h-full w-full object-cover" autoPlay muted loop playsInline preload="metadata" poster="/media/hero-poster.jpg" aria-hidden="true">
-            <source src="/media/hero.mp4" type="video/mp4" />
+          <video key={isPhone ? 'phone' : 'desktop'} className="h-full w-full object-cover" autoPlay muted loop playsInline preload="metadata" poster="/media/hero-poster.jpg" aria-hidden="true">
+            <source src={isPhone ? '/media/hero-mobile.mp4' : '/media/hero.mp4'} type="video/mp4" />
           </video>
         )}
       </div>
