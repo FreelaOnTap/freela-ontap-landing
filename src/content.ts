@@ -58,9 +58,12 @@ export const PARTNER_COMPANIES: PartnerCompany[] = [
 
 export const PARTNER_COMPANIES_COPY = {
   eyebrow: 'Empresas parceiras',
-  title: 'As primeiras empresas de Porto Alegre já estão aqui.',
+  title: 'As primeiras empresas de Porto Alegre já estão com a gente.',
   sub: 'Bares, restaurantes e cafés que entram antes de todo mundo para montar a rede de freelas da hospitalidade da cidade.',
-  support: 'Cada vaga publicada mostra valor, horário e local à vista. Gratuito durante o lançamento.',
+  support: {
+    freelancer: 'Cada vaga publicada mostra valor, horário e local à vista. Totalmente gratuito pra freelancers.',
+    business: 'Cada vaga publicada mostra valor, horário e local à vista. Gratuito durante o lançamento.',
+  },
 }
 
 export const PAGE_META: Record<Audience, { title: string; description: string; shareTitle: string; shareDescription: string; path: string }> = {
@@ -69,7 +72,7 @@ export const PAGE_META: Record<Audience, { title: string; description: string; s
     description:
       'Freela onTap conecta freelancers a bares, restaurantes, cafeterias e casas noturnas de Porto Alegre e região. Lançamento em 22 de outubro de 2026.',
     shareTitle: 'Freela onTap',
-    shareDescription: 'Freela em bar, restaurante e café, num lugar só. Vagas em Porto Alegre e região, tudo claro antes de te candidatar.',
+    shareDescription: 'Menos tempo caçando vaga, mais tempo trabalhando. Freelas em bar, restaurante e café de Porto Alegre e região.',
     path: '/',
   },
   business: {
@@ -77,7 +80,7 @@ export const PAGE_META: Record<Audience, { title: string; description: string; s
     description:
       'Faltou gente no turno? O Freela onTap ajuda bares, restaurantes e cafeterias de Porto Alegre e região a cobrir turnos com freelancers bem avaliados. Gratuito durante o lançamento.',
     shareTitle: 'Freela onTap para empresas',
-    shareDescription: 'Faltou gente no turno? Freelancers de atendimento, bar e cozinha bem avaliados, em Porto Alegre e região.',
+    shareDescription: 'Transforme a instabilidade em oportunidade. Cubra turnos de última hora com freelancers bem avaliados em Porto Alegre e região.',
     path: '/?para=empresa',
   },
 }
@@ -89,8 +92,8 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     label: 'Freelancer',
     hero: {
       eyebrow: 'Freela onTap para freelancers',
-      badge: null,
-      perk: null,
+      badge: 'Lançamento em 22 de outubro',
+      perk: 'Totalmente gratuito pra freelancers',
       headline: ['Menos tempo caçando vaga,', 'mais tempo trabalhando.'],
       sub: 'Vagas de bar, restaurante e café em Porto Alegre e região, num lugar só. Tudo claro antes de te candidatar.',
       cta: 'Me avisa no lançamento',
@@ -100,7 +103,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       body: 'Hoje o freela aparece no meio de um monte de mensagem, muitas vezes sem valor, sem endereço e sem saber quem tá contratando. O Freela onTap junta todas as vagas num lugar só, filtradas e organizadas do teu jeito.',
     },
     highlights: {
-      title: 'Feito pra quem está em busca de renda extra.',
+      title: 'Feito pra quem tá em busca de renda extra.',
       items: [
         { title: 'Filtra do teu jeito', body: 'Por valor, distância e data. Tu vê o que encaixa na tua agenda.' },
         { title: 'Tua reputação conta', body: 'Recomendações, avaliações e tags como pontualidade vão montando teu histórico.' },
@@ -138,13 +141,13 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       { q: 'É de graça?', a: 'Sim! O Freela onTap é totalmente gratuito pra freelancers: tu não paga pra criar perfil, ver vagas nem te candidatar.' },
       { q: 'Como eu recebo pelo turno?', a: 'O valor do turno aparece na vaga antes de tu te candidatar, e o pagamento é feito direto entre tu e a empresa, fora do app. Combina a forma e o momento do pagamento pelo chat da vaga, que fica tudo registrado.' },
       { q: 'E se a empresa não pagar ou não cumprir o combinado?', a: 'Os combinados ficam registrados no chat da vaga. Depois do turno tu avalia a empresa, e se algo deu errado tu pode denunciar a empresa direto pelo app.' },
-      { q: 'Como eu sei que a vaga é séria?', a: 'Toda empresa se cadastra com um CNPJ válido antes de publicar vaga. Tu vê quem tá contratando, o endereço, a jornada e o valor antes de dizer sim.' },
+      { q: 'Como eu sei que a vaga é séria?', a: 'Toda empresa se cadastra com um CNPJ válido antes de publicar vaga, mas esse é só o primeiro filtro. Antes de dizer sim, tu vê quem tá contratando, o endereço, a jornada e o valor.' },
       { q: 'Preciso ter experiência?', a: 'Não necessariamente. Cada vaga mostra os requisitos da empresa. Quanto mais turnos tu faz pelo app, mais avaliações e tags tu acumula, e mais fácil fica ser escolhido.' },
       { q: 'Como funciona a avaliação?', a: 'Depois de cada turno a empresa diz se te recomenda e pode marcar tags como pontual, ágil, colaborativo, comunicativo, proativo, organizado, atencioso e autônomo. Isso, junto com quantos turnos tu já fez, monta tua reputação no app.' },
       { q: 'Posso desistir depois de me candidatar?', a: 'Antes da empresa confirmar, tu retira a candidatura quando quiser. Depois de confirmado também dá pra desistir, mas avisa a empresa pelo chat da vaga o quanto antes, pra ela ter tempo de chamar outra pessoa. Desistências depois da confirmação contam nas tuas métricas dos últimos 3 meses e, se forem frequentes, aparecem no teu perfil.' },
       { q: 'Preciso ter MEI?', a: 'Não pra usar o app. A forma de contratação e de pagamento é combinada direto com a empresa.' },
-      { q: 'Quando eu posso baixar?', a: 'O lançamento é dia 22 de outubro, no Showcase da Apple Developer Academy, no Tecnopuc Experience 2026.' },
-      { q: 'Tenho Android. E agora?', a: 'O time já tá construindo a versão Android, e ela chega nos próximos meses. Deixa teu contato no formulário e marca Android, que a gente te avisa assim que sair.' },
+      { q: 'Quando eu posso baixar?', a: 'O lançamento é dia 22 de outubro, no Showcase da Apple Developer Academy, no Tecnopuc Experience 2026. Deixa teu contato aqui que a gente te avisa assim que o app estiver disponível pra baixar.' },
+      { q: 'Tenho Android. E agora?', a: 'O app é pra iPhone. A versão web, que funciona no navegador do celular e do computador, tá em desenvolvimento. Deixa teu contato no formulário e marca Android, que a gente te avisa quando ela sair.' },
       { q: 'Em quais cidades funciona?', a: 'A gente começa por Porto Alegre, Canoas, Viamão, Alvorada e Guaíba. Se tu tá em outra cidade, deixa teu contato que a gente avisa quando chegar aí.' },
       { q: 'Quais funções o app cobre?', a: 'Atendimento: atendente, caixa, cumim, garçom/garçonete, guarda-volumes, maître, recepcionista e runner. Bar: bartender/barmaid, barback, copeiro e sommelier. Cozinha: auxiliar de cozinha, chapeira(o), cozinheira(o) e confeiteira(o). Limpeza e apoio: auxiliar de limpeza, lavador de louça, estoquista e apoio geral. Outros: barista, manobrista e segurança.' },
     ],
@@ -154,10 +157,10 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     label: 'Empresa',
     hero: {
       eyebrow: 'Freela onTap para empresas',
-      badge: null,
+      badge: 'Lançamento em 22 de outubro',
       perk: 'Gratuito durante o lançamento',
-      headline: ['Transforma a instabilidade', 'em oportunidade.'],
-      sub: 'Cobre o turno vago com freelancers de atendimento, bar e cozinha bem avaliados, em Porto Alegre e região.',
+      headline: ['Transforme a instabilidade', 'em oportunidade.'],
+      sub: 'Alguém faltou ou ficou doente? Cubra o turno com freelancers de atendimento, bar e cozinha bem avaliados, em Porto Alegre e região.',
       cta: 'Reservar acesso pro meu negócio',
     },
     problem: {
@@ -175,8 +178,8 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     steps: {
       title: 'Do turno vago ao turno coberto.',
       items: [
-        { title: 'Cadastra teu negócio', body: 'Informações sobre a empresa, segmento e detalhes que importam.', image: '/media/screen-business-1.webp', imageAlt: 'Tela de cadastro da empresa: o Niko Sushi Club informa nome, CNPJ, porte, tipo, endereço e uma descrição do negócio', video: { src: '/media/screen-business-1.mp4', poster: '/media/screen-business-1-start.webp' }, note: 'Dados de exemplo.' },
-        { title: 'Publica a vaga', body: 'Função, data, horário, valor do turno e requisitos para a vaga.', image: '/media/screen-business-2.webp', imageAlt: 'Tela de criação de vaga: o Niko Sushi Club informa função, data, horário, jornada, valor, descrição e requisitos do turno de atendente', video: { src: '/media/screen-business-2.mp4', poster: '/media/screen-business-2-start.webp' }, note: 'Vaga e valores de exemplo.' },
+        { title: 'Cadastra teu negócio', body: 'Nome, CNPJ, segmento e endereço do teu negócio.', image: '/media/screen-business-1.webp', imageAlt: 'Tela de cadastro da empresa: o Niko Sushi Club informa nome, CNPJ, porte, tipo, endereço e uma descrição do negócio', video: { src: '/media/screen-business-1.mp4', poster: '/media/screen-business-1-start.webp' }, note: 'Dados de exemplo.' },
+        { title: 'Publica a vaga', body: 'Função, data, horário, valor do turno e requisitos.', image: '/media/screen-business-2.webp', imageAlt: 'Tela de criação de vaga: o Niko Sushi Club informa função, data, horário, jornada, valor, descrição e requisitos do turno de atendente', video: { src: '/media/screen-business-2.mp4', poster: '/media/screen-business-2-start.webp' }, note: 'Vaga e valores de exemplo.' },
         { title: 'Escolhe quem vai', body: 'Vê os candidatos com avaliações e histórico e confirma.', image: '/media/screen-business-3.webp', imageAlt: 'Tela de detalhes da vaga: o Niko Sushi Club vê a candidata Laura com foto, nota e qualidades, abre o perfil e confirma a contratação', video: { src: '/media/screen-business-3.mp4', poster: '/media/screen-business-3-start.webp' }, note: 'Candidata e avaliações de exemplo.' },
       ],
     },
@@ -201,7 +204,8 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     },
     faq: [
       { q: 'Quanto custa?', a: 'Durante o lançamento, o Freela onTap é gratuito pra empresas: publicar vaga, ver candidatos e contratar não tem custo.' },
-      { q: 'Como eu cadastro meu negócio?', a: 'Pelo app Freela onTap: Empresa pra iPhone, com as informações da empresa, o segmento e o CNPJ. Enquanto o app não sai, deixa teus dados aqui que a gente entra em contato pra preparar teu cadastro.' },
+      { q: 'Como eu cadastro meu negócio?', a: 'Pelo app Freela onTap pra iPhone, com as informações da empresa, o segmento e o CNPJ. Enquanto o app não sai, deixa teus dados aqui que a gente entra em contato pra preparar teu cadastro.' },
+      { q: 'Funciona em Android ou no computador?', a: 'O app da empresa é pra iPhone. A versão web, que funciona no navegador do celular e do computador, tá em desenvolvimento. Deixa teus dados aqui que a gente avisa quando ela sair.' },
       { q: 'Como funciona o CNPJ?', a: 'Na hora do cadastro, só entra quem informa um CNPJ válido. Isso ajuda tua vaga a passar confiança e atrai mais candidatos.' },
       { q: 'Como eu escolho o freelancer?', a: 'Tu vê cada candidato com avaliações, tags como pontual e ágil e quantos turnos já fez pelo app. Escolhe quem escala pro turno e confirma pelo app.' },
       { q: 'Posso chamar o mesmo freelancer de novo?', a: 'Pode. Quem já trabalhou no teu negócio fica no teu banco de profissionais, com o histórico, pra tu chamar de novo quando precisar.' },
@@ -209,7 +213,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       { q: 'Como é feito o pagamento do freelancer?', a: 'Direto entre o teu negócio e o freelancer, fora do app. O valor do turno fica claro na vaga desde o início, e os combinados ficam registrados no chat.' },
       { q: 'O Freela onTap é responsável pela contratação?', a: 'Não. O Freela onTap é a plataforma que conecta empresas e freelancers: não é parte do acordo de trabalho e não atua como empregador de nenhum dos lados. Condições, valor e forma de pagamento de cada turno são combinados direto entre o teu negócio e o freelancer. Os detalhes estão nos Termos de Uso.' },
       { q: 'Que tipo de negócio pode usar?', a: 'Restaurantes, bares, cafeterias, casas noturnas, eventos, buffets e negócios parecidos de Porto Alegre, Canoas, Viamão, Alvorada e Guaíba.' },
-      { q: 'Quando o app sai?', a: 'O lançamento é dia 22 de outubro, no Showcase da Apple Developer Academy, no Tecnopuc Experience 2026.' },
+      { q: 'Quando o app sai?', a: 'O lançamento é dia 22 de outubro, no Showcase da Apple Developer Academy, no Tecnopuc Experience 2026. Deixa teus dados aqui que a gente te avisa assim que o app estiver disponível pra baixar.' },
     ],
     closing: { headline: ['Faltou gente no turno?', 'O Freela\u00a0onTap te ajuda!'] },
   },

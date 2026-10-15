@@ -20,7 +20,7 @@ export function Footer() {
             Freela onTap
           </div>
           <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
-            Freelas em restaurante, bares e cafeterias na região de Porto Alegre/RS.
+            Freelas em bares, restaurantes e cafés de Porto Alegre e região.
           </p>
         </div>
 

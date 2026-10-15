@@ -5,7 +5,7 @@ import { InterestSection } from '../components/InterestSection.tsx'
 import { MascotImage } from '../components/MascotImage.tsx'
 import { PartnerCompanies } from '../components/PartnerCompanies.tsx'
 import { PrimaryActions } from '../components/PrimaryActions.tsx'
-import { DOWNLOAD_IS_OPEN } from '../config.ts'
+import { LAUNCH_DAY_HAS_PASSED } from '../config.ts'
 import { CITIES, CONTENT, LAUNCH_EVENT } from '../content.ts'
 import { useAudience } from '../hooks/useAudience.ts'
 import { useDocumentMeta } from '../hooks/useDocumentMeta.ts'
@@ -62,7 +62,7 @@ export function Home() {
       <section className="pt-16 text-center sm:pt-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <p className="eyebrow">{content.hero.eyebrow}</p>
-          {content.hero.badge && !DOWNLOAD_IS_OPEN && !(audience === 'freelancer' && phoneOS === 'android') && (
+          {content.hero.badge && !LAUNCH_DAY_HAS_PASSED && (
             <p
               className="mt-4 inline-flex rounded-full border px-4 py-1.5 text-sm font-semibold"
               style={{ borderColor: 'var(--accent)', color: 'var(--color-text-primary)' }}
