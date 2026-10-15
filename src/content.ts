@@ -31,8 +31,15 @@ type AudienceContent = {
   problem: { title: string; body: string }
   highlights: { title: string; items: { title: string; body: string }[] }
   steps: { title: string; items: Step[] }
-  trust: { theySee: { title: string; items: string[] }; youSee: { title: string; items: string[] } }
-  form: { title: string; sub: string; submit: string; reassurance: string | null; success: (name: string) => string }
+  trust: { theySee: { title: string; items: string[] }; youSee: { title: string; items: string[] }; payment: { title: string; body: string } }
+  form: {
+    title: string
+    sub: string
+    submit: string
+    reassurance: string | null
+    success: (name: string) => string
+    share: { hint: string; message: string }
+  }
   faq: { q: string; a: string }[]
   closing: string
 }
@@ -53,7 +60,26 @@ export const PARTNER_COMPANIES_COPY = {
   eyebrow: 'Empresas parceiras',
   title: 'As primeiras empresas de Porto Alegre já estão aqui.',
   sub: 'Bares, restaurantes e cafés que entram antes de todo mundo para montar a rede de freelas da hospitalidade da cidade.',
-  support: 'Cada empresa publica vagas reais, com valor, horário e local à vista. Gratuito durante o lançamento.',
+  support: 'Cada vaga publicada mostra valor, horário e local à vista. Gratuito durante o lançamento.',
+}
+
+export const PAGE_META: Record<Audience, { title: string; description: string; shareTitle: string; shareDescription: string; path: string }> = {
+  freelancer: {
+    title: 'Freela onTap — freelas em bares, restaurantes e cafés de Porto Alegre e região',
+    description:
+      'Freela onTap conecta freelancers a bares, restaurantes, cafeterias e casas noturnas de Porto Alegre e região. Lançamento em 22 de outubro de 2026.',
+    shareTitle: 'Freela onTap',
+    shareDescription: 'Freela em bar, restaurante e café, num lugar só. Vagas em Porto Alegre e região, tudo claro antes de te candidatar.',
+    path: '/',
+  },
+  business: {
+    title: 'Freela onTap para empresas — cubra turnos com freelancers avaliados',
+    description:
+      'Faltou gente no turno? O Freela onTap ajuda bares, restaurantes e cafeterias de Porto Alegre e região a cobrir turnos com freelancers bem avaliados. Gratuito durante o lançamento.',
+    shareTitle: 'Freela onTap para empresas',
+    shareDescription: 'Faltou gente no turno? Freelancers de atendimento, bar e cozinha bem avaliados, em Porto Alegre e região.',
+    path: '/?para=empresa',
+  },
 }
 
 export const LAUNCH_EVENT = 'Lançamento em 22 de outubro, no Tecnopuc Experience 2026, dentro do Showcase da Apple Developer Academy.'
@@ -65,7 +91,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       eyebrow: 'Freela onTap para freelancers',
       badge: null,
       perk: null,
-      headline: ['Freela em bar, restaurante e café, num lugar só.'],
+      headline: ['Freela em bar, restaurante e café, num lugar só.'],
       sub: 'Vagas em Porto Alegre e região, tudo claro antes de te candidatar.',
       cta: 'Me avisa no lançamento',
     },
@@ -77,8 +103,6 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       title: 'Feito pra quem está em busca de renda extra.',
       items: [
         { title: 'Filtra do teu jeito', body: 'Por valor, distância e data. Tu vê o que encaixa na tua agenda.' },
-        { title: 'Empresas com CNPJ válido', body: 'O CNPJ das empresas é conferido no cadastro e tu sabe pra quem vai trabalhar.' },
-        { title: 'Chat dentro do Freela onTap', body: 'Combinados e históricos ficam no app, não perdidos no WhatsApp.' },
         { title: 'Tua reputação conta', body: 'Recomendações, avaliações e tags como pontualidade vão montando teu histórico.' },
         { title: 'Sem surpresa', body: 'Valor, endereço e jornada aparecem antes de tu dizer sim.' },
       ],
@@ -94,6 +118,10 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     trust: {
       theySee: { title: 'O que a empresa vê de ti', items: ['Recomendações e avaliações dos turnos anteriores', 'Tags como pontual, ágil e colaborativo', 'Quantos turnos tu já fez pelo app'] },
       youSee: { title: 'O que tu vê da empresa', items: ['Empresa com CNPJ válido', 'Conversa e combinados registrados na vaga', 'Valor do turno combinado na vaga, antes de tu aceitar'] },
+      payment: {
+        title: 'Como tu recebe pelo turno',
+        body: 'O pagamento é feito direto entre tu e a empresa, fora do app. O valor aparece na vaga antes de tu te candidatar, e a forma e o momento tu combina pelo chat, que fica tudo registrado.',
+      },
     },
     form: {
       title: 'Quer ser dos primeiros?',
@@ -101,6 +129,10 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       submit: 'Me avisa no lançamento',
       reassurance: 'Só te chamamos pra avisar do lançamento. Nada de spam.',
       success: (name) => `Pronto, ${name}! Tu tá na lista. A gente te avisa pelo WhatsApp.`,
+      share: {
+        hint: 'Conhece alguém que também faz freela? Manda o link.',
+        message: 'Olha esse app de freelas em bar, restaurante e café de Porto Alegre:',
+      },
     },
     faq: [
       { q: 'É de graça?', a: 'Sim! O Freela onTap é totalmente gratuito pra freelancers: tu não paga pra criar perfil, ver vagas nem te candidatar.' },
@@ -138,8 +170,6 @@ export const CONTENT: Record<Audience, AudienceContent> = {
         { title: 'Publica vaga em poucos passos', body: 'Função, data, horário e valor do turno, direto no app.' },
         { title: 'Profissionais avaliados', body: 'Recomendações, avaliações e tags como pontual e ágil mostram quem já trabalhou bem.' },
         { title: 'Teu banco de profissionais', body: 'Os freelancers que já trabalharam no teu negócio, com histórico, num lugar só.' },
-        { title: 'Conversa centralizada', body: 'Combinados e histórico ficam no chat da vaga, longe das várias mensagens dos grupos.' },
-        { title: 'CNPJ válido', body: 'Com o CNPJ válido no cadastro, tua vaga passa confiança e atrai os melhores talentos.' },
       ],
     },
     steps: {
@@ -153,6 +183,10 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     trust: {
       theySee: { title: 'O que tu vê do freelancer', items: ['Recomendações e avaliações dos turnos anteriores', 'Tags como pontual, ágil e colaborativo', 'Quantos turnos já fez pelo app'] },
       youSee: { title: 'O que o freelancer vê do teu negócio', items: ['Empresa com CNPJ válido', 'Conversa e combinados registrados na vaga', 'Valor do turno combinado na vaga, antes do freelancer aceitar'] },
+      payment: {
+        title: 'Como tu paga o freelancer',
+        body: 'Direto entre o teu negócio e o freelancer, fora do app. O valor do turno fica claro na vaga desde o início, e os combinados ficam registrados no chat.',
+      },
     },
     form: {
       title: 'Quer teu negócio entre os primeiros?',
@@ -160,11 +194,15 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       submit: 'Reservar acesso',
       reassurance: null,
       success: (name) => `Recebido, ${name}! Alguém do time vai falar contigo pelo WhatsApp.`,
+      share: {
+        hint: 'Conhece outra empresa que também precisa de freela? Manda o link.',
+        message: 'Olha esse app pra cobrir turno vago com freelancer em Porto Alegre:',
+      },
     },
     faq: [
       { q: 'Quanto custa?', a: 'Durante o lançamento, o Freela onTap é gratuito pra empresas: publicar vaga, ver candidatos e contratar não tem custo.' },
       { q: 'Como eu cadastro meu negócio?', a: 'Pelo app Freela onTap: Empresa pra iPhone, com as informações da empresa, o segmento e o CNPJ. Enquanto o app não sai, deixa teus dados aqui que a gente entra em contato pra preparar teu cadastro.' },
-      { q: 'Como funciona o CNPJ?', a: 'O CNPJ é conferido na hora do cadastro: só entra quem informa um CNPJ válido. Isso ajuda tua vaga a passar confiança e atrai mais candidatos.' },
+      { q: 'Como funciona o CNPJ?', a: 'Na hora do cadastro, só entra quem informa um CNPJ válido. Isso ajuda tua vaga a passar confiança e atrai mais candidatos.' },
       { q: 'Como eu escolho o freelancer?', a: 'Tu vê cada candidato com avaliações, tags como pontual e ágil e quantos turnos já fez pelo app. Escolhe quem escala pro turno e confirma pelo app.' },
       { q: 'Posso chamar o mesmo freelancer de novo?', a: 'Pode. Quem já trabalhou no teu negócio fica no teu banco de profissionais, com o histórico, pra tu chamar de novo quando precisar.' },
       { q: 'E se o freelancer cancelar ou faltar?', a: 'Se o freelancer cancelar, o app te avisa na hora por notificação, e tu pode reabrir a vaga de novo. Cancelamentos e faltas contam nas métricas do freelancer dos últimos 3 meses: influenciam as tags dele e, se forem frequentes, aparecem no perfil. Isso ajuda tu e as outras empresas a escolherem melhor.' },

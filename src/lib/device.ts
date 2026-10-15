@@ -1,5 +1,10 @@
 export type PhoneOS = 'ios' | 'android' | 'other'
 
+export function prefersSavingData() {
+  const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection
+  return connection?.saveData === true
+}
+
 export function detectPhoneOS(): PhoneOS {
   const ua = navigator.userAgent
   if (/android/i.test(ua)) return 'android'

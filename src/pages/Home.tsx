@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { AudienceSwitch } from '../components/AudienceSwitch.tsx'
 import { HowItWorks } from '../components/HowItWorks.tsx'
-import { InterestForm } from '../components/InterestForm.tsx'
+import { InterestSection } from '../components/InterestSection.tsx'
 import { MascotImage } from '../components/MascotImage.tsx'
 import { PartnerCompanies } from '../components/PartnerCompanies.tsx'
 import { PrimaryActions } from '../components/PrimaryActions.tsx'
 import { DOWNLOAD_IS_OPEN } from '../config.ts'
 import { CITIES, CONTENT, LAUNCH_EVENT } from '../content.ts'
 import { useAudience } from '../hooks/useAudience.ts'
+import { useDocumentMeta } from '../hooks/useDocumentMeta.ts'
+import { useMediaQuery } from '../hooks/useMediaQuery.ts'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion.ts'
-import { detectPhoneOS } from '../lib/device.ts'
+import { detectPhoneOS, prefersSavingData } from '../lib/device.ts'
 
 function useScrollToHash() {
   const { hash } = useLocation()
@@ -23,15 +24,17 @@ function useScrollToHash() {
 
 function HeroMedia() {
   const prefersReducedMotion = usePrefersReducedMotion()
+  const isPhone = useMediaQuery('(max-width: 39.999rem)')
+  const [savingData] = useState(prefersSavingData)
 
   return (
     <div className="mx-auto mt-16 w-full max-w-5xl px-4 sm:px-6">
       <div className="aspect-[16/10] overflow-hidden rounded-[var(--radius-xl)] sm:aspect-[16/8]">
-        {prefersReducedMotion ? (
+        {prefersReducedMotion || savingData ? (
           <img src="/media/hero-poster.jpg" alt="" className="h-full w-full object-cover" />
         ) : (
-          <video className="h-full w-full object-cover" autoPlay muted loop playsInline preload="metadata" poster="/media/hero-poster.jpg" aria-hidden="true">
-            <source src="/media/hero.mp4" type="video/mp4" />
+          <video key={isPhone ? 'phone' : 'desktop'} className="h-full w-full object-cover" autoPlay muted loop playsInline preload="metadata" poster="/media/hero-poster.jpg" aria-hidden="true">
+            <source src={isPhone ? '/media/hero-mobile.mp4' : '/media/hero.mp4'} type="video/mp4" />
           </video>
         )}
       </div>
@@ -42,6 +45,7 @@ function HeroMedia() {
 export function Home() {
   useScrollToHash()
   const audience = useAudience()
+  useDocumentMeta(audience)
   const [phoneOS] = useState(detectPhoneOS)
   const content = CONTENT[audience]
 
@@ -58,7 +62,7 @@ export function Home() {
               {content.hero.badge}
             </p>
           )}
-          <h1 className="display mt-3">
+          <h1 className="display display-hero mt-3">
             {content.hero.headline.map((line) => (
               <span key={line} className="block">
                 {line}
@@ -107,7 +111,7 @@ export function Home() {
         </div>
       </section>
 
-      <HowItWorks key={audience} audience={audience} title={content.steps.title} steps={content.steps.items} />
+      <HowItWorks key={`steps-${audience}`} audience={audience} title={content.steps.title} steps={content.steps.items} />
 
       <section className="section-shell">
         <p className="eyebrow">Confiança</p>
@@ -128,6 +132,12 @@ export function Home() {
               </ul>
             </div>
           ))}
+          <div className="tile reveal sm:col-span-2" style={{ background: 'var(--color-surface)' }}>
+            <h3 className="text-2xl font-semibold">{content.trust.payment.title}</h3>
+            <p className="mt-4 max-w-3xl text-lg" style={{ color: 'var(--color-text-secondary)' }}>
+              {content.trust.payment.body}
+            </p>
+          </div>
         </div>
       </section>
 
@@ -152,20 +162,7 @@ export function Home() {
         </div>
       </section>
 
-      <section id="avise" className="scroll-mt-16" style={{ background: 'var(--color-surface)' }}>
-        <div className="section-shell">
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <h2 className="headline">{content.form.title}</h2>
-              <p className="lede mt-4 max-w-xl">{content.form.sub}</p>
-            </div>
-            <AudienceSwitch label="Cadastro para" />
-          </div>
-          <div className="mt-10">
-            <InterestForm key={audience} audience={audience} phoneOS={phoneOS} />
-          </div>
-        </div>
-      </section>
+      <InterestSection key={`signup-${audience}`} audience={audience} phoneOS={phoneOS} />
 
       <section className="section-shell">
         <h2 className="headline">Perguntas frequentes</h2>
