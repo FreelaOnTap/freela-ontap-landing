@@ -49,7 +49,7 @@ export type PartnerCompany = { name: string; kind: string; neighborhood?: string
 
 export const PARTNER_COMPANIES: PartnerCompany[] = [
   { name: 'Niko Sushi Club', kind: 'Restaurante japonês', neighborhood: 'Moinhos de Vento', logo: '/media/partners/niko-sushi-club.webp', logoBackground: '#fffde8' },
-  { name: 'ENNIOS', kind: 'Pizzaria estilo Detroit', logo: '/media/partners/ennios.webp', logoBackground: '#ffb5d6' },
+  { name: 'ENNIOS', kind: 'Pizzaria estilo Detroit', neighborhood: 'Farroupilha', logo: '/media/partners/ennios.webp', logoBackground: '#ffb5d6' },
   { name: 'Zanza', kind: 'Bar e mercearia', neighborhood: 'Bom Fim', logo: '/media/partners/zanza.webp', logoBackground: '#913d3b' },
   { name: 'Tú Bar', kind: 'Bar', neighborhood: 'Santa Cecília', logo: '/media/partners/tu-bar.webp', logoBackground: '#fcf3a4' },
   { name: 'Ouro Pães', kind: 'Padaria artesanal', neighborhood: 'Bom Fim', logo: '/media/partners/ouro-paes.webp', logoBackground: '#000000' },
