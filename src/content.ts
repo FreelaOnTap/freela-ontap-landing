@@ -41,7 +41,7 @@ type AudienceContent = {
     share: { hint: string; message: string }
   }
   faq: { q: string; a: string }[]
-  closing: string
+  closing: { headline: string[] }
 }
 
 export type PartnerCompany = { name: string; kind: string; neighborhood: string; logo: string; logoBackground: string }
@@ -91,8 +91,8 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       eyebrow: 'Freela onTap para freelancers',
       badge: null,
       perk: null,
-      headline: ['Freela em bar, restaurante e café, num lugar só.'],
-      sub: 'Vagas em Porto Alegre e região, tudo claro antes de te candidatar.',
+      headline: ['Menos tempo caçando vaga,', 'mais tempo trabalhando.'],
+      sub: 'Vagas de bar, restaurante e café em Porto Alegre e região, num lugar só. Tudo claro antes de te candidatar.',
       cta: 'Me avisa no lançamento',
     },
     problem: {
@@ -148,7 +148,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       { q: 'Em quais cidades funciona?', a: 'A gente começa por Porto Alegre, Canoas, Viamão, Alvorada e Guaíba. Se tu tá em outra cidade, deixa teu contato que a gente avisa quando chegar aí.' },
       { q: 'Quais funções o app cobre?', a: 'Atendimento: atendente, caixa, cumim, garçom/garçonete, guarda-volumes, maître, recepcionista e runner. Bar: bartender/barmaid, barback, copeiro e sommelier. Cozinha: auxiliar de cozinha, chapeira(o), cozinheira(o) e confeiteira(o). Limpeza e apoio: auxiliar de limpeza, lavador de louça, estoquista e apoio geral. Outros: barista, manobrista e segurança.' },
     ],
-    closing: 'Menos tempo caçando vaga, mais tempo trabalhando.',
+    closing: { headline: ['Freela em bar, restaurante e café,', 'num lugar só.'] },
   },
   business: {
     label: 'Empresa',
@@ -156,8 +156,8 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       eyebrow: 'Freela onTap para empresas',
       badge: null,
       perk: 'Gratuito durante o lançamento',
-      headline: ['Faltou gente no turno?', 'O Freela\u00a0onTap te ajuda!'],
-      sub: 'Freelancers de atendimento, bar e cozinha bem avaliados, em Porto Alegre e região.',
+      headline: ['Transforma a instabilidade', 'em oportunidade.'],
+      sub: 'Cobre o turno vago com freelancers de atendimento, bar e cozinha bem avaliados, em Porto Alegre e região.',
       cta: 'Reservar acesso pro meu negócio',
     },
     problem: {
@@ -211,6 +211,6 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       { q: 'Que tipo de negócio pode usar?', a: 'Restaurantes, bares, cafeterias, casas noturnas, eventos, buffets e negócios parecidos de Porto Alegre, Canoas, Viamão, Alvorada e Guaíba.' },
       { q: 'Quando o app sai?', a: 'O lançamento é dia 22 de outubro, no Showcase da Apple Developer Academy, no Tecnopuc Experience 2026.' },
     ],
-    closing: 'Transforma a instabilidade em oportunidade.',
+    closing: { headline: ['Faltou gente no turno?', 'O Freela\u00a0onTap te ajuda!'] },
   },
 }

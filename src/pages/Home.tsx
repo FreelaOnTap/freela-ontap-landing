@@ -22,6 +22,14 @@ function useScrollToHash() {
   }, [hash])
 }
 
+function HeadlineLines({ lines }: { lines: string[] }) {
+  return lines.map((line, index) => (
+    <span key={line} className="block" style={index === lines.length - 1 ? { color: 'var(--accent)' } : undefined}>
+      {line}
+    </span>
+  ))
+}
+
 function HeroMedia() {
   const prefersReducedMotion = usePrefersReducedMotion()
   const isPhone = useMediaQuery('(max-width: 39.999rem)')
@@ -52,7 +60,7 @@ export function Home() {
   return (
     <div className={`scope-${audience}`}>
       <section className="pt-16 text-center sm:pt-24">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <p className="eyebrow">{content.hero.eyebrow}</p>
           {content.hero.badge && !DOWNLOAD_IS_OPEN && !(audience === 'freelancer' && phoneOS === 'android') && (
             <p
@@ -62,14 +70,10 @@ export function Home() {
               {content.hero.badge}
             </p>
           )}
-          <h1 className="display display-hero mt-3">
-            {content.hero.headline.map((line) => (
-              <span key={line} className="block">
-                {line}
-              </span>
-            ))}
+          <h1 className="display display-hero mt-4">
+            <HeadlineLines lines={content.hero.headline} />
           </h1>
-          <p className="lede mx-auto mt-6 max-w-2xl">{content.hero.sub}</p>
+          <p className="lede hero-lede mx-auto mt-8 max-w-2xl">{content.hero.sub}</p>
           <div className="mt-8">
             <PrimaryActions audience={audience} phoneOS={phoneOS} centered showPerk />
           </div>
@@ -184,7 +188,9 @@ export function Home() {
       <section className="section-shell flex flex-col items-center text-center">
         <MascotImage className="h-40 w-40" />
         <p className="eyebrow mt-8">Freela onTap</p>
-        <h2 className="display mt-3 max-w-4xl">{content.closing}</h2>
+        <h2 className="display mt-3 max-w-4xl">
+          <HeadlineLines lines={content.closing.headline} />
+        </h2>
         <div className="mt-10">
           <PrimaryActions audience={audience} phoneOS={phoneOS} centered />
         </div>

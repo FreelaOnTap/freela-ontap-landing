@@ -131,6 +131,22 @@ h3 {
     @apply text-5xl font-semibold leading-[1.05] sm:text-7xl;
   }
 
+  @media (min-width: 40rem) {
+    .display-hero {
+      font-size: clamp(2.75rem, 6.1vw, 5.25rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+    }
+
+    .display-hero > span {
+      white-space: nowrap;
+    }
+
+    .hero-lede {
+      font-size: 1.5rem;
+    }
+  }
+
   @media (max-width: 39.999rem) {
     .display-hero {
       font-size: clamp(2.25rem, 10.5vw, 3rem);
