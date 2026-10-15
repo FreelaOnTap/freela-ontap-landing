@@ -45,7 +45,7 @@ type AudienceContent = {
   closing: { lead: string; highlight: string }
 }
 
-export type PartnerCompany = { name: string; kind: string; neighborhood: string; logo: string; logoBackground: string }
+export type PartnerCompany = { name: string; kind: string; neighborhood?: string; logo: string; logoBackground: string }
 
 export const PARTNER_COMPANIES: PartnerCompany[] = [
   { name: 'Niko Sushi Club', kind: 'Restaurante japonês', neighborhood: 'Moinhos de Vento', logo: '/media/partners/niko-sushi-club.webp', logoBackground: '#fffde8' },
@@ -55,6 +55,7 @@ export const PARTNER_COMPANIES: PartnerCompany[] = [
   { name: 'Moa Cafeteria', kind: 'Cafeteria', neighborhood: 'Centro Histórico', logo: '/media/partners/moa-cafeteria.webp', logoBackground: '#ffffff' },
   { name: 'Ouro Pães', kind: 'Padaria artesanal', neighborhood: 'Bom Fim', logo: '/media/partners/ouro-paes.webp', logoBackground: '#000000' },
   { name: 'Paraíso Bowls', kind: 'Bowls', neighborhood: 'Moinhos de Vento', logo: '/media/partners/paraiso-bowls.webp', logoBackground: '#ffffff' },
+  { name: 'ENNIOS', kind: 'Pizzaria estilo Detroit', logo: '/media/partners/ennios.webp', logoBackground: '#ffb5d6' },
 ]
 
 export const PARTNER_COMPANIES_COPY = {
