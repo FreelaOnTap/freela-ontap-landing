@@ -56,6 +56,7 @@ export const PARTNER_COMPANIES: PartnerCompany[] = [
   { name: 'Niko Bā', kind: 'Bar japonês', neighborhood: 'Bom Fim', logo: '/media/partners/niko-ba.webp', logoBackground: '#f6f7ea' },
   { name: 'Paraíso Bowls', kind: 'Bowls', neighborhood: 'Moinhos de Vento', logo: '/media/partners/paraiso-bowls.webp', logoBackground: '#ffffff' },
   { name: 'Basta', kind: 'Restaurante italiano', neighborhood: 'Bom Fim', logo: '/media/partners/basta.webp', logoBackground: '#4e5921' },
+  { name: 'Moa Cafeteria', kind: 'Cafeteria', neighborhood: 'Centro Histórico', logo: '/media/partners/moa-cafeteria.webp', logoBackground: '#ffffff' },
 ]
 
 export const PARTNER_COMPANIES_COPY = {
