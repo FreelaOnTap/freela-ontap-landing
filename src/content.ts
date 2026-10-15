@@ -1,3 +1,4 @@
+import type { FeatureIconName } from './components/FeatureIcon.tsx'
 import type { Audience } from './hooks/useAudience.ts'
 
 export const CITIES = ['Porto Alegre', 'Canoas', 'Viamão', 'Alvorada', 'Guaíba']
@@ -29,7 +30,7 @@ type AudienceContent = {
     cta: string
   }
   problem: { title: string; body: string }
-  highlights: { title: string; items: { title: string; body: string }[] }
+  highlights: { title: string; items: { icon: FeatureIconName; title: string; body: string }[] }
   steps: { title: string; items: Step[] }
   trust: { theySee: { title: string; items: string[] }; youSee: { title: string; items: string[] }; payment: { title: string; body: string } }
   form: {
@@ -105,9 +106,9 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     highlights: {
       title: 'Feito pra quem tá em busca de renda extra.',
       items: [
-        { title: 'Filtra do teu jeito', body: 'Por valor, distância e data. Tu vê o que encaixa na tua agenda.' },
-        { title: 'Tua reputação conta', body: 'Recomendações, avaliações e tags como pontualidade vão montando teu histórico.' },
-        { title: 'Sem surpresa', body: 'Valor, endereço e jornada aparecem antes de tu dizer sim.' },
+        { icon: 'filters', title: 'Filtra do teu jeito', body: 'Por valor, distância e data. Tu vê o que encaixa na tua agenda.' },
+        { icon: 'star', title: 'Tua reputação conta', body: 'Recomendações, avaliações e tags como pontualidade vão montando teu histórico.' },
+        { icon: 'eye', title: 'Sem surpresa', body: 'Valor, endereço e jornada aparecem antes de tu dizer sim.' },
       ],
     },
     steps: {
@@ -170,9 +171,9 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     highlights: {
       title: 'Reforço com avaliações e métricas, não no escuro.',
       items: [
-        { title: 'Publica vaga em poucos passos', body: 'Função, data, horário e valor do turno, direto no app.' },
-        { title: 'Profissionais avaliados', body: 'Recomendações, avaliações e tags como pontual e ágil mostram quem já trabalhou bem.' },
-        { title: 'Teu banco de profissionais', body: 'Os freelancers que já trabalharam no teu negócio, com histórico, num lugar só.' },
+        { icon: 'new-post', title: 'Publica vaga em poucos passos', body: 'Função, data, horário e valor do turno, direto no app.' },
+        { icon: 'verified-badge', title: 'Profissionais avaliados', body: 'Recomendações, avaliações e tags como pontual e ágil mostram quem já trabalhou bem.' },
+        { icon: 'people', title: 'Teu banco de profissionais', body: 'Os freelancers que já trabalharam no teu negócio, com histórico, num lugar só.' },
       ],
     },
     steps: {

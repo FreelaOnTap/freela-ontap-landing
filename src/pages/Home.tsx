@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { FeatureIcon } from '../components/FeatureIcon.tsx'
 import { HowItWorks } from '../components/HowItWorks.tsx'
 import { InterestSection } from '../components/InterestSection.tsx'
 import { MascotImage } from '../components/MascotImage.tsx'
@@ -104,6 +105,7 @@ export function Home() {
                   key={item.title}
                   className="tile flex w-[78vw] max-w-[320px] shrink-0 snap-start flex-col sm:w-[300px]"
                 >
+                  <FeatureIcon name={item.icon} />
                   <h3 className="text-2xl font-semibold">{item.title}</h3>
                   <p className="mt-3 text-lg" style={{ color: 'var(--color-text-secondary)' }}>
                     {item.body}
