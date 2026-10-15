@@ -190,8 +190,8 @@ export function Home() {
       <section className="section-shell flex flex-col items-center text-center">
         <MascotImage className="h-40 w-40" />
         <p className="eyebrow mt-8">Freela onTap</p>
-        <h2 className="display mt-3 max-w-4xl">
-          <HeadlineLines lines={content.closing.headline} />
+        <h2 className="display mt-3 max-w-4xl text-balance">
+          {content.closing.lead} <span style={{ color: 'var(--accent)' }}>{content.closing.highlight}</span>
         </h2>
         <div className="mt-10">
           <PrimaryActions audience={audience} phoneOS={phoneOS} centered />

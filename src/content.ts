@@ -42,7 +42,7 @@ type AudienceContent = {
     share: { hint: string; message: string }
   }
   faq: { q: string; a: string }[]
-  closing: { headline: string[] }
+  closing: { lead: string; highlight: string }
 }
 
 export type PartnerCompany = { name: string; kind: string; neighborhood: string; logo: string; logoBackground: string }
@@ -152,7 +152,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       { q: 'Em quais cidades funciona?', a: 'A gente começa por Porto Alegre, Canoas, Viamão, Alvorada e Guaíba. Se tu tá em outra cidade, deixa teu contato que a gente avisa quando chegar aí.' },
       { q: 'Quais funções o app cobre?', a: 'Atendimento: atendente, caixa, cumim, garçom/garçonete, guarda-volumes, maître, recepcionista e runner. Bar: bartender/barmaid, barback, copeiro e sommelier. Cozinha: auxiliar de cozinha, chapeira(o), cozinheira(o) e confeiteira(o). Limpeza e apoio: auxiliar de limpeza, lavador de louça, estoquista e apoio geral. Outros: barista, manobrista e segurança.' },
     ],
-    closing: { headline: ['Freela em bar, restaurante e café,', 'num lugar só.'] },
+    closing: { lead: 'Freela em bar, restaurante e café,', highlight: 'num\u00a0lugar\u00a0só.' },
   },
   business: {
     label: 'Empresa',
@@ -216,6 +216,6 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       { q: 'Que tipo de negócio pode usar?', a: 'Restaurantes, bares, cafeterias, casas noturnas, eventos, buffets e negócios parecidos de Porto Alegre, Canoas, Viamão, Alvorada e Guaíba.' },
       { q: 'Quando o app sai?', a: 'O lançamento é dia 22 de outubro, no Showcase da Apple Developer Academy, no Tecnopuc Experience 2026. Deixa teus dados aqui que a gente te avisa assim que o app estiver disponível pra baixar.' },
     ],
-    closing: { headline: ['Faltou gente no turno?', 'O Freela\u00a0onTap te ajuda!'] },
+    closing: { lead: 'Faltou gente no turno?', highlight: 'O Freela\u00a0onTap te ajuda!' },
   },
 }
