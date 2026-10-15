@@ -49,13 +49,13 @@ export type PartnerCompany = { name: string; kind: string; neighborhood?: string
 
 export const PARTNER_COMPANIES: PartnerCompany[] = [
   { name: 'Niko Sushi Club', kind: 'Restaurante japonês', neighborhood: 'Moinhos de Vento', logo: '/media/partners/niko-sushi-club.webp', logoBackground: '#fffde8' },
-  { name: 'Niko Bā', kind: 'Bar japonês', neighborhood: 'Bom Fim', logo: '/media/partners/niko-ba.webp', logoBackground: '#f6f7ea' },
-  { name: 'Basta', kind: 'Restaurante italiano', neighborhood: 'Bom Fim', logo: '/media/partners/basta.webp', logoBackground: '#4e5921' },
-  { name: 'Tú Bar', kind: 'Bar', neighborhood: 'Santa Cecília', logo: '/media/partners/tu-bar.webp', logoBackground: '#fcf3a4' },
-  { name: 'Moa Cafeteria', kind: 'Cafeteria', neighborhood: 'Centro Histórico', logo: '/media/partners/moa-cafeteria.webp', logoBackground: '#ffffff' },
-  { name: 'Ouro Pães', kind: 'Padaria artesanal', neighborhood: 'Bom Fim', logo: '/media/partners/ouro-paes.webp', logoBackground: '#000000' },
-  { name: 'Paraíso Bowls', kind: 'Bowls', neighborhood: 'Moinhos de Vento', logo: '/media/partners/paraiso-bowls.webp', logoBackground: '#ffffff' },
   { name: 'ENNIOS', kind: 'Pizzaria estilo Detroit', logo: '/media/partners/ennios.webp', logoBackground: '#ffb5d6' },
+  { name: 'Zanza', kind: 'Bar e mercearia', neighborhood: 'Bom Fim', logo: '/media/partners/zanza.webp', logoBackground: '#913d3b' },
+  { name: 'Tú Bar', kind: 'Bar', neighborhood: 'Santa Cecília', logo: '/media/partners/tu-bar.webp', logoBackground: '#fcf3a4' },
+  { name: 'Ouro Pães', kind: 'Padaria artesanal', neighborhood: 'Bom Fim', logo: '/media/partners/ouro-paes.webp', logoBackground: '#000000' },
+  { name: 'Niko Bā', kind: 'Bar japonês', neighborhood: 'Bom Fim', logo: '/media/partners/niko-ba.webp', logoBackground: '#f6f7ea' },
+  { name: 'Paraíso Bowls', kind: 'Bowls', neighborhood: 'Moinhos de Vento', logo: '/media/partners/paraiso-bowls.webp', logoBackground: '#ffffff' },
+  { name: 'Basta', kind: 'Restaurante italiano', neighborhood: 'Bom Fim', logo: '/media/partners/basta.webp', logoBackground: '#4e5921' },
 ]
 
 export const PARTNER_COMPANIES_COPY = {
