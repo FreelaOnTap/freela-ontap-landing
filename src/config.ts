@@ -9,9 +9,11 @@ export const APP_STORE_LINKS = {
   business: null as string | null,
 }
 
-export const DOWNLOAD_OPENS_AT = new Date('2026-10-23T00:00:00-03:00')
+export const DOWNLOAD_IS_OPEN = Boolean(APP_STORE_LINKS.freelancer || APP_STORE_LINKS.business)
 
-export const DOWNLOAD_IS_OPEN = Date.now() >= DOWNLOAD_OPENS_AT.getTime()
+export const LAUNCH_DAY_ENDS_AT = new Date('2026-10-23T00:00:00-03:00')
+
+export const LAUNCH_DAY_HAS_PASSED = Date.now() >= LAUNCH_DAY_ENDS_AT.getTime()
 
 export const LEADS_ENDPOINT = import.meta.env.LEADS_ENDPOINT as string | undefined
 

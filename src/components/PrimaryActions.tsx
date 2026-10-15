@@ -4,6 +4,17 @@ import type { Audience } from '../hooks/useAudience.ts'
 import type { PhoneOS } from '../lib/device.ts'
 import { StoreButton } from './StoreButton.tsx'
 
+function Perk({ text }: { text: string }) {
+  return (
+    <p className="inline-flex min-h-11 items-center text-base font-medium" style={{ color: 'var(--color-text-primary)' }}>
+      <span aria-hidden="true" style={{ color: 'var(--accent)' }}>
+        ✓&nbsp;
+      </span>
+      {text}
+    </p>
+  )
+}
+
 export function PrimaryActions({
   audience,
   phoneOS,
@@ -16,6 +27,7 @@ export function PrimaryActions({
   showPerk?: boolean
 }) {
   const align = centered ? 'justify-center' : ''
+  const perk = showPerk ? CONTENT[audience].hero.perk : null
 
   if (audience === 'business') {
     return (
@@ -25,17 +37,10 @@ export function PrimaryActions({
         </a>
         {APP_STORE_LINKS.business && (
           <a href={APP_STORE_LINKS.business} className="link-more">
-            Baixar o Freela onTap: Empresa
+            Baixar o Freela onTap para empresas
           </a>
         )}
-        {showPerk && CONTENT.business.hero.perk && (
-          <p className="inline-flex min-h-11 items-center text-base font-medium" style={{ color: 'var(--color-text-primary)' }}>
-            <span aria-hidden="true" style={{ color: 'var(--accent)' }}>
-              ✓&nbsp;
-            </span>
-            {CONTENT.business.hero.perk}
-          </p>
-        )}
+        {perk && <Perk text={perk} />}
       </div>
     )
   }
@@ -46,6 +51,7 @@ export function PrimaryActions({
         <a href="#avise" className="btn-primary">
           Me avisa quando chegar no Android
         </a>
+        {perk && <Perk text={perk} />}
       </div>
     )
   }
@@ -62,6 +68,7 @@ export function PrimaryActions({
       <a href="#avise" className="link-more">
         Tem Android? Entra na lista
       </a>
+      {perk && <Perk text={perk} />}
     </div>
   )
 }

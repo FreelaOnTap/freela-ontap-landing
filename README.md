@@ -1,6 +1,6 @@
 # freela-ontap-landing
 
-Landing page and marketing site for [FreelaOnTap](https://freelaontap.com.br) — a marketplace
+Landing page and marketing site for [Freela onTap](https://freelaontap.com.br) — a marketplace
 connecting freelancers to hospitality businesses (bars, restaurants, cafés, nightclubs) in Porto
 Alegre/RS and nearby cities, Brazil. Built as the Final Challenge project for a squad at the Apple Developer Academy
 (cohort S25). The iOS apps live in a separate repository, [`freela-ontap-ios`](https://github.com/FreelaOnTap/freela-ontap-ios).
@@ -115,7 +115,7 @@ To update, copy the folders again from upstream and bump the commit above.
   Porto Alegre audience). Legal pages keep *você*.
 - The App Store links in `src/config.ts` (`APP_STORE_LINKS`) are `null` until App Review approves the
   apps — the store buttons render but go nowhere until then. The label switches from "Reservar" to
-  "Baixar" on `DOWNLOAD_OPENS_AT` (Oct 23, 2026).
+  "Baixar" once the link is filled in (`DOWNLOAD_IS_OPEN`), with no date announced publicly.
 - App screens in "Como funciona" are exports from the Figma file (`public/media/screen-freelancer-*.webp`
   and `screen-business-*.webp`, 840px wide, status bar without the Dynamic Island because the bezel
   draws it); set each step's `image` in `src/content.ts` to a file under `public/media/`. The bezel

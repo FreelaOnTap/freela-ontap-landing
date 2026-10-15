@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { FeatureIcon } from '../components/FeatureIcon.tsx'
 import { HowItWorks } from '../components/HowItWorks.tsx'
 import { InterestSection } from '../components/InterestSection.tsx'
 import { MascotImage } from '../components/MascotImage.tsx'
 import { PartnerCompanies } from '../components/PartnerCompanies.tsx'
 import { PrimaryActions } from '../components/PrimaryActions.tsx'
-import { DOWNLOAD_IS_OPEN } from '../config.ts'
+import { LAUNCH_DAY_HAS_PASSED } from '../config.ts'
 import { CITIES, CONTENT, LAUNCH_EVENT } from '../content.ts'
 import { useAudience } from '../hooks/useAudience.ts'
 import { useDocumentMeta } from '../hooks/useDocumentMeta.ts'
@@ -20,6 +21,14 @@ function useScrollToHash() {
     if (!hash) return
     document.getElementById(hash.slice(1))?.scrollIntoView({ block: 'start' })
   }, [hash])
+}
+
+function HeadlineLines({ lines }: { lines: string[] }) {
+  return lines.map((line, index) => (
+    <span key={line} className="block" style={index === lines.length - 1 ? { color: 'var(--accent)' } : undefined}>
+      {line}
+    </span>
+  ))
 }
 
 function HeroMedia() {
@@ -52,9 +61,9 @@ export function Home() {
   return (
     <div className={`scope-${audience}`}>
       <section className="pt-16 text-center sm:pt-24">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <p className="eyebrow">{content.hero.eyebrow}</p>
-          {content.hero.badge && !DOWNLOAD_IS_OPEN && !(audience === 'freelancer' && phoneOS === 'android') && (
+          {content.hero.badge && !LAUNCH_DAY_HAS_PASSED && (
             <p
               className="mt-4 inline-flex rounded-full border px-4 py-1.5 text-sm font-semibold"
               style={{ borderColor: 'var(--accent)', color: 'var(--color-text-primary)' }}
@@ -62,14 +71,10 @@ export function Home() {
               {content.hero.badge}
             </p>
           )}
-          <h1 className="display display-hero mt-3">
-            {content.hero.headline.map((line) => (
-              <span key={line} className="block">
-                {line}
-              </span>
-            ))}
+          <h1 className="display display-hero mt-4">
+            <HeadlineLines lines={content.hero.headline} />
           </h1>
-          <p className="lede mx-auto mt-6 max-w-2xl">{content.hero.sub}</p>
+          <p className="lede hero-lede mx-auto mt-8 max-w-2xl">{content.hero.sub}</p>
           <div className="mt-8">
             <PrimaryActions audience={audience} phoneOS={phoneOS} centered showPerk />
           </div>
@@ -100,6 +105,7 @@ export function Home() {
                   key={item.title}
                   className="tile flex w-[78vw] max-w-[320px] shrink-0 snap-start flex-col sm:w-[300px]"
                 >
+                  <FeatureIcon name={item.icon} />
                   <h3 className="text-2xl font-semibold">{item.title}</h3>
                   <p className="mt-3 text-lg" style={{ color: 'var(--color-text-secondary)' }}>
                     {item.body}
@@ -184,7 +190,9 @@ export function Home() {
       <section className="section-shell flex flex-col items-center text-center">
         <MascotImage className="h-40 w-40" />
         <p className="eyebrow mt-8">Freela onTap</p>
-        <h2 className="display mt-3 max-w-4xl">{content.closing}</h2>
+        <h2 className="display mt-3 max-w-4xl text-balance">
+          {content.closing.lead} <span style={{ color: 'var(--accent)' }}>{content.closing.highlight}</span>
+        </h2>
         <div className="mt-10">
           <PrimaryActions audience={audience} phoneOS={phoneOS} centered />
         </div>
