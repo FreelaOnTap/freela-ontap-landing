@@ -13,7 +13,7 @@ type Status = 'idle' | 'submitting' | 'success' | 'error'
 
 const OTHER_CITY = 'Outra cidade'
 const OTHER_ROLE = 'Outra'
-const PLACEHOLDER_OPTION = 'Escolhe uma opção'
+const PLACEHOLDER_OPTION = 'Escolha uma opção'
 
 const MAX_LENGTH = { name: 120, email: 254, short: 80, phone: 30 }
 
@@ -59,35 +59,35 @@ function letterCount(value: string) {
 
 function phoneError(raw: string) {
   const digits = phoneDigits(raw)
-  if (digits.length === 0) return 'Informa teu WhatsApp com DDD.'
-  if (digits.length < 10) return 'Número incompleto. Confere com o DDD.'
-  if (!isValidWhatsapp(digits)) return 'Esse número não parece válido. Confere o DDD e o 9 do celular.'
+  if (digits.length === 0) return 'Informe seu WhatsApp com DDD.'
+  if (digits.length < 10) return 'Número incompleto. Confira o DDD.'
+  if (!isValidWhatsapp(digits)) return 'Esse número não parece válido. Confira o DDD e o 9 do celular.'
   return undefined
 }
 
 function fieldError(field: FieldName, values: Values): string | undefined {
   switch (field) {
     case 'businessName':
-      return letterCount(values.businessName) < 2 ? 'Escreve o nome do negócio.' : undefined
+      return letterCount(values.businessName) < 2 ? 'Escreva o nome do negócio.' : undefined
     case 'businessType':
-      return values.businessType ? undefined : 'Escolhe o tipo de negócio.'
+      return values.businessType ? undefined : 'Escolha o tipo de negócio.'
     case 'name':
-      if (!values.name.trim()) return 'Escreve teu nome.'
+      if (!values.name.trim()) return 'Escreva seu nome.'
       return letterCount(values.name) < 2 ? 'Nome muito curto.' : undefined
     case 'contactRole':
       return values.contactRole.trim() && letterCount(values.contactRole) < 2 ? 'Cargo muito curto.' : undefined
     case 'whatsapp':
       return phoneError(values.whatsapp)
     case 'email':
-      return values.email && !EMAIL_PATTERN.test(values.email) ? 'Confere o e-mail. Ex.: nome@email.com' : undefined
+      return values.email && !EMAIL_PATTERN.test(values.email) ? 'Confira o e-mail. Ex.: nome@email.com' : undefined
     case 'city':
-      return values.city ? undefined : 'Escolhe a cidade.'
+      return values.city ? undefined : 'Escolha a cidade.'
     case 'neighborhood':
       return values.neighborhood.trim() && letterCount(values.neighborhood) < 2 ? 'Bairro muito curto.' : undefined
     case 'hiringFrequency':
-      return values.hiringFrequency ? undefined : 'Escolhe uma opção.'
+      return values.hiringFrequency ? undefined : 'Escolha uma opção.'
     case 'role':
-      return values.role ? undefined : 'Escolhe tua função principal.'
+      return values.role ? undefined : 'Escolha sua função principal.'
     case 'consented':
       return values.consented === 'yes' ? undefined : 'Pra gente entrar em contato, precisa marcar aqui.'
     case 'website':
@@ -327,7 +327,7 @@ export function InterestForm({
         </>
       )}
 
-      <Field id="name" label={audience === 'business' ? 'Teu nome' : 'Nome'} error={errors.name}>
+      <Field id="name" label={audience === 'business' ? 'Seu nome' : 'Nome'} error={errors.name}>
         <input
           {...controlProps('name')}
           className="field"
@@ -339,7 +339,7 @@ export function InterestForm({
       </Field>
 
       {audience === 'business' && (
-        <Field id="contactRole" label="Teu cargo (opcional)" error={errors.contactRole}>
+        <Field id="contactRole" label="Seu cargo (opcional)" error={errors.contactRole}>
           <input
             {...controlProps('contactRole')}
             className="field"
@@ -395,7 +395,7 @@ export function InterestForm({
           </Field>
           {select(
             'hiringFrequency',
-            'Com que frequência tu precisa de freela?',
+            'Com que frequência você precisa de freela?',
             HIRING_FREQUENCIES.map((frequency) => <option key={frequency}>{frequency}</option>),
             'sm:col-span-2',
           )}
@@ -404,7 +404,7 @@ export function InterestForm({
         <>
           {select(
             'role',
-            'Tua função principal',
+            'Sua função principal',
             <>
               {ROLE_GROUPS.map((group) => (
                 <optgroup key={group.label} label={group.label}>
@@ -462,7 +462,7 @@ export function InterestForm({
         )}
         {status === 'error' && (
           <p className="field-error" role="alert">
-            Não deu pra enviar agora. Tenta de novo ou escreve pra{' '}
+            Não deu pra enviar agora. Tente de novo ou escreva para{' '}
             <a href={`mailto:${SUPPORT_EMAIL}`} className="underline">
               {SUPPORT_EMAIL}
             </a>

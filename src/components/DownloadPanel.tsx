@@ -24,7 +24,7 @@ export function DownloadPanel({ audience, showQr }: { audience: Audience; showQr
             className="h-44 w-44 rounded-[var(--radius-lg)] bg-white p-4"
           />
           <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
-            Aponta a câmera do iPhone
+            Aponte a câmera do iPhone
           </p>
         </div>
       )}

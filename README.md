@@ -111,8 +111,9 @@ To update, copy the folders again from upstream and bump the commit above.
 
 ## Content notes
 
-- Copy lives in `src/content.ts`, one block per audience, written with *tu* (the squad's choice for a
-  Porto Alegre audience). Legal pages keep *você*.
+- Copy lives in `src/content.ts`, one block per audience, written with *você* (it used *tu* until
+  Oct 2026; the squad switched so the whole site, legal pages included, speaks one register). Imperatives
+  follow it: *Baixe*, *Entre*, *Fale*, not *Baixa*, *Entra*, *Fala*.
 - The App Store links live in `src/config.ts` (`APP_STORE_LINKS`); the store buttons, the partner
   section CTA and the `/vaga/:id` fallback all read them. The Tecnopuc event line on the home page
   hides itself after `EVENT_ENDS_AT`.

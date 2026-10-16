@@ -104,7 +104,7 @@ export function PartnerCompanies({ audience, phoneOS }: { audience: Audience; ph
         <p className="lede mx-auto mt-12 max-w-2xl">{PARTNER_COMPANIES_COPY.support[audience]}</p>
         <div className="mt-8">
           <a href={phoneOS === 'android' ? '#avise' : APP_STORE_LINKS[audience]} className="btn-primary">
-            {phoneOS === 'android' ? 'Me avisa quando chegar no Android' : 'Baixar na App Store'}
+            {phoneOS === 'android' ? 'Me avise quando chegar no Android' : 'Baixar na App Store'}
           </a>
         </div>
       </div>

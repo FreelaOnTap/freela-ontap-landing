@@ -34,7 +34,7 @@ export function PrimaryActions({
       <div className={`flex flex-wrap items-center gap-x-6 gap-y-3 ${align}`}>
         {phoneOS === 'android' ? (
           <a href="#avise" className="btn-primary">
-            Me avisa quando chegar no Android
+            Me avise quando chegar no Android
           </a>
         ) : (
           <>
@@ -46,7 +46,7 @@ export function PrimaryActions({
             ) : (
               phoneOS === 'other' && (
                 <a href="#avise" className="link-more">
-                  Tem Android? Entra na lista
+                  Tem Android? Entre na lista
                 </a>
               )
             )}
