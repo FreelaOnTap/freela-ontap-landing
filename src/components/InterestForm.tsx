@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import { BUSINESS_TYPES, CITIES, CONTENT, HIRING_FREQUENCIES, ROLE_GROUPS } from '../content.ts'
 import { SUPPORT_EMAIL } from '../config.ts'
 import { useLeadSource, type Audience } from '../hooks/useAudience.ts'
-import type { PhoneOS } from '../lib/device.ts'
 import { isValidWhatsapp, submitInterestLead } from '../lib/leads.ts'
 import { whatsappShareHref } from '../lib/share.ts'
 import { caretAfterDigits, keepBusinessName, keepEmail, keepPersonName, maskPhone, phoneDigits, splitPhoneDigits } from '../lib/masks.ts'
@@ -20,12 +19,7 @@ const MAX_LENGTH = { name: 120, email: 254, short: 80, phone: 30 }
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@.]+(\.[^\s@.]+)*\.[a-z]{2,}$/i
 
-const PHONE_OS_OPTIONS = [
-  { value: 'ios', label: 'iPhone' },
-  { value: 'android', label: 'Android' },
-]
-
-function emptyValues(phoneOS: PhoneOS) {
+function emptyValues() {
   return {
     businessName: '',
     businessType: '',
@@ -37,7 +31,6 @@ function emptyValues(phoneOS: PhoneOS) {
     neighborhood: '',
     hiringFrequency: '',
     role: '',
-    phoneOS: phoneOS === 'other' ? '' : (phoneOS as string),
     consented: '',
     website: '',
   }
@@ -57,7 +50,7 @@ function isSharedField(field: FieldName): field is SharedField {
 
 const FIELD_ORDER: Record<Audience, FieldName[]> = {
   business: ['businessName', 'businessType', 'name', 'contactRole', 'whatsapp', 'email', 'city', 'neighborhood', 'hiringFrequency', 'consented'],
-  freelancer: ['name', 'whatsapp', 'email', 'city', 'role', 'phoneOS', 'consented'],
+  freelancer: ['name', 'whatsapp', 'email', 'city', 'role', 'consented'],
 }
 
 function letterCount(value: string) {
@@ -95,8 +88,6 @@ function fieldError(field: FieldName, values: Values): string | undefined {
       return values.hiringFrequency ? undefined : 'Escolhe uma opção.'
     case 'role':
       return values.role ? undefined : 'Escolhe tua função principal.'
-    case 'phoneOS':
-      return values.phoneOS ? undefined : 'Escolhe o sistema do teu celular.'
     case 'consented':
       return values.consented === 'yes' ? undefined : 'Pra gente entrar em contato, precisa marcar aqui.'
     case 'website':
@@ -156,17 +147,15 @@ function SelectChevron() {
 
 export function InterestForm({
   audience,
-  phoneOS,
   shared,
   onShare,
 }: {
   audience: Audience
-  phoneOS: PhoneOS
   shared?: SharedValues
   onShare?: (field: SharedField, value: string) => void
 }) {
   const source = useLeadSource()
-  const [values, setValues] = useState<Values>(() => ({ ...emptyValues(phoneOS), ...shared }))
+  const [values, setValues] = useState<Values>(() => ({ ...emptyValues(), ...shared }))
   const [errors, setErrors] = useState<Errors>({})
   const [status, setStatus] = useState<Status>('idle')
   const [submittedName, setSubmittedName] = useState('')
@@ -282,7 +271,7 @@ export function InterestForm({
         whatsapp: phoneDigits(values.whatsapp),
         email: values.email || null,
         city: values.city,
-        phone_os: audience === 'freelancer' ? (values.phoneOS as 'ios' | 'android') : null,
+        phone_os: audience === 'freelancer' ? 'android' : null,
         role: audience === 'freelancer' ? values.role : null,
         business_name: audience === 'business' ? values.businessName.trim() : null,
         business_type: audience === 'business' ? values.businessType : null,
@@ -427,40 +416,6 @@ export function InterestForm({
               <option>{OTHER_ROLE}</option>
             </>,
           )}
-          <fieldset aria-describedby={errors.phoneOS ? 'phoneOS-error' : undefined}>
-            <legend className="field-label">Teu celular é</legend>
-            <div className="grid grid-cols-2 gap-3">
-              {PHONE_OS_OPTIONS.map((option, i) => {
-                const checked = values.phoneOS === option.value
-                return (
-                  <label
-                    key={option.value}
-                    className="field flex cursor-pointer items-center gap-3"
-                    style={{ borderColor: checked ? 'var(--accent)' : errors.phoneOS ? 'var(--color-danger)' : undefined }}
-                  >
-                    <input
-                      id={i === 0 ? 'phoneOS' : undefined}
-                      type="radio"
-                      name="phoneOS"
-                      value={option.value}
-                      checked={checked}
-                      onChange={(e) => update('phoneOS', e.target.value, true)}
-                      className="h-5 w-5 shrink-0"
-                      style={{ accentColor: 'var(--accent)' }}
-                      aria-invalid={errors.phoneOS ? true : undefined}
-                      aria-describedby={errors.phoneOS ? 'phoneOS-error' : undefined}
-                    />
-                    {option.label}
-                  </label>
-                )
-              })}
-            </div>
-            {errors.phoneOS && (
-              <p id="phoneOS-error" className="field-error">
-                {errors.phoneOS}
-              </p>
-            )}
-          </fieldset>
         </>
       )}
 
@@ -482,7 +437,7 @@ export function InterestForm({
             aria-describedby={errors.consented ? 'consented-error' : undefined}
           />
           <span>
-            Aceito receber contato do Freela onTap por WhatsApp ou e-mail sobre o lançamento e li a{' '}
+            Aceito receber contato do Freela onTap por WhatsApp ou e-mail sobre o app e li a{' '}
             <Link to="/privacidade" target="_blank" rel="noopener noreferrer" className="underline" style={{ color: 'var(--color-link)' }}>
               Política de Privacidade
             </Link>

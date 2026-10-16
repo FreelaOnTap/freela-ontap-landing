@@ -33,9 +33,11 @@ type AudienceContent = {
   highlights: { title: string; items: { icon: FeatureIconName; title: string; body: string }[] }
   steps: { title: string; items: Step[] }
   trust: { theySee: { title: string; items: string[] }; youSee: { title: string; items: string[] }; payment: { title: string; body: string } }
+  download: { title: string; sub: string }
   form: {
     title: string
     sub: string
+    subAndroid?: string
     submit: string
     reassurance: string | null
     success: (name: string) => string
@@ -61,7 +63,7 @@ export const PARTNER_COMPANIES: PartnerCompany[] = [
 
 export const PARTNER_COMPANIES_COPY = {
   eyebrow: 'Empresas parceiras',
-  title: 'As primeiras empresas de Porto Alegre já estão com a gente.',
+  title: 'As primeiras empresas de Porto Alegre já estão com o Freela onTap.',
   sub: 'Bares, restaurantes e cafés que entram antes de todo mundo para montar a rede de freelas da hospitalidade da cidade.',
   support: {
     freelancer: 'Cada vaga publicada mostra valor, horário e local à vista. Totalmente gratuito pra freelancers.',
@@ -73,7 +75,7 @@ export const PAGE_META: Record<Audience, { title: string; description: string; s
   freelancer: {
     title: 'Freela onTap — freelas em bares, restaurantes e cafés de Porto Alegre e região',
     description:
-      'Freela onTap conecta freelancers a bares, restaurantes, cafeterias e casas noturnas de Porto Alegre e região. Lançamento em 22 de outubro de 2026.',
+      'Freela onTap conecta freelancers a bares, restaurantes, cafeterias e casas noturnas de Porto Alegre e região. Disponível na App Store pra iPhone.',
     shareTitle: 'Freela onTap',
     shareDescription: 'Menos tempo caçando vaga, mais tempo trabalhando. Freelas em bar, restaurante e café de Porto Alegre e região.',
     path: '/',
@@ -88,25 +90,25 @@ export const PAGE_META: Record<Audience, { title: string; description: string; s
   },
 }
 
-export const LAUNCH_EVENT = 'Lançamento em 22 de outubro, no Tecnopuc Experience 2026, dentro do Showcase da Apple Developer Academy.'
+export const LAUNCH_EVENT = 'Vem conhecer o app ao vivo em 22 de outubro, no Tecnopuc Experience 2026, dentro do Showcase da Apple Developer Academy.'
 
 export const CONTENT: Record<Audience, AudienceContent> = {
   freelancer: {
     label: 'Freelancer',
     hero: {
       eyebrow: 'Freela onTap para freelancers',
-      badge: 'Lançamento em 22 de outubro',
+      badge: 'Já na App Store pra iPhone',
       perk: 'Totalmente gratuito pra freelancers',
       headline: ['Menos tempo caçando vaga,', 'mais tempo trabalhando.'],
       sub: 'Vagas de bar, restaurante e café em Porto Alegre e região, num lugar só. Tudo claro antes de te candidatar.',
-      cta: 'Me avisa no lançamento',
+      cta: 'Baixar na App Store',
     },
     problem: {
-      title: 'Vaga boa não devia depender de em qual grupo tu tá.',
+      title: 'Vaga boa não devia depender de em qual grupo você tá.',
       body: 'Hoje o freela aparece no meio de um monte de mensagem, muitas vezes sem valor, sem endereço e sem saber quem tá contratando. O Freela onTap junta todas as vagas num lugar só, filtradas e organizadas do teu jeito.',
     },
     highlights: {
-      title: 'Feito pra quem tá em busca de renda extra.',
+      title: 'Feito pra quem está em busca de renda extra.',
       items: [
         { icon: 'filters', title: 'Filtra do teu jeito', body: 'Por valor, distância e data. Tu vê o que encaixa na tua agenda.' },
         { icon: 'star', title: 'Tua reputação conta', body: 'Recomendações, avaliações e tags como pontualidade vão montando teu histórico.' },
@@ -116,25 +118,29 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     steps: {
       title: 'Do perfil ao turno em três passos.',
       items: [
-        { title: 'Cria teu perfil', body: 'Conta tua experiência e as funções que tu faz.', image: '/media/screen-freelancer-1.webp', imageAlt: 'Tela de cadastro do freelancer com nome, CPF, data de nascimento e contato', video: { src: '/media/screen-freelancer-1.mp4', poster: '/media/screen-freelancer-1-start.webp' } },
-        { title: 'Acha a vaga certa', body: 'Navega pelas vagas das empresas parceiras, abre os detalhes e te candidata.', image: '/media/screen-freelancer-2.webp', imageAlt: 'Tela de vagas das empresas parceiras: o freelancer desliza pelas mais recentes, abre os detalhes do Atendente no Niko Sushi Club e se candidata', video: { src: '/media/screen-freelancer-2.mp4', poster: '/media/screen-freelancer-2.webp' }, note: 'Vagas e valores de exemplo.' },
-        { title: 'Trabalha e ganha reputação', body: 'Combina tudo pelo chat, faz o turno e recebe a avaliação da empresa.', image: '/media/screen-freelancer-3.webp', imageAlt: 'Tela de atividade: conversa com o Niko Sushi Club, conclusão do turno, avaliação da empresa e a avaliação recebida', video: { src: '/media/screen-freelancer-3.mp4', poster: '/media/screen-freelancer-3-start.webp' }, note: 'Conversas e avaliações de exemplo.' },
+        { title: 'Crie o teu perfil', body: 'Preencha seus dados, escolha as funções que você faz e conte sua experiência. Criar o perfil é de graça.', image: '/media/screen-freelancer-1.webp', imageAlt: 'Tela de cadastro do freelancer com nome, CPF, data de nascimento e contato', video: { src: '/media/screen-freelancer-1.mp4', poster: '/media/screen-freelancer-1-start.webp' } },
+        { title: 'Encontre a vaga certa', body: 'Filtre por valor, distância e data. Veja todas as informações da jornada antes de decidir e se candidate à vaga que combina mais com você.', image: '/media/screen-freelancer-2.webp', imageAlt: 'Tela de vagas das empresas parceiras: o freelancer desliza pelas mais recentes, abre os detalhes do Atendente no Niko Sushi Club e se candidata', video: { src: '/media/screen-freelancer-2.mp4', poster: '/media/screen-freelancer-2.webp' }, note: 'Vagas e valores de exemplo.' },
+        { title: 'Trabalhe e construa sua reputação', body: 'Combine os detalhes pelo chat da vaga, faça o turno e receba a avaliação da empresa. Cada turno aumenta a sua reputação.', image: '/media/screen-freelancer-3.webp', imageAlt: 'Tela de atividade: conversa com o Niko Sushi Club, conclusão do turno, avaliação da empresa e a avaliação recebida', video: { src: '/media/screen-freelancer-3.mp4', poster: '/media/screen-freelancer-3-start.webp' }, note: 'Conversas e avaliações de exemplo.' },
       ],
     },
     trust: {
       theySee: { title: 'O que a empresa vê de ti', items: ['Recomendações e avaliações dos turnos anteriores', 'Tags como pontual, ágil e colaborativo', 'Quantos turnos tu já fez pelo app'] },
       youSee: { title: 'O que tu vê da empresa', items: ['Empresa com CNPJ válido', 'Conversa e combinados registrados na vaga', 'Valor do turno combinado na vaga, antes de tu aceitar'] },
       payment: {
-        title: 'Como tu recebe pelo turno',
+        title: 'Como você recebe pelo turno',
         body: 'O pagamento é feito direto entre tu e a empresa, fora do app. O valor aparece na vaga antes de tu te candidatar, e a forma e o momento tu combina pelo chat, que fica tudo registrado.',
       },
     },
+    download: {
+      title: 'Baixa o app e cria teu perfil.',
+      sub: 'Disponível na App Store pra iPhone. Cadastro, vagas, chat e avaliações num lugar só, de graça pra freelancers.',
+    },
     form: {
-      title: 'Quer ser dos primeiros?',
-      sub: 'Deixa teu contato que a gente avisa quando o app sair. Se teu celular é Android, tu entra na lista da versão Android.',
-      submit: 'Me avisa no lançamento',
-      reassurance: 'Só te chamamos pra avisar do lançamento. Nada de spam.',
-      success: (name) => `Pronto, ${name}! Tu tá na lista. A gente te avisa pelo WhatsApp.`,
+      title: 'Tem Android? Entra na lista.',
+      sub: 'O app é pra iPhone por enquanto. Deixa teu contato que a gente avisa quando a versão Android sair.',
+      submit: 'Tem Android? Entre na lista',
+      reassurance: 'Só te chamamos pra avisar das novidades do app. Nada de spam.',
+      success: (name) => `Pronto, ${name}! Tu tá na lista do Android. A gente te avisa pelo WhatsApp.`,
       share: {
         hint: 'Conhece alguém que também faz freela? Manda o link.',
         message: 'Olha esse app de freelas em bar, restaurante e café de Porto Alegre:',
@@ -149,7 +155,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       { q: 'Como funciona a avaliação?', a: 'Depois de cada turno a empresa diz se te recomenda e pode marcar tags como pontual, ágil, colaborativo, comunicativo, proativo, organizado, atencioso e autônomo. Isso, junto com quantos turnos tu já fez, monta tua reputação no app.' },
       { q: 'Posso desistir depois de me candidatar?', a: 'Antes da empresa confirmar, tu retira a candidatura quando quiser. Depois de confirmado também dá pra desistir, mas avisa a empresa pelo chat da vaga o quanto antes, pra ela ter tempo de chamar outra pessoa. Desistências depois da confirmação contam nas tuas métricas dos últimos 3 meses e, se forem frequentes, aparecem no teu perfil.' },
       { q: 'Preciso ter MEI?', a: 'Não pra usar o app. A forma de contratação e de pagamento é combinada direto com a empresa.' },
-      { q: 'Quando eu posso baixar?', a: 'O lançamento é dia 22 de outubro, no Showcase da Apple Developer Academy, no Tecnopuc Experience 2026. Deixa teu contato aqui que a gente te avisa assim que o app estiver disponível pra baixar.' },
+      { q: 'Onde eu baixo?', a: 'O app já tá na App Store, pra iPhone. Procura por "Freela onTap: Vagas e Turnos" ou toca em "Baixar na App Store" no topo desta página.' },
       { q: 'Tenho Android. E agora?', a: 'O app é pra iPhone. A versão web, que funciona no navegador do celular e do computador, tá em desenvolvimento. Deixa teu contato no formulário e marca Android, que a gente te avisa quando ela sair.' },
       { q: 'Em quais cidades funciona?', a: 'A gente começa por Porto Alegre, Canoas, Viamão, Alvorada e Guaíba. Se tu tá em outra cidade, deixa teu contato que a gente avisa quando chegar aí.' },
       { q: 'Quais funções o app cobre?', a: 'Atendimento: atendente, caixa, cumim, garçom/garçonete, guarda-volumes, maître, recepcionista e runner. Bar: bartender/barmaid, barback, copeiro e sommelier. Cozinha: auxiliar de cozinha, chapeira(o), cozinheira(o) e confeiteira(o). Limpeza e apoio: auxiliar de limpeza, lavador de louça, estoquista e apoio geral. Outros: barista, manobrista e segurança.' },
@@ -160,11 +166,11 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     label: 'Empresa',
     hero: {
       eyebrow: 'Freela onTap para empresas',
-      badge: 'Lançamento em 22 de outubro',
+      badge: 'Já na App Store pra iPhone',
       perk: 'Gratuito durante o lançamento',
       headline: ['Transforme a instabilidade', 'em oportunidade.'],
       sub: 'Alguém faltou ou ficou doente? Cubra o turno com freelancers de atendimento, bar e cozinha bem avaliados, em Porto Alegre e região.',
-      cta: 'Reservar acesso pro meu negócio',
+      cta: 'Quer ajuda pra começar? Fala com a gente',
     },
     problem: {
       title: 'A urgência não devia depender de quem responde no grupo.',
@@ -194,10 +200,15 @@ export const CONTENT: Record<Audience, AudienceContent> = {
         body: 'Direto entre o teu negócio e o freelancer, fora do app. O valor do turno fica claro na vaga desde o início, e os combinados ficam registrados no chat.',
       },
     },
+    download: {
+      title: 'Baixa o app e cadastra teu negócio.',
+      sub: 'Disponível na App Store pra iPhone. Publica a vaga, escolhe quem vai e confirma pelo app.',
+    },
     form: {
-      title: 'Quer teu negócio entre os primeiros?',
-      sub: 'A gente entra em contato pra preparar teu cadastro.',
-      submit: 'Reservar acesso',
+      title: 'Quer ajuda pra começar?',
+      sub: 'O app já tá na App Store pra iPhone. Se preferir ajuda com o cadastro, a gente entra em contato.',
+      subAndroid: 'O app da empresa é pra iPhone por enquanto. Deixa teus dados que a gente avisa quando a versão Android sair e te ajuda a começar.',
+      submit: 'Quero ajuda no cadastro',
       reassurance: null,
       success: (name) => `Recebido, ${name}! Alguém do time vai falar contigo pelo WhatsApp.`,
       share: {
@@ -207,7 +218,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
     },
     faq: [
       { q: 'Quanto custa?', a: 'Durante o lançamento, o Freela onTap é gratuito pra empresas: publicar vaga, ver candidatos e contratar não tem custo.' },
-      { q: 'Como eu cadastro meu negócio?', a: 'Pelo app Freela onTap pra iPhone, com as informações da empresa, o segmento e o CNPJ. Enquanto o app não sai, deixa teus dados aqui que a gente entra em contato pra preparar teu cadastro.' },
+      { q: 'Como eu cadastro meu negócio?', a: 'Pelo app Freela onTap: Empresas, que já tá na App Store pra iPhone. Tu informa os dados do negócio, o segmento e o CNPJ. Se preferir ajuda com o cadastro, deixa teus dados aqui que a gente entra em contato.' },
       { q: 'Funciona em Android ou no computador?', a: 'O app da empresa é pra iPhone. A versão web, que funciona no navegador do celular e do computador, tá em desenvolvimento. Deixa teus dados aqui que a gente avisa quando ela sair.' },
       { q: 'Como funciona o CNPJ?', a: 'Na hora do cadastro, só entra quem informa um CNPJ válido. Isso ajuda tua vaga a passar confiança e atrai mais candidatos.' },
       { q: 'Como eu escolho o freelancer?', a: 'Tu vê cada candidato com avaliações, tags como pontual e ágil e quantos turnos já fez pelo app. Escolhe quem escala pro turno e confirma pelo app.' },
@@ -216,7 +227,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       { q: 'Como é feito o pagamento do freelancer?', a: 'Direto entre o teu negócio e o freelancer, fora do app. O valor do turno fica claro na vaga desde o início, e os combinados ficam registrados no chat.' },
       { q: 'O Freela onTap é responsável pela contratação?', a: 'Não. O Freela onTap é a plataforma que conecta empresas e freelancers: não é parte do acordo de trabalho e não atua como empregador de nenhum dos lados. Condições, valor e forma de pagamento de cada turno são combinados direto entre o teu negócio e o freelancer. Os detalhes estão nos Termos de Uso.' },
       { q: 'Que tipo de negócio pode usar?', a: 'Restaurantes, bares, cafeterias, casas noturnas, eventos, buffets e negócios parecidos de Porto Alegre, Canoas, Viamão, Alvorada e Guaíba.' },
-      { q: 'Quando o app sai?', a: 'O lançamento é dia 22 de outubro, no Showcase da Apple Developer Academy, no Tecnopuc Experience 2026. Deixa teus dados aqui que a gente te avisa assim que o app estiver disponível pra baixar.' },
+      { q: 'Onde eu baixo o app?', a: 'O Freela onTap: Empresas já tá na App Store, pra iPhone. Procura pelo nome ou toca em "Baixar na App Store" no topo desta página.' },
     ],
     closing: { lead: 'Faltou gente no turno?', highlight: 'O Freela\u00a0onTap te ajuda!' },
   },

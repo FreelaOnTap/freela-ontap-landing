@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { SITE_URL } from '../config.ts'
+import { APP_STORE_IDS, SITE_URL } from '../config.ts'
 import { PAGE_META } from '../content.ts'
 import type { Audience } from './useAudience.ts'
 
@@ -57,6 +57,7 @@ export function useDocumentMeta(audience: Audience) {
       setMeta('property', 'og:title', meta.shareTitle),
       setMeta('property', 'og:description', meta.shareDescription),
       setMeta('property', 'og:url', url),
+      setMeta('name', 'apple-itunes-app', `app-id=${APP_STORE_IDS[audience]}`),
       setCanonical(url),
     ]
     return () => undo.forEach((restore) => restore())

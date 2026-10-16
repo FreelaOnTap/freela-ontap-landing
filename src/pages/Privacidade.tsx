@@ -53,7 +53,7 @@ const purposes: [string, ...ReactNode[]][] = [
     'Legítimo interesse (art. 7º, IX)',
   ],
   [
-    'Avisar sobre o lançamento e entrar em contato com quem preencheu o formulário do site',
+    'Avisar sobre novidades do app, como a versão Android, e entrar em contato com quem preencheu o formulário do site',
     'Dados do formulário de interesse',
     'Consentimento (art. 7º, I)',
   ],
@@ -66,7 +66,7 @@ const purposes: [string, ...ReactNode[]][] = [
 
 export function Privacidade() {
   return (
-    <LegalPage title="Política de Privacidade" updatedAt="7 de outubro de 2026">
+    <LegalPage title="Política de Privacidade" updatedAt="16 de outubro de 2026">
       <LegalNotice>
         O Freela onTap é o projeto final de um squad da Apple Developer Academy (cohort S25), ainda em fase de
         desenvolvimento. Nesta fase, o tratamento de dados pessoais descrito abaixo é conduzido diretamente pela

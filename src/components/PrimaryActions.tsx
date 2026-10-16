@@ -29,45 +29,30 @@ export function PrimaryActions({
   const align = centered ? 'justify-center' : ''
   const perk = showPerk ? CONTENT[audience].hero.perk : null
 
-  if (audience === 'business') {
-    return (
-      <div className={`flex flex-wrap items-center gap-x-6 gap-y-3 ${align}`}>
-        <a href="#avise" className="btn-primary">
-          {CONTENT.business.hero.cta}
-        </a>
-        {APP_STORE_LINKS.business && (
-          <a href={APP_STORE_LINKS.business} className="link-more">
-            Baixar o Freela onTap para empresas
-          </a>
-        )}
-        {perk && <Perk text={perk} />}
-      </div>
-    )
-  }
-
-  if (phoneOS === 'android') {
-    return (
-      <div className={`flex flex-wrap items-center gap-x-6 gap-y-3 ${align}`}>
-        <a href="#avise" className="btn-primary">
-          Me avisa quando chegar no Android
-        </a>
-        {perk && <Perk text={perk} />}
-      </div>
-    )
-  }
-
   return (
-    <div className={`flex flex-wrap items-center gap-x-6 gap-y-3 ${align}`}>
-      {APP_STORE_LINKS.freelancer ? (
-        <StoreButton href={APP_STORE_LINKS.freelancer} />
-      ) : (
-        <a href="#avise" className="btn-primary">
-          {CONTENT.freelancer.hero.cta}
-        </a>
-      )}
-      <a href="#avise" className="link-more">
-        Tem Android? Entra na lista
-      </a>
+    <div className={`flex flex-col gap-y-2 ${centered ? 'items-center' : 'items-start'}`}>
+      <div className={`flex flex-wrap items-center gap-x-6 gap-y-3 ${align}`}>
+        {phoneOS === 'android' ? (
+          <a href="#avise" className="btn-primary">
+            Me avisa quando chegar no Android
+          </a>
+        ) : (
+          <>
+            <StoreButton href={APP_STORE_LINKS[audience]} />
+            {audience === 'business' ? (
+              <a href="#avise" className="link-more">
+                {CONTENT.business.hero.cta}
+              </a>
+            ) : (
+              phoneOS === 'other' && (
+                <a href="#avise" className="link-more">
+                  Tem Android? Entra na lista
+                </a>
+              )
+            )}
+          </>
+        )}
+      </div>
       {perk && <Perk text={perk} />}
     </div>
   )
