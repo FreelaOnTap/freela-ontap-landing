@@ -16,7 +16,7 @@
     <title>Freela onTap — freelas em bares, restaurantes e cafés de Porto Alegre e região</title>
     <meta
       name="description"
-      content="Freela onTap conecta freelancers a bares, restaurantes, cafeterias e casas noturnas de Porto Alegre e região. Lançamento em 22 de outubro de 2026."
+      content="Freela onTap conecta freelancers a bares, restaurantes, cafeterias e casas noturnas de Porto Alegre e região. Disponível na App Store pra iPhone."
     />
     <meta property="og:title" content="Freela onTap" />
     <meta
@@ -33,6 +33,12 @@
     />
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:locale" content="pt_BR" />
+    <meta name="apple-itunes-app" content="app-id=6818288726" />
+    <script>
+      if (new URLSearchParams(location.search).get('para') === 'empresa') {
+        document.querySelector('meta[name="apple-itunes-app"]').content = 'app-id=6818285624'
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

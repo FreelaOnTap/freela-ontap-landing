@@ -113,9 +113,16 @@ To update, copy the folders again from upstream and bump the commit above.
 
 - Copy lives in `src/content.ts`, one block per audience, written with *tu* (the squad's choice for a
   Porto Alegre audience). Legal pages keep *você*.
-- The App Store links in `src/config.ts` (`APP_STORE_LINKS`) are `null` until App Review approves the
-  apps — the store buttons render but go nowhere until then. The label switches from "Reservar" to
-  "Baixar" once the link is filled in (`DOWNLOAD_IS_OPEN`), with no date announced publicly.
+- The App Store links live in `src/config.ts` (`APP_STORE_LINKS`); the store buttons, the partner
+  section CTA and the `/vaga/:id` fallback all read them. The Tecnopuc event line on the home page
+  hides itself after `EVENT_ENDS_AT`.
+- The page adapts to the visitor's phone (`detectPhoneOS`): iPhone gets the store button and no form
+  (freelancer) or the help form (business); Android gets the waitlist form only; desktop gets the store
+  button, a QR code and the form. The freelancer form is the Android waitlist, so it no longer asks for
+  the phone OS and always sends `phone_os: android`.
+- QR codes (`public/media/qr-*.svg`) encode the store URLs and were generated offline; regenerate them
+  if `APP_STORE_LINKS` changes. The Smart App Banner ids are in `APP_STORE_IDS` (`src/config.ts`) and
+  also hard-coded in `index.html`, which swaps to the business id when `?para=empresa` is present.
 - App screens in "Como funciona" are exports from the Figma file (`public/media/screen-freelancer-*.webp`
   and `screen-business-*.webp`, 840px wide, status bar without the Dynamic Island because the bezel
   draws it); set each step's `image` in `src/content.ts` to a file under `public/media/`. The bezel

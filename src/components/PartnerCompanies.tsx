@@ -1,15 +1,12 @@
 import { useRef, useState } from 'react'
+import { APP_STORE_LINKS } from '../config.ts'
 import { PARTNER_COMPANIES, PARTNER_COMPANIES_COPY } from '../content.ts'
 import type { Audience } from '../hooks/useAudience.ts'
 import { useAutoAdvance } from '../hooks/useAutoAdvance.ts'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion.ts'
+import type { PhoneOS } from '../lib/device.ts'
 
 const ADVANCE_INTERVAL_MS = 2000
-
-const CTA_LABEL: Record<Audience, string> = {
-  freelancer: 'Me avisa no lançamento',
-  business: 'Quero minha empresa aqui',
-}
 
 function PauseIcon() {
   return (
@@ -28,7 +25,7 @@ function PlayIcon() {
   )
 }
 
-export function PartnerCompanies({ audience }: { audience: Audience }) {
+export function PartnerCompanies({ audience, phoneOS }: { audience: Audience; phoneOS: PhoneOS }) {
   const rail = useRef<HTMLDivElement>(null)
   const prefersReducedMotion = usePrefersReducedMotion()
   const [pausedByVisitor, setPausedByVisitor] = useState(false)
@@ -106,8 +103,8 @@ export function PartnerCompanies({ audience }: { audience: Audience }) {
       <div className="mx-auto w-full max-w-5xl px-4 pb-20 text-center sm:px-6 sm:pb-28">
         <p className="lede mx-auto mt-12 max-w-2xl">{PARTNER_COMPANIES_COPY.support[audience]}</p>
         <div className="mt-8">
-          <a href="#avise" className="btn-primary">
-            {CTA_LABEL[audience]}
+          <a href={phoneOS === 'android' ? '#avise' : APP_STORE_LINKS[audience]} className="btn-primary">
+            {phoneOS === 'android' ? 'Me avisa quando chegar no Android' : 'Baixar na App Store'}
           </a>
         </div>
       </div>
