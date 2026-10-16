@@ -132,7 +132,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       },
     },
     download: {
-      title: 'Baixa o app e cria teu perfil.',
+      title: 'Baixe o app e crie o teu perfil.',
       sub: 'Disponível na App Store pra iPhone. Cadastro, vagas, chat e avaliações num lugar só, de graça pra freelancers.',
     },
     form: {
@@ -201,7 +201,7 @@ export const CONTENT: Record<Audience, AudienceContent> = {
       },
     },
     download: {
-      title: 'Baixa o app e cadastra teu negócio.',
+      title: 'Baixe o app e cadastre o teu negócio.',
       sub: 'Disponível na App Store pra iPhone. Publica a vaga, escolhe quem vai e confirma pelo app.',
     },
     form: {
