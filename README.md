@@ -109,6 +109,27 @@ loads them automatically in this repo:
 
 To update, copy the folders again from upstream and bump the commit above.
 
+## Agent readiness
+
+The site is a static SPA, so the pieces agents read are generated or served around it:
+
+- `src/lib/agentContent.ts` turns `src/content.ts` into one list of blocks, rendered three ways by
+  `vite.config.ts`: visually hidden HTML inside `#root` of `index.html` (React replaces it on mount, so
+  crawlers without JavaScript read the page and visitors see nothing new), `dist/index.md`, and the
+  JSON-LD in `<head>`. Copy edits in `content.ts` reach all three on the next build.
+- `middleware.ts` (Vercel Routing Middleware, logic in `src/lib/agentRouting.ts`) answers
+  `Accept: text/markdown` on `/` with `index.md` and `Vary: Accept`, and returns a real 404 (Markdown or
+  HTML) for any path that is not a client route. A new route in `src/main.tsx` also goes in
+  `KNOWN_PAGE` (`agentRouting.ts`) and in `vercel.json` `rewrites`; a test keeps the two in sync.
+- `public/llms.txt`, `sitemap.xml` and `robots.txt` are hand-written; update them with new pages.
+
+```bash
+npm test   # node:test, no extra dependencies
+```
+
+Check a deploy with `curl -sS -i -H 'Accept: text/markdown' https://www.freelaontap.com.br/` (and
+`/some-path-that-does-not-exist`).
+
 ## Content notes
 
 - Copy lives in `src/content.ts`, one block per audience, written with *tu* (the squad's choice for a

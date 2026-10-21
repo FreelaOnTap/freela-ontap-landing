@@ -1,0 +1,23 @@
+# Freela onTap
+
+> App de freelas para bares, restaurantes, cafeterias e casas noturnas de Porto Alegre e região (RS). Conecta freelancers a empresas de hospitalidade para turnos curtos. Disponível na App Store para iPhone, gratuito para freelancers e, durante o lançamento, para empresas.
+
+## Site
+
+- [Página inicial em Markdown](https://www.freelaontap.com.br/): peça com `Accept: text/markdown` para receber o conteúdo da página inicial em Markdown
+- [Freela onTap para empresas](https://www.freelaontap.com.br/?para=empresa): a versão do site para quem contrata
+- [Suporte](https://www.freelaontap.com.br/suporte): como falar com o time
+
+## Legal
+
+- [Política de Privacidade](https://www.freelaontap.com.br/privacidade)
+- [Termos de Uso](https://www.freelaontap.com.br/termos)
+
+## Apps
+
+- [Freela onTap: Vagas e Turnos (freelancers)](https://apps.apple.com/br/app/freela-ontap-vagas-e-turnos/id6818288726)
+- [Freela onTap: Empresas](https://apps.apple.com/br/app/freela-ontap-empresas/id6818285624)
+
+## Optional
+
+- [Sitemap](https://www.freelaontap.com.br/sitemap.xml)
