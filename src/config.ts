@@ -1,20 +1,10 @@
-export const SUPPORT_EMAIL = 'freelaontap@gmail.com'
+import { SUPPORT_EMAIL } from './siteInfo.ts'
 
-export const SITE_URL = 'https://www.freelaontap.com.br'
+export * from './siteInfo.ts'
 
 export const EVENT_ENDS_AT = new Date('2026-10-23T00:00:00-03:00')
 
 export const EVENT_HAS_PASSED = Date.now() >= EVENT_ENDS_AT.getTime()
-
-export const APP_STORE_LINKS = {
-  freelancer: 'https://apps.apple.com/br/app/freela-ontap-vagas-e-turnos/id6818288726',
-  business: 'https://apps.apple.com/br/app/freela-ontap-empresas/id6818285624',
-}
-
-export const APP_STORE_IDS = {
-  freelancer: '6818288726',
-  business: '6818285624',
-}
 
 export const LEADS_ENDPOINT = import.meta.env.LEADS_ENDPOINT as string | undefined
 
