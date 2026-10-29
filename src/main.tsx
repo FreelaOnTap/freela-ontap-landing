@@ -5,7 +5,6 @@ import './index.css'
 import { Layout } from './Layout.tsx'
 import { startClarity } from './lib/clarity.ts'
 import { Home } from './pages/Home.tsx'
-import { JobLinkRedirect } from './pages/JobLinkRedirect.tsx'
 import { Privacidade } from './pages/Privacidade.tsx'
 import { Suporte } from './pages/Suporte.tsx'
 import { Termos } from './pages/Termos.tsx'
@@ -18,11 +17,11 @@ createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="vaga/:id" element={<Home />} />
           <Route path="privacidade" element={<Privacidade />} />
           <Route path="termos" element={<Termos />} />
           <Route path="suporte" element={<Suporte />} />
         </Route>
-        <Route path="vaga/:id" element={<JobLinkRedirect />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

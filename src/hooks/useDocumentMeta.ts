@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
-import { APP_STORE_IDS, SITE_URL } from '../config.ts'
+import { useLocation } from 'react-router-dom'
+import { SITE_URL } from '../config.ts'
 import { PAGE_META } from '../content.ts'
+import { appBannerContent } from '../lib/appBanner.ts'
 import type { Audience } from './useAudience.ts'
 
 type Undo = () => void
@@ -48,6 +50,8 @@ function setCanonical(href: string): Undo {
 }
 
 export function useDocumentMeta(audience: Audience) {
+  const banner = appBannerContent(audience, useLocation().pathname)
+
   useEffect(() => {
     const meta = PAGE_META[audience]
     const url = `${SITE_URL}${meta.path}`
@@ -57,9 +61,9 @@ export function useDocumentMeta(audience: Audience) {
       setMeta('property', 'og:title', meta.shareTitle),
       setMeta('property', 'og:description', meta.shareDescription),
       setMeta('property', 'og:url', url),
-      setMeta('name', 'apple-itunes-app', `app-id=${APP_STORE_IDS[audience]}`),
+      ...(banner ? [setMeta('name', 'apple-itunes-app', banner)] : []),
       setCanonical(url),
     ]
     return () => undo.forEach((restore) => restore())
-  }, [audience])
+  }, [audience, banner])
 }
