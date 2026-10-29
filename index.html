@@ -33,10 +33,12 @@
     />
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:locale" content="pt_BR" />
-    <meta name="apple-itunes-app" content="app-id=6818288726" />
+    <meta name="apple-itunes-app" content="app-id=6818288726, app-clip-bundle-id=com.freelaontap.freelancer.Clip, app-clip-display=card" />
     <script>
       if (new URLSearchParams(location.search).get('para') === 'empresa') {
         document.querySelector('meta[name="apple-itunes-app"]').content = 'app-id=6818285624'
+      } else if (!location.pathname.startsWith('/vaga/')) {
+        document.querySelector('meta[name="apple-itunes-app"]').content = 'app-id=6818288726'
       }
     </script>
   </head>
