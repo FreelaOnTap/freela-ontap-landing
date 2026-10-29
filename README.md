@@ -134,9 +134,11 @@ Check a deploy with `curl -sS -i -H 'Accept: text/markdown' https://www.freelaon
 
 - Copy lives in `src/content.ts`, one block per audience, written with *tu* (the squad's choice for a
   Porto Alegre audience). Legal pages keep *você*.
-- The App Store links live in `src/config.ts` (`APP_STORE_LINKS`); the store buttons, the partner
-  section CTA and the `/vaga/:id` fallback all read them. The Tecnopuc event line on the home page
-  hides itself after `EVENT_ENDS_AT`.
+- The App Store links live in `src/config.ts` (`APP_STORE_LINKS`); the store buttons and the partner
+  section CTA read them. The Tecnopuc event line on the home page hides itself after `EVENT_ENDS_AT`.
+- Shared job links (`/vaga/:id`) show the home page and never redirect: an automatic redirect to the App
+  Store would leave the page before Safari can show the App Clip card. `appBannerContent` leaves the
+  `apple-itunes-app` banner alone on those paths, so the one `index.html` serves stays.
 - The page adapts to the visitor's phone (`detectPhoneOS`): iPhone gets the store button and no form
   (freelancer) or the help form (business); Android gets the waitlist form only; desktop gets the store
   button, a QR code and the form. The freelancer form is the Android waitlist, so it no longer asks for
