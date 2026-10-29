@@ -144,6 +144,11 @@ Check a deploy with `curl -sS -i -H 'Accept: text/markdown' https://www.freelaon
 - QR codes (`public/media/qr-*.svg`) encode the store URLs and were generated offline; regenerate them
   if `APP_STORE_LINKS` changes. The Smart App Banner ids are in `APP_STORE_IDS` (`src/config.ts`) and
   also hard-coded in `index.html`, which swaps to the business id when `?para=empresa` is present.
+- The Freelancer App Clip (`com.freelaontap.freelancer.Clip`) opens from shared job links. The site side
+  is the `appclips` key in `public/.well-known/apple-app-site-association` plus the clip attributes of the
+  Smart App Banner in `index.html`. That file serves every route, so the attributes sit in every page's
+  raw HTML and the inline script drops them on all routes but `/vaga/*`. The App Clip Experience for
+  `https://www.freelaontap.com.br/vaga` is configured in App Store Connect, not here.
 - App screens in "Como funciona" are exports from the Figma file (`public/media/screen-freelancer-*.webp`
   and `screen-business-*.webp`, 840px wide, status bar without the Dynamic Island because the bezel
   draws it); set each step's `image` in `src/content.ts` to a file under `public/media/`. The bezel

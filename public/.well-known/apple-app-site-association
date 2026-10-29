@@ -9,5 +9,8 @@
         "components": [{ "/": "/vaga/*" }]
       }
     ]
+  },
+  "appclips": {
+    "apps": ["3449C2L4LN.com.freelaontap.freelancer.Clip"]
   }
 }
